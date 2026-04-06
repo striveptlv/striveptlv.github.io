@@ -783,9 +783,8 @@
     <button type="submit">Subscribe &rarr;</button>
   </div>
   <p class="newsletter-privacy">We respect your privacy. Your email is never shared or sold.</p>
-
+</form>
   <div class="newsletter-success" id="newsletter-success">You're subscribed — thank you! Watch your inbox for updates from STRIVE PT.</div>
-    </form>
 </div>
       </div>
     </div>
@@ -1009,9 +1008,12 @@
     });
   });
 </script>
-            <script>
+           
+  <!-- Newsletter -->
+  
+  <script>
   document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
-    e.preventDefault(); // stops the redirect
+    e.preventDefault();
 
     const email = document.getElementById('newsletter-email').value;
 
@@ -1024,15 +1026,17 @@
     // Clear the email field
     document.getElementById('newsletter-email').value = '';
 
-    // Show the popup
-    const popup = document.getElementById('subscribed-popup');
-    popup.style.display = 'flex';
+    // Show the inline thank you message
+    const success = document.getElementById('newsletter-success');
+    success.style.display = 'block';
+    success.style.color = 'green';
+    success.style.marginTop = '1rem';
+    success.style.fontWeight = '500';
   });
-
-  function closePopup() {
-    document.getElementById('subscribed-popup').style.display = 'none';
-  }
 </script>
+<!--Newsletter-->
+  
+<!--Contact Form-->
   <script>
   document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -1060,5 +1064,7 @@
     document.getElementById('contact-success').style.display = 'block';
   });
 </script>
+
+  <--!Contact Form end-->
 </body>
 </html>
