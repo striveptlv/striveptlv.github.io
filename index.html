@@ -772,14 +772,13 @@
       <div class="newsletter-form-card">
   <h3>Subscribe to Updates</h3>
   <p class="nl-sub">Enter your email below. Unsubscribe any time — no strings attached.</p>
-  <form action="https://formspree.io/f/mykblzlj" method="POST">
-    <input type="hidden" name="_next" value="https://striveptlv.github.io/striveptlv.io/">
-    <div class="newsletter-email-row">
-      <input type="email" name="email" id="newsletter-email" placeholder="yourname@email.com" autocomplete="email" required>
-      <button type="submit">Subscribe &rarr;</button>
-    </div>
-    <p class="newsletter-privacy">We respect your privacy. Your email is never shared or sold.</p>
-  </form>
+  <form id="newsletter-form">
+  <div class="newsletter-email-row">
+    <input type="email" name="email" id="newsletter-email" placeholder="yourname@email.com" autocomplete="email" required>
+    <button type="submit">Subscribe &rarr;</button>
+  </div>
+  <p class="newsletter-privacy">We respect your privacy. Your email is never shared or sold.</p>
+</form>
         <!-- Success Popup -->
 <div id="subscribed-popup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
   <div style="background:#fff; padding:2rem 2.5rem; border-radius:12px; text-align:center; max-width:360px; box-shadow:0 8px 32px rgba(0,0,0,0.2);">
@@ -1008,6 +1007,30 @@
       if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
     });
   });
+</script>
+            <script>
+  document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
+    e.preventDefault(); // stops the redirect
+
+    const email = document.getElementById('newsletter-email').value;
+
+    await fetch('https://formspree.io/f/mykblzlj', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    });
+
+    // Clear the email field
+    document.getElementById('newsletter-email').value = '';
+
+    // Show the popup
+    const popup = document.getElementById('subscribed-popup');
+    popup.style.display = 'flex';
+  });
+
+  function closePopup() {
+    document.getElementById('subscribed-popup').style.display = 'none';
+  }
 </script>
 </body>
 </html>
