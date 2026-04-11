@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STRIVE Physical Therapy · Las Vegas, NV | Stroke &amp; Balance PT </title>
-<meta name="description" content="STRIVE Physical Therapy Las Veaga offers in-home and 1-on-1 PT with focus on stroke and balance rehab. Provided by Doctors of Physical Therapy. CSRS and CBIS certified providers. Cash pay. Outpatient clinic coming soon with Medicare Part B.">
+<title>STRIVE Physical Therapy · Las Vegas, NV | Stroke &amp; Vestibular PT </title>
+<meta name="description" content="STRIVE Physical Therapy Las Vegas offers in-home and 1-on-1 PT with focus on stroke and balance rehab. Provided by Doctors of Physical Therapy. CSRS and CBIS certified providers. Cash pay. Outpatient clinic coming soon with Medicare Part B.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--text-dark); overflow-x: hidden; }
 
-  /* NAV */
+  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 200;
     background: rgba(13,33,24,0.97); backdrop-filter: blur(12px);
@@ -35,25 +35,62 @@
     padding: 0 5vw; height: 70px;
   }
   .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
-  .logo-img {
-  width: 50px; height: 50px;
-  object-fit: contain; flex-shrink: 0;
-}
-.logo-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: white; line-height: 1.1; letter-spacing: 2px; }
-.logo-sub { font-size: 9.5px; font-family: 'DM Sans', sans-serif; color: var(--green-light); font-weight: 300; letter-spacing: 2.5px; text-transform: uppercase; }
-.nav-links { display: flex; align-items: center; gap: 26px; }
-.nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 13.5px; letter-spacing: 0.3px; transition: color 0.2s; }
-.nav-links a:hover { color: var(--green-light); }
-.nav-book { background: var(--green) !important; color: white !important; padding: 9px 22px; border-radius: 2px; font-weight: 500 !important; transition: background 0.2s !important; }
-.nav-book:hover { background: var(--green-light) !important; }
-.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-.nav-toggle span { width: 22px; height: 2px; background: white; border-radius: 2px; }
-  /* MOBILE MENU */
-  .mobile-menu { display: none; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--forest); z-index: 199; padding: 32px 6vw; }
+  .logo-img { width: 50px; height: 50px; object-fit: contain; flex-shrink: 0; }
+  .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: white; line-height: 1.1; letter-spacing: 2px; }
+  .logo-sub { font-size: 9.5px; font-family: 'DM Sans', sans-serif; color: var(--green-light); font-weight: 300; letter-spacing: 2.5px; text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 13.5px; letter-spacing: 0.3px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--green-light); }
+  .nav-book { background: var(--green) !important; color: white !important; padding: 9px 22px; border-radius: 2px; font-weight: 500 !important; transition: background 0.2s !important; }
+  .nav-book:hover { background: var(--green-light) !important; }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .nav-toggle span { width: 22px; height: 2px; background: white; border-radius: 2px; }
+
+  /* ── PATIENT RESOURCE DROPDOWN ── */
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 5px; padding: 24px 0; }
+  .nav-dropdown > a::after {
+    content: ''; display: inline-block; width: 0; height: 0;
+    border-left: 4px solid transparent; border-right: 4px solid transparent;
+    border-top: 5px solid rgba(255,255,255,0.55); transition: transform 0.2s;
+  }
+  .nav-dropdown:hover > a { color: var(--green-light); }
+  .nav-dropdown:hover > a::after { transform: rotate(180deg); border-top-color: var(--green-light); }
+  .dropdown-menu {
+    opacity: 0; pointer-events: none;
+    position: absolute; top: 100%; right: 0;
+    background: var(--forest-mid);
+    border: 1px solid rgba(30,138,74,0.25);
+    border-radius: 4px; min-width: 190px; overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35); transition: opacity 0.15s;
+  }
+  .nav-dropdown:hover .dropdown-menu { opacity: 1; pointer-events: auto; }
+  .dropdown-menu a {
+    display: block; color: rgba(255,255,255,0.72); font-size: 13.5px;
+    padding: 11px 18px; border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.15s, color 0.15s; white-space: nowrap;
+  }
+  .dropdown-menu a:last-child { border-bottom: none; }
+  .dropdown-menu a:hover { background: rgba(30,138,74,0.15); color: var(--green-light); }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu { display: none; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--forest); z-index: 199; padding: 32px 6vw; overflow-y: auto; }
   .mobile-menu.open { display: flex; }
   .mobile-menu a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 18px; font-family: 'Cormorant Garamond', serif; font-weight: 300; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .mob-book { background: var(--green); color: white !important; text-align: center; border-radius: 2px; padding: 15px !important; margin-top: 24px; border: none !important; font-size: 16px; }
-  
+  .mob-dropdown { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .mob-dropdown-toggle {
+    display: flex; justify-content: space-between; align-items: center;
+    color: rgba(255,255,255,0.85); font-size: 18px;
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    padding: 16px 0; cursor: pointer;
+  }
+  .mob-arrow { font-size: 22px; color: var(--green-light); display: inline-block; transition: transform 0.25s; }
+  .mob-arrow.open { transform: rotate(90deg); }
+  .mob-dropdown-items { display: none; flex-direction: column; padding-left: 16px; }
+  .mob-dropdown-items.open { display: flex; }
+  .mob-dropdown-items a { font-size: 15px !important; padding: 12px 0 !important; border-bottom: 1px solid rgba(255,255,255,0.04) !important; color: rgba(255,255,255,0.6) !important; }
+  .mob-dropdown-items a:last-child { border-bottom: none !important; }
 
   /* HERO */
   .hero { min-height: 100vh; background: var(--forest); display: flex; align-items: center; position: relative; overflow: hidden; padding: 110px 5vw 70px; }
@@ -129,8 +166,6 @@
   .service-bar { width: 28px; height: 3px; background: var(--green); margin-bottom: 20px; border-radius: 2px; }
   .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--text-dark); margin-bottom: 12px; }
   .service-card p { font-size: 14px; color: var(--text-mid); line-height: 1.74; }
-
-
   .condition-name { font-size: 14px; font-weight: 500; color: var(--text-dark); line-height: 1.45; padding-left: 12px; border-left: 2px solid var(--green); transition: color 0.2s, border-color 0.2s; }
 
   /* HOW IT WORKS */
@@ -207,7 +242,6 @@
   .jane-embed-body { padding: 32px; min-height: 160px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; border: 2px dashed rgba(30,138,74,0.2); margin: 24px; border-radius: 4px; background: var(--warm-white); }
   .jane-embed-body p { color: var(--text-light); font-size: 14px; text-align: center; line-height: 1.7; }
   .jane-embed-body code { font-size: 12px; background: rgba(13,33,24,0.06); padding: 3px 8px; border-radius: 2px; color: var(--green); font-family: monospace; }
-  /* ACTUAL JANEAPP EMBED TARGET — replace .jane-embed-body with your script */
 
   /* FAQ */
   .faq-section { background: white; }
@@ -219,11 +253,9 @@
   .faq-toggle { color: var(--green); font-size: 22px; flex-shrink: 0; line-height: 1; font-weight: 300; }
   .faq-a { font-size: 14px; color: var(--text-mid); line-height: 1.8; margin-top: 14px; display: none; }
 
-  /* CONTACT + BOOKING COMBINED */
+  /* CONTACT */
   .contact-booking-section { background: var(--cream); }
   .contact-booking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-
-  /* Contact form card */
   .contact-form-card { background: white; padding: 48px; border-radius: 6px; box-shadow: 0 4px 32px rgba(13,33,24,0.08); }
   .contact-form-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; margin-bottom: 6px; color: var(--text-dark); }
   .form-subtitle { font-size: 13.5px; color: var(--text-light); margin-bottom: 30px; }
@@ -236,8 +268,6 @@
   .form-submit { width: 100%; padding: 15px; background: var(--green); color: white; border: none; border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; letter-spacing: 0.4px; transition: background 0.2s; margin-top: 4px; }
   .form-submit:hover { background: var(--green-light); }
   .form-foot-note { font-size: 12px; color: var(--text-light); text-align: center; margin-top: 12px; font-style: italic; }
-
-  /* Contact info side */
   .contact-info-side h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--text-dark); margin-bottom: 12px; }
   .contact-info-side > p { color: var(--text-mid); font-size: 15px; line-height: 1.82; margin-bottom: 36px; }
   .contact-detail { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 22px; }
@@ -247,7 +277,7 @@
   .book-cta-box { background: var(--forest); padding: 30px 28px; border-radius: 6px; margin-top: 32px; }
   .book-cta-box p { color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.75; margin-bottom: 18px; }
   .book-cta-box strong { color: white; }
-
+  .contact-success { display: none; margin-top: 1rem; color: green; font-weight: 500; }
 
   /* NEWSLETTER */
   .newsletter-section { background: var(--forest); }
@@ -270,8 +300,6 @@
   .newsletter-email-row button:hover { background: var(--green-light); }
   .newsletter-privacy { font-size: 11.5px; color: rgba(255,255,255,0.25); margin-top: 14px; }
   .newsletter-success { display: none; margin-top: 16px; padding: 12px 16px; background: rgba(47,170,94,0.15); border: 1px solid rgba(47,170,94,0.3); border-radius: 2px; color: var(--green-light); font-size: 14px; font-weight: 500; }
-  @media (max-width: 960px) { .newsletter-inner { grid-template-columns: 1fr; gap: 36px; } }
-  @media (max-width: 600px) { .newsletter-form-card { padding: 28px 20px; } .newsletter-email-row { flex-direction: column; } .newsletter-email-row input { border-right: 1px solid rgba(255,255,255,0.15); border-bottom: none; border-radius: 2px 2px 0 0; } .newsletter-email-row button { border-radius: 0 0 2px 2px; } }
 
   /* FOOTER */
   footer { background: var(--forest); padding: 64px 5vw 28px; border-top: 1px solid rgba(255,255,255,0.05); }
@@ -298,7 +326,6 @@
     .comparison-grid { grid-template-columns: 1fr; }
     .booking-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr 1fr; }
-    .conditions-grid { grid-template-columns: repeat(2,1fr); }
     .steps-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     .steps-grid::before { display: none; }
     .providers-grid { grid-template-columns: 1fr; }
@@ -309,32 +336,27 @@
     .form-row { grid-template-columns: 1fr; }
     .lv-banner { flex-direction: column; gap: 6px; }
     .lv-dot { display: none; }
+    .newsletter-inner { grid-template-columns: 1fr; gap: 36px; }
   }
   @media (max-width: 600px) {
     section { padding: 72px 5vw; }
     .services-grid { grid-template-columns: 1fr; }
-    .conditions-grid { grid-template-columns: 1fr 1fr; }
     .footer-top { grid-template-columns: 1fr; }
     .contact-form-card { padding: 28px 20px; }
     .comp-col { padding: 36px 28px; }
+    .newsletter-form-card { padding: 28px 20px; }
+    .newsletter-email-row { flex-direction: column; }
+    .newsletter-email-row input { border-right: 1px solid rgba(255,255,255,0.15); border-bottom: none; border-radius: 2px 2px 0 0; }
+    .newsletter-email-row button { border-radius: 0 0 2px 2px; }
   }
-  .contact-success {
-  display: none;
-  margin-top: 1rem;
-  color: green;
-  font-weight: 500;
-  }
-    
 </style>
-<!-- FAVICON -->
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-192x192.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ── NAV ── -->
 <nav>
   <a href="/" class="nav-logo">
     <img src="/logo.png" alt="Logo" class="logo-img" />
@@ -350,7 +372,13 @@
     <a href="#providers">Our Team</a>
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
-    <a href="https://striveptlv.com/moneymanagement/">Patient Resource</a>
+    <div class="nav-dropdown">
+      <a href="#">Patient Resource</a>
+      <div class="dropdown-menu">
+        <a href="https://striveptlv.com/moneymanagement/">Online Bank Simulator</a>
+        <a href="https://striveptlv.com/patient-resource/">Home Modifications</a>
+      </div>
+    </div>
     <a href="#booking" class="nav-book">Book Now</a>
   </div>
   <div class="nav-toggle" onclick="toggleMenu()">
@@ -358,7 +386,7 @@
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
+<!-- ── MOBILE MENU ── -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="https://striveptlv.com" onclick="toggleMenu()">Home</a>
   <a href="#services" onclick="toggleMenu()">Services</a>
@@ -366,7 +394,15 @@
   <a href="#providers" onclick="toggleMenu()">Our Team</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <a href="https://striveptlv.com/moneymanagement/" onclick="toggleMenu()">Patient Resource</a>
+  <div class="mob-dropdown">
+    <div class="mob-dropdown-toggle" onclick="togglePatientResource()">
+      Patient Resource <span class="mob-arrow">›</span>
+    </div>
+    <div class="mob-dropdown-items" id="patientResourceItems">
+      <a href="https://striveptlv.com/moneymanagement/" onclick="toggleMenu()">Online Bank Simulator</a>
+      <a href="https://striveptlv.com/patient-resource/" onclick="toggleMenu()">Home Modifications</a>
+    </div>
+  </div>
   <a href="#booking" class="mob-book" onclick="toggleMenu()">Book an Appointment</a>
 </div>
 
@@ -378,9 +414,9 @@
     <div>
       <div class="hero-badge anim">Las Vegas, NV · In-Home Physical Therapy</div>
       <h1 class="anim d1">STRIVE<br><em>for a Better Movement</em></h1>
-      <p class="hero-lv anim d2" style="font-size:17px;letter-spacing:0.5px;text-transform:none;margin-bottom:22px;color:rgba(255,255,255,0.72);">Stroke and Balance Physical Therapy</p>
+      <p class="hero-lv anim d2" style="font-size:17px;letter-spacing:0.5px;text-transform:none;margin-bottom:22px;color:rgba(255,255,255,0.72);">Stroke and Vestibular Physical Therapy</p>
       <p class="hero-lv anim d2">Coming to <span>Las Vegas · Skye Canyon · Centennial Hills · Summerlin </span></p>
-      <p class="hero-desc anim d2">Las Vegas's dedicated stroke and balance physical therapy practice. Our certified providers come directly to your home — no waiting rooms, no divided attention, no compromises.</p>
+      <p class="hero-desc anim d2">Las Vegas's dedicated stroke and vestibular physical therapy practice. Our certified providers come directly to your home — no waiting rooms, no divided attention, no compromises.</p>
       <div class="hero-actions anim d3">
         <a href="#booking" class="btn-primary">Book an Appointment</a>
         <a href="#services" class="btn-outline">Explore Services</a>
@@ -426,7 +462,7 @@
 <div class="lv-banner">
   <p>Coming to <strong>Las Vegas, Skye Canyon, Centennial Hills and Summerlin</strong></p>
   <div class="lv-dot"></div>
-  <p>Stroke &amp; Balance PT · Cash pay · <strong>Medicare Part B coming soon</strong></p>
+  <p>Stroke &amp; Vestibular PT · Cash pay · <strong>Medicare Part B coming soon</strong></p>
 </div>
 
 <!-- WHY 1-ON-1 -->
@@ -442,52 +478,22 @@
         <div class="comp-label">STRIVE Physical Therapy · Las Vegas</div>
         <div class="comp-col-title">True 1-on-1 Dedicated Care</div>
         <div class="comp-points">
-          <div class="comp-point">
-            <div class="comp-marker">+</div>
-            <span class="comp-point-text"><strong>One patient at a time.</strong> Your therapist gives you complete, undivided attention for the entire session — no exceptions, no aides in the middle.</span>
-          </div>
-          <div class="comp-point">
-            <div class="comp-marker">+</div>
-            <span class="comp-point-text"><strong>Focused on neuro &amp; vestibular PT.</strong> Every intervention is evidence-based and tailored to your specific diagnosis and recovery goals.</span>
-          </div>
-          <div class="comp-point">
-            <div class="comp-marker">+</div>
-            <span class="comp-point-text"><strong>Treatment in your actual environment.</strong> We see you in your Las Vegas home — where you live, move, and recover — leading to more functional, lasting results.</span>
-          </div>
-          <div class="comp-point">
-            <div class="comp-marker">+</div>
-            <span class="comp-point-text"><strong>Same provider, every visit.</strong> Consistent care from a provider who knows your full history, your progress, and your goals.</span>
-          </div>
-          <div class="comp-point">
-            <div class="comp-marker">+</div>
-            <span class="comp-point-text"><strong>Flexible scheduling</strong> throughout Las Vegas valley — evenings and weekends available to fit your life.</span>
-          </div>
+          <div class="comp-point"><div class="comp-marker">+</div><span class="comp-point-text"><strong>One patient at a time.</strong> Your therapist gives you complete, undivided attention for the entire session — no exceptions, no aides in the middle.</span></div>
+          <div class="comp-point"><div class="comp-marker">+</div><span class="comp-point-text"><strong>Focused on neuro &amp; vestibular PT.</strong> Every intervention is evidence-based and tailored to your specific diagnosis and recovery goals.</span></div>
+          <div class="comp-point"><div class="comp-marker">+</div><span class="comp-point-text"><strong>Treatment in your actual environment.</strong> We see you in your Las Vegas home — where you live, move, and recover — leading to more functional, lasting results.</span></div>
+          <div class="comp-point"><div class="comp-marker">+</div><span class="comp-point-text"><strong>Same provider, every visit.</strong> Consistent care from a provider who knows your full history, your progress, and your goals.</span></div>
+          <div class="comp-point"><div class="comp-marker">+</div><span class="comp-point-text"><strong>Flexible scheduling</strong> throughout Las Vegas valley — evenings and weekends available to fit your life.</span></div>
         </div>
       </div>
       <div class="comp-col theirs">
         <div class="comp-label">Traditional PT Clinics</div>
         <div class="comp-col-title">Divided Attention, Generic Care</div>
         <div class="comp-points">
-          <div class="comp-point">
-            <div class="comp-marker">–</div>
-            <span class="comp-point-text">Therapists juggle <strong>3–4 patients at once</strong> — your PT is constantly leaving to supervise other patients during your session.</span>
-          </div>
-          <div class="comp-point">
-            <div class="comp-marker">–</div>
-            <span class="comp-point-text">Much of your session is time with a PT aide or doing unsupervised exercises — not with the therapist you came to see.</span>
-          </div>
-          <div class="comp-point">
-            <div class="comp-marker">–</div>
-            <span class="comp-point-text">Cookie-cutter protocols applied to complex neurological and vestibular conditions that require highly individualized care to be effective.</span>
-          </div>
-          <div class="comp-point">
-            <div class="comp-marker">–</div>
-            <span class="comp-point-text">Crowded, noisy gym floors — a difficult environment for patients managing dizziness, balance disorders, or neurological symptoms.</span>
-          </div>
-          <div class="comp-point">
-            <div class="comp-marker">–</div>
-            <span class="comp-point-text">Frequent provider rotation means re-explaining your history at every visit with no true continuity of care.</span>
-          </div>
+          <div class="comp-point"><div class="comp-marker">–</div><span class="comp-point-text">Therapists juggle <strong>3–4 patients at once</strong> — your PT is constantly leaving to supervise other patients during your session.</span></div>
+          <div class="comp-point"><div class="comp-marker">–</div><span class="comp-point-text">Much of your session is time with a PT aide or doing unsupervised exercises — not with the therapist you came to see.</span></div>
+          <div class="comp-point"><div class="comp-marker">–</div><span class="comp-point-text">Cookie-cutter protocols applied to complex neurological and vestibular conditions that require highly individualized care to be effective.</span></div>
+          <div class="comp-point"><div class="comp-marker">–</div><span class="comp-point-text">Crowded, noisy gym floors — a difficult environment for patients managing dizziness, balance disorders, or neurological symptoms.</span></div>
+          <div class="comp-point"><div class="comp-marker">–</div><span class="comp-point-text">Frequent provider rotation means re-explaining your history at every visit with no true continuity of care.</span></div>
         </div>
       </div>
     </div>
@@ -501,40 +507,15 @@
     <h2>Our Services for <em>Complex Conditions</em></h2>
     <p style="color:var(--text-mid);font-size:16px;line-height:1.82;max-width:620px;margin-top:2px;">Delivered 1-on-1 in your Las Vegas home by certified therapists focused exclusively on stroke and vestibular rehabilitation.</p>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="service-bar"></div>
-        <h3>Neurological Rehabilitation</h3>
-        <p>Comprehensive recovery for stroke, traumatic brain injury, Parkinson's disease, multiple sclerosis, and other neurological conditions — designed to restore function, mobility, and independence.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-bar"></div>
-        <h3>Vestibular Rehabilitation</h3>
-        <p>Focused, evidence-based treatment for BPPV, labyrinthitis, vestibular neuritis, chronic dizziness, and balance disorders — including canalith repositioning maneuvers.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-bar"></div>
-        <h3>Balance &amp; Fall Prevention</h3>
-        <p>Restore independence in walking, transfers, and daily activities. Working in your actual home ensures gains translate directly to real-world function and safety.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-bar"></div>
-        <h3>Concussion &amp; Brain Injury</h3>
-        <p>Evidence-based rehabilitation for post-concussion syndrome, including vestibulo-ocular therapy, cognitive-vestibular integration, and graded return-to-activity protocols.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-bar"></div>
-        <h3>Post-Amputation Rehabilitation </h3>
-        <p>Improve mobility following limb loss, focused on residual limb care, desensitization, strength and balance training, and prosthetic readiness. Emphasizes gait re-education, functional mobility, and progressive return to daily activities with or without a prosthesis.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-bar"></div>
-        <h3>Home Safety Assessment</h3>
-        <p>A comprehensive evaluation of your Las Vegas home environment with actionable recommendations to reduce fall hazards and improve accessibility — specific to your diagnosis and layout.</p>
-      </div>
+      <div class="service-card"><div class="service-bar"></div><h3>Neurological Rehabilitation</h3><p>Comprehensive recovery for stroke, traumatic brain injury, Parkinson's disease, multiple sclerosis, and other neurological conditions — designed to restore function, mobility, and independence.</p></div>
+      <div class="service-card"><div class="service-bar"></div><h3>Vestibular Rehabilitation</h3><p>Focused, evidence-based treatment for BPPV, labyrinthitis, vestibular neuritis, chronic dizziness, and balance disorders — including canalith repositioning maneuvers.</p></div>
+      <div class="service-card"><div class="service-bar"></div><h3>Balance &amp; Fall Prevention</h3><p>Restore independence in walking, transfers, and daily activities. Working in your actual home ensures gains translate directly to real-world function and safety.</p></div>
+      <div class="service-card"><div class="service-bar"></div><h3>Concussion &amp; Brain Injury</h3><p>Evidence-based rehabilitation for post-concussion syndrome, including vestibulo-ocular therapy, cognitive-vestibular integration, and graded return-to-activity protocols.</p></div>
+      <div class="service-card"><div class="service-bar"></div><h3>Post-Amputation Rehabilitation</h3><p>Improve mobility following limb loss, focused on residual limb care, desensitization, strength and balance training, and prosthetic readiness. Emphasizes gait re-education, functional mobility, and progressive return to daily activities with or without a prosthesis.</p></div>
+      <div class="service-card"><div class="service-bar"></div><h3>Home Safety Assessment</h3><p>A comprehensive evaluation of your Las Vegas home environment with actionable recommendations to reduce fall hazards and improve accessibility — specific to your diagnosis and layout.</p></div>
     </div>
   </div>
 </section>
-
 
 <!-- HOW IT WORKS -->
 <section class="how-section" id="process">
@@ -542,26 +523,10 @@
     <div class="section-label">Getting Started</div>
     <h2>Simple Steps to Begin Your <em>Recovery</em></h2>
     <div class="steps-grid">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Free Phone Consultation</h3>
-        <p>Speak directly with one of our Las Vegas providers to discuss your condition, goals, and any questions — no obligation required.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Schedule Your Evaluation</h3>
-        <p>We come to your Las Vegas-area home for a comprehensive 60-minute neurological and balance evaluation at a time that works for you.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Your Personalized Plan</h3>
-        <p>We design a targeted, evidence-based program built entirely around your specific diagnosis, your home, and your life goals.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>Achieve Your Goals</h3>
-        <p>Progress through 1-on-1 sessions with a provider who knows you — and get back to what matters, faster.</p>
-      </div>
+      <div class="step"><div class="step-num">1</div><h3>Free Phone Consultation</h3><p>Speak directly with one of our Las Vegas providers to discuss your condition, goals, and any questions — no obligation required.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Schedule Your Evaluation</h3><p>We come to your Las Vegas-area home for a comprehensive 60-minute neurological and vestibular evaluation at a time that works for you.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Your Personalized Plan</h3><p>We design a targeted, evidence-based program built entirely around your specific diagnosis, your home, and your life goals.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Achieve Your Goals</h3><p>Progress through 1-on-1 sessions with a provider who knows you — and get back to what matters, faster.</p></div>
     </div>
   </div>
 </section>
@@ -574,37 +539,12 @@
     <p style="color:var(--text-mid);font-size:16px;line-height:1.82;max-width:640px;margin-top:4px;margin-bottom:0;">Both of our Las Vegas providers hold certifications and years of clinical experience.</p>
     <div class="providers-grid">
       <div class="provider-card">
-        <div class="provider-head">
-          <div class="provider-avatar">PT</div>
-          <div class="provider-meta">
-            <h3>Dr. Gabrielle Lopez, PT DPT</h3>
-            <span>Doctor of Physical Therapy · Las Vegas, NV</span>
-          </div>
-        </div>
-        <div class="provider-body">
-          <div class="cert-badges">
-            <span class="cert-badge">CSRS — Certified Stroke Rehabilitation Specialist</span>
-          </div>
-          <p class="provider-bio">A doctoral-level physical therapist with a clinical focus on stroke rehabilitation and neurological recovery. With over a decade of clinical experience, this provider has worked extensively with patients in Las Vegas and beyond recovering from stroke, TBI, and complex neurological conditions, bringing evidence-based, compassionate 1-on-1 care directly into the home.</p>
-          <div class="exp-tag">10 Years Clinical Experience</div>
-        </div>
+        <div class="provider-head"><div class="provider-avatar">PT</div><div class="provider-meta"><h3>Dr. Gabrielle Lopez, PT DPT</h3><span>Doctor of Physical Therapy · Las Vegas, NV</span></div></div>
+        <div class="provider-body"><div class="cert-badges"><span class="cert-badge">CSRS — Certified Stroke Rehabilitation Specialist</span></div><p class="provider-bio">A doctoral-level physical therapist with a clinical focus on stroke rehabilitation and neurological recovery. With over a decade of clinical experience, this provider has worked extensively with patients in Las Vegas and beyond recovering from stroke, TBI, and complex neurological conditions, bringing evidence-based, compassionate 1-on-1 care directly into the home.</p><div class="exp-tag">10 Years Clinical Experience</div></div>
       </div>
       <div class="provider-card">
-        <div class="provider-head">
-          <div class="provider-avatar">PT</div>
-          <div class="provider-meta">
-            <h3>Dr. Joshua Lopez PT, DPT</h3>
-            <span>Doctor of Physical Therapy · Las Vegas, NV</span>
-          </div>
-        </div>
-        <div class="provider-body">
-          <div class="cert-badges">
-            <span class="cert-badge">CSRS — Certified Stroke Rehabilitation Specialist</span>
-            <span class="cert-badge">CBIS — Certified Brain Injury Specialist</span>
-          </div>
-          <p class="provider-bio">Certified in both stroke rehabilitation and brain injury, this provider brings a comprehensive, integrated approach to neurological and vestibular care. With 10+ years of clinical experience, they offer focused, dedicated clinical training applied to Las Vegas patients managing TBI, concussion, vestibular disorders, and stroke-related diagnoses.</p>
-          <div class="exp-tag">11 Years Clinical Experience</div>
-        </div>
+        <div class="provider-head"><div class="provider-avatar">PT</div><div class="provider-meta"><h3>Dr. Joshua Lopez PT, DPT</h3><span>Doctor of Physical Therapy · Las Vegas, NV</span></div></div>
+        <div class="provider-body"><div class="cert-badges"><span class="cert-badge">CSRS — Certified Stroke Rehabilitation Specialist</span><span class="cert-badge">CBIS — Certified Brain Injury Specialist</span></div><p class="provider-bio">Certified in both stroke rehabilitation and brain injury, this provider brings a comprehensive, integrated approach to neurological and vestibular care. With 10+ years of clinical experience, they offer focused, dedicated clinical training applied to Las Vegas patients managing TBI, concussion, vestibular disorders, and stroke-related diagnoses.</p><div class="exp-tag">11 Years Clinical Experience</div></div>
       </div>
     </div>
   </div>
@@ -645,7 +585,7 @@
       <div class="medicare-dot"></div>
       <div>
         <h4>Medicare Part B — Coming Soon to Our Las Vegas Clinic</h4>
-        <p>We are expanding to a physical clinic location in Las Vegas. We will also be accepting Medicare Part B soon. If you or a loved one are a Medicare beneficiary in need of stroke or  physical therapy in Las Vegas, use the contact form below to join our notification list.</p>
+        <p>We are expanding to a physical clinic location in Las Vegas. We will also be accepting Medicare Part B soon. If you or a loved one are a Medicare beneficiary in need of stroke or physical therapy in Las Vegas, use the contact form below to join our notification list.</p>
       </div>
     </div>
   </div>
@@ -657,65 +597,27 @@
     <div class="section-label">Online Scheduling</div>
     <h2>Book Your Appointment <em>in Minutes</em></h2>
     <p class="booking-intro">We are not accepting booking or scheduling yet. We will keep you updated. <br> Request to be part of the waitlist.</p>
-
     <div class="booking-grid">
       <div class="booking-card">
-        <div class="booking-card-head">
-          <div class="booking-card-type">New to STRIVE PT</div>
-          <h3>Initial Evaluation</h3>
-        </div>
+        <div class="booking-card-head"><div class="booking-card-type">New to STRIVE PT</div><h3>Initial Evaluation</h3></div>
         <div class="booking-card-body">
-          <p>Your first visit is a comprehensive 60-minute neurological and balance evaluation. We assess your condition, review your history, and build a fully personalized treatment plan — all 1-on-1 in your Las Vegas home.</p>
-          <div class="booking-feats">
-            <div class="booking-feat">60-minute 1-on-1 in-home evaluation</div>
-            <div class="booking-feat">Full neurological &amp; balance assessment</div>
-            <div class="booking-feat">Personalized treatment plan developed</div>
-            <div class="booking-feat">All Las Vegas valley communities</div>
-          </div>
-          <!-- Replace the href with your actual JaneApp booking URL -->
+          <p>Your first visit is a comprehensive 60-minute neurological and vestibular evaluation. We assess your condition, review your history, and build a fully personalized treatment plan — all 1-on-1 in your Las Vegas home.</p>
+          <div class="booking-feats"><div class="booking-feat">60-minute 1-on-1 in-home evaluation</div><div class="booking-feat">Full neurological &amp; vestibular assessment</div><div class="booking-feat">Personalized treatment plan developed</div><div class="booking-feat">All Las Vegas valley communities</div></div>
           <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" class="jane-btn">Book Initial Evaluation<br> Available Soon &rarr;</a>
         </div>
       </div>
-
       <div class="booking-card">
-        <div class="booking-card-head">
-          <div class="booking-card-type">Returning Patient</div>
-          <h3>Follow-Up Session</h3>
-        </div>
+        <div class="booking-card-head"><div class="booking-card-type">Returning Patient</div><h3>Follow-Up Session</h3></div>
         <div class="booking-card-body">
           <p>Already a STRIVE PT patient? Log into your JaneApp account to schedule your next 1-on-1 session. Your provider will have your full history and plan ready — no re-explaining needed.</p>
-          <div class="booking-feats">
-            <div class="booking-feat">45–60-minute 1-on-1 treatment session</div>
-            <div class="booking-feat">Continuity with your same provider</div>
-            <div class="booking-feat">Evening &amp; weekend slots available</div>
-            <div class="booking-feat">In-home · Las Vegas valley</div>
-          </div>
-          <!-- Replace the href with your actual JaneApp booking URL -->
-          <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" class="jane-btn">Book Follow-Up Session <br> Available Soon&rarr;</a>
+          <div class="booking-feats"><div class="booking-feat">45–60-minute 1-on-1 treatment session</div><div class="booking-feat">Continuity with your same provider</div><div class="booking-feat">Evening &amp; weekend slots available</div><div class="booking-feat">In-home · Las Vegas valley</div></div>
+          <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" class="jane-btn">Book Follow-Up Session <br> Available Soon &rarr;</a>
         </div>
       </div>
     </div>
-
-    <!-- JaneApp Widget Embed Area -->
     <div class="jane-embed-wrapper">
-      <div class="jane-embed-header">
-        <h3>STRIVE PT · Online Scheduling</h3>
-        <span>Powered by JaneApp · Secure &amp; HIPAA-compliant</span>
-      </div>
+      <div class="jane-embed-header"><h3>STRIVE PT · Online Scheduling</h3><span>Powered by JaneApp · Secure &amp; HIPAA-compliant</span></div>
       <div class="jane-embed-body" id="janeapp-widget">
-        <!--
-          ══════════════════════════════════════════════════
-          JANEAPP EMBED INSTRUCTIONS
-          ══════════════════════════════════════════════════
-          1. Log into your JaneApp clinic account
-          2. Go to Settings > Online Booking > Embed Code
-          3. Copy the <script> snippet JaneApp provides
-          4. Replace this entire comment block with that snippet
-          ══════════════════════════════════════════════════
-          Example of what JaneApp's embed code looks like:
-          <script src="https://[your-clinic].janeapp.com/widget.js"></script>
-          ══════════════════════════════════════════════════
-        -->
         <p>We will be accepting appointments soon</p>
         <p>We are excited to work with you!</p>
       </div>
@@ -729,38 +631,14 @@
     <div class="section-label">Common Questions</div>
     <h2>Frequently Asked <em>Questions</em></h2>
     <div class="faq-grid">
-      <div class="faq-item">
-        <div class="faq-q"><span class="faq-q-text">Do I need a doctor's referral to start PT in Nevada?</span><span class="faq-toggle">+</span></div>
-        <div class="faq-a">In Nevada, physical therapists can evaluate and treat patients without a physician referral (direct access) for most conditions. For our current cash-pay in-home services, no referral is needed — you can book directly through JaneApp or contact us.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span class="faq-q-text">Where in Las Vegas do you provide in-home therapy?</span><span class="faq-toggle">+</span></div>
-        <div class="faq-a">We serve patients throughout the greater Las Vegas valley including Skye Canyon, Centennial Hills, Summerlin and surrounding communities. Contact us to confirm availability in your specific area.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span class="faq-q-text">How is STRIVE PT different from a home health agency?</span><span class="faq-toggle">+</span></div>
-        <div class="faq-a">Home health PT is typically for homebound patients requiring basic functional support. STRIVE PT is for patients seeking higher-intensity neurological and vestibular care in their home — whether they're homebound or simply prefer the privacy and convenience. We provide a level of focused, dedicated clinical care uncommon in traditional home health.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span class="faq-q-text">What do CSRS and CBIS certifications mean?</span><span class="faq-toggle">+</span></div>
-        <div class="faq-a">CSRS (Certified Stroke Rehabilitation Specialist) and CBIS (Certified Brain Injury Specialist) are rigorous national certifications that demonstrate advanced knowledge and clinical competency in neurological rehabilitation. Very few physical therapists in Las Vegas hold these credentials.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span class="faq-q-text">Can BPPV be treated in one visit?</span><span class="faq-toggle">+</span></div>
-        <div class="faq-a">BPPV often responds dramatically to canalith repositioning maneuvers such as the Epley maneuver — many patients experience significant or complete symptom relief in their first session. The number of visits depends on the specific type of BPPV and individual factors assessed during your evaluation.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span class="faq-q-text">When will your Las Vegas outpatient clinic open?</span><span class="faq-toggle">+</span></div>
-        <div class="faq-a">We are actively working toward opening a physical Las Vegas clinic location. We will soon be accepting Medicare Part B. Use the contact form below to join our notification list and we will reach out as soon as the clinic is ready.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span class="faq-q-text">How long are sessions and how often will I be seen?</span><span class="faq-toggle">+</span></div>
-        <div class="faq-a">Initial evaluations are 60–75 minutes. Follow-up sessions are 45–60 minutes. Frequency depends on your diagnosis and goals, which we establish together at evaluation. Because every session is 1-on-1, every minute is active, high-quality treatment time — not time spent waiting or working with an aide.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span class="faq-q-text">Can I use my HSA or FSA card?</span><span class="faq-toggle">+</span></div>
-        <div class="faq-a">Yes — physical therapy is an eligible HSA/FSA expense. We also provide detailed superbills (itemized receipts with diagnosis and procedure codes) that you can submit to your insurance for potential out-of-network reimbursement, depending on your plan's benefits.</div>
-      </div>
+      <div class="faq-item"><div class="faq-q"><span class="faq-q-text">Do I need a doctor's referral to start PT in Nevada?</span><span class="faq-toggle">+</span></div><div class="faq-a">In Nevada, physical therapists can evaluate and treat patients without a physician referral (direct access) for most conditions. For our current cash-pay in-home services, no referral is needed — you can book directly through JaneApp or contact us.</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="faq-q-text">Where in Las Vegas do you provide in-home therapy?</span><span class="faq-toggle">+</span></div><div class="faq-a">We serve patients throughout the greater Las Vegas valley including Skye Canyon, Centennial Hills, Summerlin and surrounding communities. Contact us to confirm availability in your specific area.</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="faq-q-text">How is STRIVE PT different from a home health agency?</span><span class="faq-toggle">+</span></div><div class="faq-a">Home health PT is typically for homebound patients requiring basic functional support. STRIVE PT is for patients seeking higher-intensity neurological and vestibular care in their home — whether they're homebound or simply prefer the privacy and convenience. We provide a level of focused, dedicated clinical care uncommon in traditional home health.</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="faq-q-text">What do CSRS and CBIS certifications mean?</span><span class="faq-toggle">+</span></div><div class="faq-a">CSRS (Certified Stroke Rehabilitation Specialist) and CBIS (Certified Brain Injury Specialist) are rigorous national certifications that demonstrate advanced knowledge and clinical competency in neurological rehabilitation. Very few physical therapists in Las Vegas hold these credentials.</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="faq-q-text">Can BPPV be treated in one visit?</span><span class="faq-toggle">+</span></div><div class="faq-a">BPPV often responds dramatically to canalith repositioning maneuvers such as the Epley maneuver — many patients experience significant or complete symptom relief in their first session. The number of visits depends on the specific type of BPPV and individual factors assessed during your evaluation.</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="faq-q-text">When will your Las Vegas outpatient clinic open?</span><span class="faq-toggle">+</span></div><div class="faq-a">We are actively working toward opening a physical Las Vegas clinic location. We will soon be accepting Medicare Part B. Use the contact form below to join our notification list and we will reach out as soon as the clinic is ready.</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="faq-q-text">How long are sessions and how often will I be seen?</span><span class="faq-toggle">+</span></div><div class="faq-a">Initial evaluations are 60–75 minutes. Follow-up sessions are 45–60 minutes. Frequency depends on your diagnosis and goals, which we establish together at evaluation. Because every session is 1-on-1, every minute is active, high-quality treatment time — not time spent waiting or working with an aide.</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="faq-q-text">Can I use my HSA or FSA card?</span><span class="faq-toggle">+</span></div><div class="faq-a">Yes — physical therapy is an eligible HSA/FSA expense. We also provide detailed superbills (itemized receipts with diagnosis and procedure codes) that you can submit to your insurance for potential out-of-network reimbursement, depending on your plan's benefits.</div></div>
     </div>
   </div>
 </section>
@@ -780,23 +658,20 @@
         </div>
       </div>
       <div class="newsletter-form-card">
-  <h3>Subscribe to Updates</h3>
-  <p class="nl-sub">Enter your email below. Unsubscribe any time — no strings attached.</p>
-  <form id="newsletter-form">
-  <div class="newsletter-email-row">
-    <input type="email" name="email" id="newsletter-email" placeholder="yourname@email.com" autocomplete="email" required>
-    <button type="submit">Subscribe &rarr;</button>
-  </div>
-  <p class="newsletter-privacy">We respect your privacy. Your email is never shared or sold.</p>
-</form>
-  <div class="newsletter-success" id="newsletter-success">You're subscribed — thank you! Watch your inbox for updates from STRIVE PT.</div>
-</div>
+        <h3>Subscribe to Updates</h3>
+        <p class="nl-sub">Enter your email below. Unsubscribe any time — no strings attached.</p>
+        <form id="newsletter-form">
+          <div class="newsletter-email-row">
+            <input type="email" name="email" id="newsletter-email" placeholder="yourname@email.com" autocomplete="email" required>
+            <button type="submit">Subscribe &rarr;</button>
+          </div>
+          <p class="newsletter-privacy">We respect your privacy. Your email is never shared or sold.</p>
+        </form>
+        <div class="newsletter-success" id="newsletter-success">You're subscribed — thank you! Watch your inbox for updates from STRIVE PT.</div>
       </div>
-  </div>
     </div>
   </div>
 </section>
-
 
 <!-- CONTACT -->
 <section class="contact-booking-section" id="contact">
@@ -804,92 +679,37 @@
     <div class="section-label">Get In Touch</div>
     <h2 style="margin-bottom:48px;">Questions or <em>Ready to Connect?</em></h2>
     <div class="contact-booking-grid">
-
-      <!-- Contact info -->
       <div class="contact-info-side">
         <h3>We're Here to Help</h3>
         <p>Not sure where to start, want to talk before booking, or have a question about your specific condition? Send us a message and one of our providers will respond promptly. Your first consultation call is always free.</p>
-
-        <div class="contact-detail">
-          <div class="c-dot"></div>
-          <div class="c-text">
-            <strong>Las Vegas Service Area</strong>
-            <span>Las Vegas · Skye Canyon · Centennial Hills · <br>Summerlin &amp; surrounding communities, NV</span>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="c-dot"></div>
-          <div class="c-text">
-            <strong>Phone / Text</strong>
-            <span>Call or text us — we respond quickly to Las Vegas-area patients</span>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="c-dot"></div>
-          <div class="c-text">
-            <strong>Scheduling Hours</strong>
-            <span>Flexible — evenings and weekends available<br>In-home throughout the Las Vegas valley</span>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="c-dot"></div>
-          <div class="c-text">
-            <strong>Las Vegas Outpatient Clinic</strong>
-            <span>Coming soon · Medicare Part B · Use the form to join our notification list</span>
-          </div>
-        </div>
-
+        <div class="contact-detail"><div class="c-dot"></div><div class="c-text"><strong>Las Vegas Service Area</strong><span>Las Vegas · Skye Canyon · Centennial Hills · <br>Summerlin &amp; surrounding communities, NV</span></div></div>
+        <div class="contact-detail"><div class="c-dot"></div><div class="c-text"><strong>Phone / Text</strong><span>Call or text us — we respond quickly to Las Vegas-area patients</span></div></div>
+        <div class="contact-detail"><div class="c-dot"></div><div class="c-text"><strong>Scheduling Hours</strong><span>Flexible — evenings and weekends available<br>In-home throughout the Las Vegas valley</span></div></div>
+        <div class="contact-detail"><div class="c-dot"></div><div class="c-text"><strong>Las Vegas Outpatient Clinic</strong><span>Coming soon · Medicare Part B · Use the form to join our notification list</span></div></div>
         <div class="book-cta-box">
           <p><strong>Ready to book?</strong> Skip the form and schedule directly through our secure JaneApp portal — available 24/7, takes less than two minutes.</p>
           <a href="#booking" class="btn-primary" style="font-size:13.5px;padding:12px 24px;">Book via JaneApp</a>
         </div>
       </div>
-
-      <!-- Contact form -->
-      <!-- Contact form -->
-<div class="contact-form-card">
-  <h3>Send Us a Message</h3>
-  <p class="form-subtitle">For general questions, Medicare waitlist, or if you'd prefer a callback before booking.</p>
-  <form id="contact-form">
-    <div class="form-row">
-      <div class="form-group">
-        <label>First Name</label>
-        <input type="text" name="first_name" placeholder="Jane" required>
+      <div class="contact-form-card">
+        <h3>Send Us a Message</h3>
+        <p class="form-subtitle">For general questions, Medicare waitlist, or if you'd prefer a callback before booking.</p>
+        <form id="contact-form">
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="Jane" required></div>
+            <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(702) 555-0000"></div>
+            <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="jane@email.com" required></div>
+          </div>
+          <div class="form-group"><label>Contact Me Thru</label><select name="contact_preference"><option value="">Select an option...</option><option>Phone Call</option><option>Text</option><option>Email</option></select></div>
+          <div class="form-group"><label>Message</label><textarea name="message" placeholder="Please do not include sensitive medical information. This form is for general inquiries only"></textarea></div>
+          <button class="form-submit" type="submit">Send Message &rarr;</button>
+          <p class="form-foot-note">We typically respond within one business day. For faster scheduling, use JaneApp above.</p>
+          <div class="contact-success" id="contact-success">Thank you! We received your message and will respond within one business day.</div>
+        </form>
       </div>
-      <div class="form-group">
-        <label>Last Name</label>
-        <input type="text" name="last_name" placeholder="Smith" required>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>Phone</label>
-        <input type="tel" name="phone" placeholder="(702) 555-0000">
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="jane@email.com" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Contact Me Thru</label>
-      <select name="contact_preference">
-        <option value="">Select an option...</option>
-        <option>Phone Call</option>
-        <option>Text</option>
-        <option>Email</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Message</label>
-      <textarea name="message" placeholder="Please do not include sensitive medical information. This form is for general inquiries only"></textarea>
-    </div>
-    <button class="form-submit" type="submit">Send Message &rarr;</button>
-    <p class="form-foot-note">We typically respond within one business day. For faster scheduling, use JaneApp above.</p>
-    <div class="contact-success" id="contact-success">Thank you! We received your message and will respond within one business day.</div>
-  </form>
-</div>
-
     </div>
   </div>
 </section>
@@ -940,27 +760,27 @@
 </footer>
 
 <script>
-  // Mobile menu
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function togglePatientResource() {
+    document.getElementById('patientResourceItems').classList.toggle('open');
+    document.querySelector('.mob-arrow').classList.toggle('open');
   }
 
   // Scroll animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
-
-  document.querySelectorAll('.service-card, .provider-card, .step, .condition-tile, .faq-item, .pricing-card, .comp-col, .booking-card').forEach(el => {
+  document.querySelectorAll('.service-card, .provider-card, .step, .faq-item, .pricing-card, .comp-col, .booking-card').forEach(el => {
     el.classList.add('anim');
     observer.observe(el);
   });
-
-  // Hero on load
   document.querySelectorAll('.hero .anim').forEach(el => {
     setTimeout(() => el.classList.add('visible'), 80);
   });
 
-  // FAQ accordion — one open at a time
+  // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
     item.querySelector('.faq-a').style.display = 'none';
     item.addEventListener('click', () => {
@@ -978,34 +798,6 @@
     });
   });
 
-  // Contact form
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target;
-    btn.textContent = 'Message Sent — We\'ll Be In Touch Soon';
-    btn.style.background = '#166b38';
-    btn.disabled = true;
-  }
-
-
-  // Newsletter signup
-  function handleNewsletter(e) {
-    e.preventDefault();
-    const input = document.getElementById('newsletter-email');
-    const success = document.getElementById('newsletter-success');
-    if (!input.value || !input.value.includes('@')) {
-      input.style.borderColor = '#c44444';
-      input.focus();
-      return;
-    }
-    input.style.borderColor = '';
-    input.disabled = true;
-    e.target.disabled = true;
-    e.target.textContent = 'Subscribed';
-    e.target.style.background = '#166b38';
-    success.style.display = 'block';
-  }
-
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
@@ -1014,39 +806,27 @@
     });
   });
 </script>
-           
-  <!-- Newsletter -->
-  
-  <script>
+
+<!-- Newsletter -->
+<script>
   document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
     e.preventDefault();
-
     const email = document.getElementById('newsletter-email').value;
-
     await fetch('https://formspree.io/f/mykblzlj', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: email })
     });
-
-    // Clear the email field
     document.getElementById('newsletter-email').value = '';
-
-    // Show the inline thank you message
     const success = document.getElementById('newsletter-success');
     success.style.display = 'block';
-    success.style.color = 'green';
-    success.style.marginTop = '1rem';
-    success.style.fontWeight = '500';
   });
 </script>
-<!--Newsletter-->
-  
-<!--Contact Form-->
-  <script>
+
+<!-- Contact Form -->
+<script>
   document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault();
-
     const form = document.getElementById('contact-form');
     const data = {
       first_name: form.first_name.value,
@@ -1056,19 +836,15 @@
       contact_preference: form.contact_preference.value,
       message: form.message.value
     };
-
     await fetch('https://formspree.io/f/mlgoanwr', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
-
-    // Clear all fields
     form.reset();
-
-    // Show thank you message
     document.getElementById('contact-success').style.display = 'block';
   });
 </script>
+
 </body>
 </html>
