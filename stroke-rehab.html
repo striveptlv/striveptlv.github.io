@@ -90,12 +90,50 @@
     .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 13.5px; letter-spacing: 0.3px; transition: color 0.2s; }
     .nav-links a:hover { color: var(--green-light); }
     .nav-book { background: var(--green) !important; color: white !important; padding: 9px 22px; border-radius: 2px; font-weight: 500 !important; }
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 5px; padding: 24px 0; }
+    .nav-dropdown > a::after {
+      content: ''; display: inline-block; width: 0; height: 0;
+      border-left: 4px solid transparent; border-right: 4px solid transparent;
+      border-top: 5px solid rgba(255,255,255,0.55); transition: transform 0.2s;
+    }
+    .nav-dropdown:hover > a { color: var(--green-light); }
+    .nav-dropdown:hover > a::after { transform: rotate(180deg); border-top-color: var(--green-light); }
+    .dropdown-menu {
+      opacity: 0; pointer-events: none;
+      position: absolute; top: 100%; right: 0;
+      background: var(--forest-mid);
+      border: 1px solid rgba(30,138,74,0.25);
+      border-radius: 4px; min-width: 190px; overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35); transition: opacity 0.15s;
+    }
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; pointer-events: auto; }
+    .dropdown-menu a {
+      display: block; color: rgba(255,255,255,0.72); font-size: 13.5px;
+      padding: 11px 18px; border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background 0.15s, color 0.15s; white-space: nowrap;
+    }
+    .dropdown-menu a:last-child { border-bottom: none; }
+    .dropdown-menu a:hover { background: rgba(30,138,74,0.15); color: var(--green-light); }
     .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .nav-toggle span { width: 22px; height: 2px; background: white; border-radius: 2px; }
     .mobile-menu { display: none; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--forest); z-index: 199; padding: 32px 6vw; overflow-y: auto; }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 18px; font-family: 'Cormorant Garamond', serif; font-weight: 300; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
     .mob-book { background: var(--green); color: white !important; text-align: center; border-radius: 2px; padding: 15px !important; margin-top: 24px; border: none !important; font-size: 16px; }
+    .mob-dropdown { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .mob-dropdown-toggle {
+      display: flex; justify-content: space-between; align-items: center;
+      color: rgba(255,255,255,0.85); font-size: 18px;
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      padding: 16px 0; cursor: pointer;
+    }
+    .mob-arrow { font-size: 22px; color: var(--green-light); display: inline-block; transition: transform 0.25s; }
+    .mob-arrow.open { transform: rotate(90deg); }
+    .mob-dropdown-items { display: none; flex-direction: column; padding-left: 16px; }
+    .mob-dropdown-items.open { display: flex; }
+    .mob-dropdown-items a { font-size: 15px !important; padding: 12px 0 !important; border-bottom: 1px solid rgba(255,255,255,0.04) !important; color: rgba(255,255,255,0.6) !important; }
+    .mob-dropdown-items a:last-child { border-bottom: none !important; }
 
     /* ════ BUTTONS ════ */
     .btn-primary { background: var(--green); color: white; border: none; padding: 15px 34px; border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.4px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
@@ -156,7 +194,7 @@
       color: rgba(255,255,255,0.42); margin-bottom: 22px;
     }
     .hero-desc { color: rgba(255,255,255,0.58); font-size: 15.5px; line-height: 1.84; max-width: 500px; margin-bottom: 36px; }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 58px; }
     .hero-trust { display: flex; gap: 28px; flex-wrap: wrap; }
     .trust-item { display: flex; align-items: center; gap: 7px; font-size: 12px; color: rgba(255,255,255,0.35); }
     .trust-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
@@ -193,6 +231,112 @@
     .contrast-band p { color: rgba(255,255,255,0.9); font-size: 14.5px; line-height: 1.7; font-weight: 300; }
     .contrast-band p strong { color: white; font-weight: 600; }
     .contrast-band-badge { background: white; color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
+
+    /* ════ OVERVIEW SECTION ════ */
+    .overview-section {
+      background: linear-gradient(180deg, rgba(232,245,238,0.72) 0%, rgba(246,251,247,1) 100%);
+      padding: 96px 5vw;
+      position: relative;
+      overflow: hidden;
+    }
+    .overview-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 86% 22%, rgba(47,170,94,0.10) 0%, transparent 30%),
+        radial-gradient(circle at 10% 78%, rgba(201,151,58,0.08) 0%, transparent 28%);
+      pointer-events: none;
+    }
+    .overview-layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 36px;
+      align-items: start;
+      margin-top: 42px;
+    }
+    .overview-copy p {
+      color: var(--text-mid);
+      font-size: 15px;
+      line-height: 1.84;
+      margin-bottom: 18px;
+      max-width: 680px;
+    }
+    .overview-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .overview-highlight {
+      background: white;
+      border: 1px solid rgba(30,138,74,0.12);
+      border-left: 3px solid var(--green);
+      padding: 18px 18px 16px;
+      box-shadow: 0 8px 24px rgba(13,33,24,0.05);
+    }
+    .overview-highlight strong {
+      display: block;
+      color: var(--text-dark);
+      font-size: 13.5px;
+      margin-bottom: 6px;
+    }
+    .overview-highlight span {
+      color: var(--text-mid);
+      font-size: 13.5px;
+      line-height: 1.7;
+    }
+    .overview-card {
+      background: var(--forest);
+      border-radius: 8px;
+      padding: 34px 32px;
+      box-shadow: 0 22px 54px rgba(13,33,24,0.14);
+    }
+    .overview-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 18px;
+    }
+    .overview-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+    .overview-list-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .overview-list-item::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green-light);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+    .overview-list-item span {
+      color: rgba(255,255,255,0.72);
+      font-size: 14px;
+      line-height: 1.72;
+    }
+    .overview-card-note {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.42);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .overview-cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
     /* ════ SECTION UTILITY ════ */
     .section-inner { max-width: 1100px; margin: 0 auto; }
@@ -438,6 +582,8 @@
       .nav-toggle { display: flex; }
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .hero-right { display: none; }
+      .overview-layout { grid-template-columns: 1fr; }
+      .overview-highlights { grid-template-columns: 1fr 1fr; }
       .problem-grid { grid-template-columns: 1fr; gap: 40px; }
       .unique-grid { grid-template-columns: 1fr 1fr; }
       .pillars-intro { grid-template-columns: 1fr; gap: 28px; margin-bottom: 40px; }
@@ -450,7 +596,9 @@
     }
     @media (max-width: 640px) {
       .hero { padding: 68px 6vw 80px; }
-      .problem-section, .unique-section, .pillars-section, .evidence-section, .hiit-section, .fall-section, .who-section, .faq-section, .cta-section { padding: 68px 5vw; }
+      .overview-section, .problem-section, .unique-section, .pillars-section, .evidence-section, .hiit-section, .fall-section, .who-section, .faq-section, .cta-section { padding: 68px 5vw; }
+      .overview-highlights { grid-template-columns: 1fr; }
+      .overview-card { padding: 28px 22px; }
       .unique-grid { grid-template-columns: 1fr; }
       .evidence-cards { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; }
@@ -461,21 +609,29 @@
 
 <!-- ── NAV ── -->
 <nav>
-  <a href="https://striveptlv.com" class="nav-logo">
-    <img src="https://striveptlv.com/logo.png" alt="STRIVE PT Logo" class="logo-img">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="STRIVE PT Logo" class="logo-img">
     <div>
       <div class="logo-text">STRIVE</div>
       <div class="logo-sub">Physical Therapy · Las Vegas</div>
     </div>
   </a>
   <div class="nav-links">
-    <a href="https://striveptlv.com/">Home</a>
-    <a href="https://striveptlv.com/#services">Services</a>
-    <a href="https://striveptlv.com/#difference">Why 1-on-1</a>
-    <a href="https://striveptlv.com/#providers">Our Team</a>
-    <a href="https://striveptlv.com/#faq">FAQ</a>
-    <a href="https://striveptlv.com/#contact">Contact</a>
-    <a href="https://striveptlv.com/#booking" class="nav-book">Book Now</a>
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="stroke-rehab.html">Stroke Rehab</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#providers">Our Team</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#contact">Contact</a>
+    <div class="nav-dropdown">
+      <a href="#">Patient Resource</a>
+      <div class="dropdown-menu">
+        <a href="https://striveptlv.com/moneymanagement/">Online Bank Simulator</a>
+        <a href="https://striveptlv.com/patient-resource/">Home Modifications</a>
+      </div>
+    </div>
+    <a href="index.html#booking" class="nav-book">Book Now</a>
   </div>
   <div class="nav-toggle" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -484,13 +640,23 @@
 
 <!-- ── MOBILE MENU ── -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="https://striveptlv.com/" onclick="toggleMenu()">Home</a>
-  <a href="https://striveptlv.com/#services" onclick="toggleMenu()">Services</a>
-  <a href="https://striveptlv.com/#difference" onclick="toggleMenu()">Why 1-on-1</a>
-  <a href="https://striveptlv.com/#providers" onclick="toggleMenu()">Our Team</a>
-  <a href="https://striveptlv.com/#faq" onclick="toggleMenu()">FAQ</a>
-  <a href="https://striveptlv.com/#contact" onclick="toggleMenu()">Contact</a>
-  <a href="https://striveptlv.com/#booking" class="mob-book" onclick="toggleMenu()">Book an Appointment</a>
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="index.html#services" onclick="toggleMenu()">Services</a>
+  <a href="stroke-rehab.html" onclick="toggleMenu()">Stroke Rehab</a>
+  <a href="index.html#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="index.html#providers" onclick="toggleMenu()">Our Team</a>
+  <a href="index.html#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+  <div class="mob-dropdown">
+    <div class="mob-dropdown-toggle" onclick="togglePatientResource()">
+      Patient Resource <span class="mob-arrow">›</span>
+    </div>
+    <div class="mob-dropdown-items" id="patientResourceItems">
+      <a href="https://striveptlv.com/moneymanagement/" onclick="toggleMenu()">Online Bank Simulator</a>
+      <a href="https://striveptlv.com/patient-resource/" onclick="toggleMenu()">Home Modifications</a>
+    </div>
+  </div>
+  <a href="index.html#booking" class="mob-book" onclick="toggleMenu()">Book an Appointment</a>
 </div>
 
 <!-- ════════════════════════════════ HERO ════════════════════════════════ -->
@@ -630,6 +796,57 @@
             <div class="vs-cell ours">Functional task practice — real life goals</div>
             <div class="vs-cell theirs">Impairment-focused exercise</div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ OVERVIEW ════════════════════════════════ -->
+<section class="overview-section" id="overview">
+  <div class="section-inner">
+    <div class="section-label green">Stroke Rehabilitation Las Vegas</div>
+    <h2>Specialized <em class="green">Stroke Rehabilitation</em> That Connects to Real Life</h2>
+    <div class="overview-layout">
+      <div class="overview-copy">
+        <p>STRIVE Physical Therapy provides 1-on-1 stroke rehabilitation in Las Vegas for adults recovering from ischemic stroke, hemorrhagic stroke, and other neurological events affecting mobility, balance, walking, and independence. We bring focused stroke physical therapy directly to your home so treatment happens where daily life actually takes place.</p>
+        <p>Our stroke rehab approach is built around evidence-based high-intensity interval training, fall recovery, functional task practice, strengthening, endurance, and community reintegration. Because sessions are delivered one-on-one by certified providers, every visit is tailored to your current stage of recovery, your home environment, and your personal goals.</p>
+        <p>If you or a loved one are searching for stroke rehabilitation in Las Vegas, in-home stroke physical therapy near Summerlin, Centennial Hills, Skye Canyon, or surrounding communities, STRIVE offers private, high-attention care designed to improve safety, confidence, and meaningful function at home and in the community.</p>
+
+        <div class="overview-highlights">
+          <div class="overview-highlight anim">
+            <strong>Walking &amp; Balance Recovery</strong>
+            <span>Targeted retraining for gait, coordination, turning, stair navigation, and real-world balance demands after stroke.</span>
+          </div>
+          <div class="overview-highlight anim d1">
+            <strong>In-Home Functional Training</strong>
+            <span>Practice transfers, bed mobility, bathroom safety, and daily movement tasks in your actual home setup.</span>
+          </div>
+          <div class="overview-highlight anim">
+            <strong>Certified Stroke Specialists</strong>
+            <span>CSRS-certified providers with deep neurological rehab experience and true 1-on-1 clinical attention.</span>
+          </div>
+          <div class="overview-highlight anim d1">
+            <strong>Caregiver Guidance</strong>
+            <span>Clear education for families on mobility assistance, safety strategies, and home exercise follow-through.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="overview-card anim d2">
+        <h3>What Our Stroke Rehab Focuses On</h3>
+        <div class="overview-list">
+          <div class="overview-list-item"><span>Weakness, slowed walking, or reduced endurance after a recent or past stroke</span></div>
+          <div class="overview-list-item"><span>Balance problems, fall recovery needs, repeated near-falls, or fear of falling during daily activity and walking</span></div>
+          <div class="overview-list-item"><span>Evidence-based high-intensity interval training to improve walking capacity, endurance, cardiovascular health, and overall stroke recovery</span></div>
+          <div class="overview-list-item"><span>Functional tasks such as transfers, stairs, bed mobility, sit-to-stand, turning, and moving safely through the home</span></div>
+          <div class="overview-list-item"><span>Community reintegration goals like errands, social activities, appointments, and navigating real-world environments with greater confidence</span></div>
+          <div class="overview-list-item"><span>Ongoing functional limitations after hospital, inpatient rehab, or home health discharge that need more focused progression</span></div>
+        </div>
+        <p class="overview-card-note">Stroke recovery looks different for every person. We focus on meaningful progress: safer mobility, stronger movement, better confidence, and improved independence at home and in the community.</p>
+        <div class="overview-cta-row">
+          <a href="#booking" class="btn-primary">Book a Free Consultation</a>
+          <a href="#what-we-do" class="btn-outline">See Our Approach</a>
         </div>
       </div>
     </div>
@@ -1084,19 +1301,19 @@
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="https://striveptlv.com/#services">Neurological Rehab</a>
-        <a href="https://striveptlv.com/#services">Vestibular Therapy</a>
-        <a href="https://striveptlv.com/#services">Balance & Fall Prevention</a>
+        <a href="index.html#services">Neurological Rehab</a>
+        <a href="index.html#services">Vestibular Therapy</a>
+        <a href="index.html#services">Wellness Services</a>
         <a href="https://striveptlv.com/neuro-pilates/">Neuro Pilates</a>
-        <a href="https://striveptlv.com/#services">Limb Loss Rehab</a>
+        <a href="index.html#services">Limb Loss Rehab</a>
       </div>
       <div class="footer-col">
         <h4>Las Vegas</h4>
         <a href="#booking">Book a Consultation</a>
-        <a href="https://striveptlv.com/#contact">Contact Us</a>
-        <a href="https://striveptlv.com/#providers">Our Team</a>
-        <a href="https://striveptlv.com/#faq">General FAQ</a>
-        <a href="https://striveptlv.com/#pricing">Pricing</a>
+        <a href="index.html#contact">Contact Us</a>
+        <a href="index.html#providers">Our Team</a>
+        <a href="index.html#faq">General FAQ</a>
+        <a href="index.html#pricing">Pricing</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1110,6 +1327,11 @@
   // Nav toggle
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  function togglePatientResource() {
+    document.getElementById('patientResourceItems').classList.toggle('open');
+    document.querySelector('.mob-arrow').classList.toggle('open');
   }
 
   // FAQ accordion
