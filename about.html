@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a0a0a">
-  <title>Our Team | STRIVE Physical Therapy Las Vegas</title>
-  <meta name="description" content="Meet the physical therapists behind STRIVE Physical Therapy in Las Vegas — neurological rehabilitation specialists serving stroke, vestibular, and neuro wellness clients.">
+  <title>Gabrielle Lopez, PT, DPT | STRIVE Physical Therapy Las Vegas</title>
+  <meta name="description" content="Meet Gabrielle Lopez, PT, DPT of STRIVE Physical Therapy in Las Vegas — a neurological physical therapist focused on stroke, vestibular, and neuro wellness care.">
   <link rel="canonical" href="https://striveptlv.com/about.html">
 
   <script type="application/ld+json">
@@ -68,10 +68,10 @@
     }
     .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
     .logo-img  { width: 44px; height: 44px; object-fit: contain; }
-    .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--white); letter-spacing: 3px; line-height: 1; }
-    .logo-sub  { font-size: 9px; color: var(--lime); font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; margin-top: 1px; }
+    .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--white); letter-spacing: 2.8px; line-height: 1; }
+    .logo-sub  { font-size: 9px; color: var(--lime); font-weight: 700; letter-spacing: 2.4px; text-transform: uppercase; margin-top: 1px; }
     .nav-links { display: flex; align-items: center; gap: 22px; }
-    .nav-links a { color: var(--white-dim); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a { color: var(--white-dim); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.7px; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--lime); }
     .nav-book  { background: var(--lime) !important; color: var(--black) !important; padding: 9px 20px; border-radius: 2px; font-weight: 700 !important; letter-spacing: 1px !important; }
     .nav-book:hover { background: #095e78 !important; }
@@ -93,12 +93,13 @@
       pointer-events: none;
       position: absolute;
       top: 100%;
-      right: 0;
-      min-width: 190px;
+      left: 50%;
+      min-width: 200px;
       overflow: hidden;
       background: #ffffff;
       border: 1px solid var(--border-mid);
       box-shadow: 0 18px 36px rgba(15,30,46,0.08);
+      transform: translateX(-50%);
       transition: opacity 0.15s;
     }
     .nav-dropdown:hover .dropdown-menu { opacity: 1; pointer-events: auto; }
@@ -415,6 +416,19 @@
       position: relative; overflow: hidden;
       flex-shrink: 0;
     }
+    .pt-photo-wrap.has-photo .pt-photo-placeholder,
+    .pt-photo-wrap.has-photo .pt-photo-slot { display: none; }
+    .pt-photo-slot {
+      position: absolute;
+      inset: 16px;
+      border: 1px dashed rgba(13,110,138,0.28);
+      background: linear-gradient(135deg, rgba(13,110,138,0.05), rgba(26,82,118,0.03));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 18px;
+    }
     .pt-photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .pt-photo-placeholder {
       width: 100%; height: 100%;
@@ -654,7 +668,6 @@
         <a href="vestibular-rehab.html">Vestibular Rehab</a>
       </div>
     </div>
-    <a href="about.html" style="color:#0d6e8a">Our Team</a>
     <a href="#scheduling" data-schedule-trigger>Scheduling</a>
     <div class="nav-dropdown">
       <a href="#">Patient Resource</a>
@@ -677,7 +690,6 @@
   <a href="/wellness.html" onclick="toggleMenu(false)">Neuro Wellness</a>
   <a href="stroke-rehab.html" onclick="toggleMenu(false)">Stroke Rehab</a>
   <a href="vestibular-rehab.html" onclick="toggleMenu(false)">Vestibular Rehab</a>
-  <a href="about.html" onclick="toggleMenu(false)">Our Team</a>
   <a href="#scheduling" data-schedule-trigger onclick="toggleMenu(false)">Scheduling</a>
   <div class="mob-dropdown">
     <div class="mob-dropdown-toggle" onclick="toggleMobileDropdown('patientResourceItems', this.querySelector('.mob-arrow'))">
@@ -727,11 +739,11 @@
   <div class="hero-inner">
     <div>
       <div class="hero-eyebrow anim">STRIVE Physical Therapy · Las Vegas, NV</div>
-      <h1 class="anim d1">MEET<br><em>THE TEAM</em></h1>
-      <p class="hero-sub anim d1">Neurological rehabilitation specialists</p>
-      <p class="hero-desc anim d2">STRIVE is built around two physical therapists with deep passion for neurological rehabilitation. We bring clinical precision, genuine investment in each client, and a belief that recovery doesn't end at discharge.</p>
+      <h1 class="anim d1">MEET<br><em>GABRIELLE</em></h1>
+      <p class="hero-sub anim d1">Neurological rehabilitation specialist</p>
+      <p class="hero-desc anim d2">Gabrielle Lopez, PT, DPT brings deep passion for neurological rehabilitation, thoughtful clinical reasoning, and a belief that recovery does not end at discharge. STRIVE is built around individualized care that meets people where they are and keeps progressing with them.</p>
       <div class="hero-actions anim d2">
-        <a href="#providers" class="btn-primary">Meet Our PTs</a>
+        <a href="#providers" class="btn-primary">Meet Gabrielle</a>
         <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="btn-outline">Book a Session</a>
       </div>
       <div class="hero-trust anim d3">
@@ -748,8 +760,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="#0d6e8a" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
         <div class="cred-text">
-          <strong>Doctors of Physical Therapy</strong>
-          <span>Stroke, vestibular, TBI, MS, Parkinson's, and spinal cord injury rehabilitation.</span>
+          <strong>Doctor of Physical Therapy</strong>
+          <span>Stroke, vestibular, spinal cord injury, and neuro wellness care with individualized clinical focus.</span>
         </div>
       </div>
       <div class="cred-row">
@@ -775,8 +787,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="#0d6e8a" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <div class="cred-text">
-          <strong>Two-PT Practice</strong>
-          <span>Small by design — every client gets direct care from a licensed doctor of PT.</span>
+          <strong>1-on-1 Clinical Care</strong>
+          <span>Thoughtful treatment shaped around your goals, your environment, and your pace of recovery.</span>
         </div>
       </div>
     </div>
@@ -786,16 +798,19 @@
 <!-- PROVIDERS -->
 <section class="providers-section" id="providers">
   <div class="section-inner">
-    <div class="section-label anim">Our Physical Therapists</div>
-    <h2 class="section-h2 anim d1">THE<br><em>CLINICIANS</em></h2>
-    <p class="section-lead anim d2" style="margin-bottom:52px;">Two licensed doctors of physical therapy. One shared commitment to neurological recovery that goes further than traditional care.</p>
+    <div class="section-label anim">Your Physical Therapist</div>
+    <h2 class="section-h2 anim d1">MEET<br><em>GABRIELLE</em></h2>
+    <p class="section-lead anim d2" style="margin-bottom:52px;">A licensed doctor of physical therapy with a clinical focus on stroke, vestibular, spinal cord injury, and long-term neurological recovery.</p>
 
     <!-- PT 1 -->
     <div class="pt-card anim" style="margin-bottom:3px;">
       <div class="pt-left">
         <div class="pt-photo-wrap">
+          <img src="gabrielle-lopez.jpg" alt="Dr. Gabrielle Lopez, PT, DPT" onload="this.parentElement.classList.add('has-photo')" onerror="this.remove()">
+          <div class="pt-photo-slot">
+            <div class="pt-photo-label">Add image as gabrielle-lopez.jpg</div>
+          </div>
           <div class="pt-photo-placeholder">
-            <!-- Replace with: <img src="pt1-photo.jpg" alt="Dr. [Name], PT, DPT"> -->
             <div class="pt-initials" style="color: #0d6e8a;">PT</div>
             <div class="pt-photo-label">Photo Coming Soon</div>
           </div>
@@ -874,90 +889,6 @@
       </div>
     </div>
 
-    <!-- PT 2 -->
-    <div class="pt-card alt anim d1">
-      <div class="pt-left">
-        <div class="pt-photo-wrap">
-          <div class="pt-photo-placeholder">
-            <!-- Replace with: <img src="pt2-photo.jpg" alt="Dr. [Name], PT, DPT"> -->
-            <div class="pt-initials" style="color: #1a5276;">PT</div>
-            <div class="pt-photo-label">Photo Coming Soon</div>
-          </div>
-        </div>
-        <div class="pt-identity">
-          <div class="pt-role-tag tag-orange">Physical Therapist</div>
-          <div class="pt-name">Dr. E. Joshua Lopez</div>
-          <div class="pt-credential">PT, DPT</div>
-          <div class="pt-contact" style="margin-top:16px;">
-            <div class="pt-contact-row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Las Vegas, NV
-            </div>
-            <div class="pt-contact-row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.83-.83a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
-              striveptlv.com
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pt-right">
-        <div class="pt-bio-block">
-          <div class="pt-section-tag">Background</div>
-          <p class="pt-bio-text">
-            <strong>Josh</strong> brings a dual clinical focus to STRIVE — combining deep experience in <strong>stroke rehabilitation</strong> with neurological experience across brain injury, MS, and spinal cord injury. A graduate of Univesity of Santo Tomas and Arcadia University, they completed specialized post-graduate certification in brain injury and stroke rehabilitation.
-            <br><br>
-            Their treatment philosophy centers on autonomy: helping clients understand their condition, trust their body's signals, and take ownership of their recovery. Outside the clinic, they bring the same discipline to their own active lifestyle — an approach that directly shapes the programming in STRIVE's Neuro Wellness offerings.
-          </p>
-        </div>
-
-        <div class="pt-bio-block">
-          <div class="pt-section-tag">Clinical Experiences</div>
-          <div class="spec-grid">
-            <div class="spec-item">
-              <div class="spec-label">Stroke Rehabilitation</div>
-              <div class="spec-value">HIIT and BDNF, Motor Relearning</div>
-            </div>
-            <div class="spec-item">
-              <div class="spec-label">Traumatic Brain Injury</div>
-              <div class="spec-value">Certified Brain Injury Specialist</div>
-            </div>
-            <div class="spec-item">
-              <div class="spec-label">Managing Falls</div>
-              <div class="spec-value">Fall prevention &amp; fall recovery</div>
-            </div>
-            <div class="spec-item">
-              <div class="spec-label">Spinal Cord Injury Rehabilitation</div>
-              <div class="spec-value">Adaptive Training &amp; Goal-focused Rehab</div>
-            </div>
-            <div class="spec-item">
-              <div class="spec-label">Neuro Wellness</div>
-              <div class="spec-value">Strength &amp; Endurance training</div>
-            </div>
-            <div class="spec-item">
-              <div class="spec-label">Limb Loss</div>
-              <div class="spec-value">Pre &amp; Post Amputation Rehab</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pt-bio-block">
-          <div class="pt-section-tag">Education &amp; Credentials</div>
-          <div class="cred-list">
-            <div class="cred-item"><div class="cred-bullet bullet-orange"></div>Doctor of Physical Therapy (DPT) — Arcadia University</div>
-            <div class="cred-item"><div class="cred-bullet bullet-orange"></div>Certified Stroke Rehabilitation Specialist</div>
-            <div class="cred-item"><div class="cred-bullet bullet-orange"></div>Certified Brain Injury Specialist</div>
-            <div class="cred-item"><div class="cred-bullet bullet-orange"></div>Licensed Physical Therapist — State of Nevada</div>
-          </div>
-        </div>
-
-        <div class="pt-quote">
-          <p>"Repetition is Key. Repetition is Key. Repetition is Key."</p>
-          <cite>— Dr. E. Joshua Lopez, PT, DPT</cite>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -991,8 +922,8 @@
   <div class="cta-bg-text">STRIVE</div>
   <div class="cta-inner">
     <div class="cta-eyebrow">STRIVE Physical Therapy · Las Vegas</div>
-    <h2>READY TO WORK<br>WITH OUR TEAM?</h2>
-    <p>Start with a consultation. We'll learn where you are, where you want to go, and build a plan to get you there.</p>
+    <h2>READY TO WORK<br>WITH GABRIELLE?</h2>
+    <p>Start with a consultation. We will learn where you are, where you want to go, and build a plan that supports meaningful progress.</p>
     <div class="cta-actions">
       <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="cta-dark">Request a Consultation</a>
       <a href="/wellness.html" class="cta-ghost">View Neuro Wellness</a>
@@ -1012,11 +943,10 @@
             <div class="logo-sub">Physical Therapy · Las Vegas</div>
           </div>
         </a>
-        <p>Neurological rehabilitation and wellness services in Las Vegas — delivered by two licensed doctors of physical therapy.</p>
+        <p>Neurological rehabilitation and wellness services in Las Vegas — delivered with thoughtful, individualized care from a licensed doctor of physical therapy.</p>
       </div>
       <div class="footer-col">
-        <h4>Our Team</h4>
-        <a href="#providers">Meet the PTs</a>
+        <h4>Practice</h4>
         <a href="#values">Our Approach</a>
         <a href="index.html#contact">Contact</a>
       </div>
