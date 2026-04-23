@@ -932,6 +932,109 @@
       padding: 6px 10px;
     }
 
+    .therapist-spotlight-section { background: white; }
+    .therapist-spotlight-card {
+      margin-top: 44px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 26px rgba(18,23,21,0.04);
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      overflow: hidden;
+    }
+    .therapist-spotlight-aside {
+      background: var(--ink);
+      color: white;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .therapist-badge {
+      display: inline-block;
+      width: fit-content;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(183,214,59,0.26);
+      padding: 8px 12px;
+    }
+    .therapist-spotlight-aside h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 42px;
+      line-height: 0.92;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 14px 0 8px;
+    }
+    .therapist-spotlight-aside p {
+      color: rgba(255,255,255,0.74);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+    .therapist-quick-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .therapist-quick-fact {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: rgba(255,255,255,0.78);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .therapist-quick-fact::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+    .therapist-spotlight-main { padding: 30px 32px 32px; }
+    .therapist-spotlight-main p {
+      color: var(--text-mid);
+      font-size: 14.5px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .therapist-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 24px 0 26px;
+    }
+    .therapist-feature {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 16px 16px 15px;
+    }
+    .therapist-feature strong {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-deep);
+      margin-bottom: 8px;
+    }
+    .therapist-feature span {
+      color: var(--text-mid);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .therapist-spotlight-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     .pricing-section {
       background: var(--ink);
       color: white;
@@ -1466,12 +1569,14 @@
       .nav-toggle { display: flex; }
       .hero-inner,
       .feature-layout,
+      .therapist-spotlight-card,
       .providers-grid,
       .pricing-grid,
       .booking-grid,
       .newsletter-inner,
       .contact-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr 1fr; }
+      .therapist-feature-grid { grid-template-columns: 1fr 1fr; }
       .steps-grid { grid-template-columns: 1fr 1fr; }
       .comparison-grid,
       .faq-grid { grid-template-columns: 1fr; }
@@ -1495,6 +1600,7 @@
       .newsletter-section,
       footer { padding-left: 5vw; padding-right: 5vw; }
       .services-grid,
+      .therapist-feature-grid,
       .steps-grid,
       .highlight-grid,
       .form-row,
@@ -1793,6 +1899,52 @@
           <div class="step-num">4</div>
           <h3>Progress with Continuity</h3>
           <p>You continue with the same provider, the same clinical direction, and a plan that actually evolves as you improve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section therapist-spotlight-section" id="about-therapist">
+    <div class="section-inner">
+      <h2 class="section-title">Dr. Gabrielle Lopez PT DPT</h2>
+
+      <div class="therapist-spotlight-card anim">
+        <div class="therapist-spotlight-aside">
+          <div>
+            <div class="therapist-badge">Gabrielle Lopez, PT, DPT</div>
+            <h3>Thoughtful neurological care with real clinical depth</h3>
+            <p>Every session is built around listening carefully, identifying what matters most, and helping progress feel relevant to daily life.</p>
+          </div>
+          <div class="therapist-quick-facts">
+            <div class="therapist-quick-fact">Certified Stroke Rehabilitation Specialist</div>
+            <div class="therapist-quick-fact">10+ years of clinical experience</div>
+            <div class="therapist-quick-fact">In-home neurological and vestibular care in Las Vegas</div>
+          </div>
+        </div>
+
+        <div class="therapist-spotlight-main">
+          <p>Gabrielle is a physical therapist with a strong commitment to restoring function and independence for people recovering from stroke, spinal cord injury, vestibular conditions, and other neurological diagnoses. Her care style balances evidence-based treatment with genuine attention to the individual in front of her.</p>
+          <p>She completed her Bachelor of Science in Physical Therapy at the University of Santo Tomas, earned her Doctor of Physical Therapy degree from Arcadia University, and became a Certified Stroke Rehabilitation Specialist. She also brings special interest in vestibular rehabilitation, community mobility, and Pilates-informed movement strategies inside physical therapy.</p>
+
+          <div class="therapist-feature-grid">
+            <div class="therapist-feature">
+              <strong>Stroke Rehab</strong>
+              <span>Task-specific training that supports function, confidence, and long-term recovery.</span>
+            </div>
+            <div class="therapist-feature">
+              <strong>Vestibular Care</strong>
+              <span>Support for dizziness, balance dysfunction, and safer movement in everyday environments.</span>
+            </div>
+            <div class="therapist-feature">
+              <strong>Neuro Wellness</strong>
+              <span>Progressive exercise and wellness planning when people want to keep improving beyond discharge.</span>
+            </div>
+          </div>
+
+          <div class="therapist-spotlight-actions">
+            <a href="about.html" class="btn-primary">View Gabrielle's Profile</a>
+            <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="btn-outline">Book a Consultation</a>
+          </div>
         </div>
       </div>
     </div>
