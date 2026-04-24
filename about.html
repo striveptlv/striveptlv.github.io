@@ -355,7 +355,7 @@
       letter-spacing: 2px; text-transform: uppercase; margin-bottom: 22px;
     }
     .hero-desc { font-size: 15.5px; color: var(--white-dim); line-height: 1.78; margin-bottom: 36px; }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; justify-content: center; }
     .hero-trust { display: flex; gap: 28px; flex-wrap: wrap; }
     .trust-item { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--white-dim); }
     .trust-dot { width: 4px; height: 4px; background: var(--lime); flex-shrink: 0; }
@@ -663,9 +663,10 @@
     <div class="nav-dropdown">
       <a href="index.html#services">Services</a>
       <div class="dropdown-menu">
-        <a href="/wellness.html">Neuro Wellness</a>
         <a href="stroke-rehab.html">Stroke Rehab</a>
+        <a href="sci.html">SCI Rehab</a>
         <a href="vestibular-rehab.html">Vestibular Rehab</a>
+        <a href="/wellness.html">Neuro Wellness</a>
       </div>
     </div>
     <a href="#scheduling" data-schedule-trigger>Scheduling</a>
@@ -687,9 +688,10 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="toggleMenu(false)">Home</a>
-  <a href="/wellness.html" onclick="toggleMenu(false)">Neuro Wellness</a>
   <a href="stroke-rehab.html" onclick="toggleMenu(false)">Stroke Rehab</a>
+  <a href="sci.html" onclick="toggleMenu(false)">SCI Rehab</a>
   <a href="vestibular-rehab.html" onclick="toggleMenu(false)">Vestibular Rehab</a>
+  <a href="/wellness.html" onclick="toggleMenu(false)">Neuro Wellness</a>
   <a href="#scheduling" data-schedule-trigger onclick="toggleMenu(false)">Scheduling</a>
   <div class="mob-dropdown">
     <div class="mob-dropdown-toggle" onclick="toggleMobileDropdown('patientResourceItems', this.querySelector('.mob-arrow'))">
@@ -798,7 +800,7 @@
 <!-- PROVIDERS -->
 <section class="providers-section" id="providers">
   <div class="section-inner">
-    <div class="section-label anim">Your Physical Therapist</div>
+    <div class="section-label">Your Clinician</div>
     <h2 class="section-h2 anim d1">MEET<br><em>GABRIELLE</em></h2>
     <p class="section-lead anim d2" style="margin-bottom:52px;">A licensed doctor of physical therapy with a clinical focus on stroke, vestibular, spinal cord injury, and long-term neurological recovery.</p>
 
