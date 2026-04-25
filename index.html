@@ -94,6 +94,17 @@
       overflow-x: hidden;
       padding-top: 70px;
     }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
     img { max-width: 100%; height: auto; }
     a { color: inherit; }
 
@@ -518,6 +529,12 @@
       margin-bottom: 22px;
       letter-spacing: 0.2px;
     }
+    .hero-area a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .hero-area a:hover { text-decoration: underline; }
     .hero-area strong {
       color: white;
       font-weight: 600;
@@ -556,6 +573,7 @@
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 3px;
+      line-height: 1.35;
       text-transform: uppercase;
       color: var(--accent);
       background: rgba(255,255,255,0.03);
@@ -1643,6 +1661,17 @@
       .contact-panel,
       .contact-form-card,
       .newsletter-form-card { padding-left: 22px; padding-right: 22px; }
+      .hero-panel { margin-top: 8px; }
+      .hero-panel-head {
+        padding: 16px 18px;
+        font-size: 11px;
+        letter-spacing: 2.2px;
+      }
+      .hero-point {
+        padding: 16px 18px;
+        gap: 12px;
+      }
+      .hero-point span { font-size: 13px; }
       .footer-bottom { justify-content: center; text-align: center; }
     }
   </style>
@@ -1745,15 +1774,15 @@
         <div class="hero-badge anim">Las Vegas, NV · In-Home Physical Therapy</div>
         <h1 class="anim d1"><span class="hero-mark">STRIVE</span><em>for a Better Movement</em></h1>
         <p class="hero-sub anim d2">Stroke and Vestibular Physical Therapy</p>
-        <p class="hero-area anim d2"><strong>Now serving</strong> Las Vegas, Skye Canyon, Centennial Hills, and Summerlin.</p>
-        <p class="hero-desc anim d2">Las Vegas's dedicated stroke rehabilitation and vestibular physical therapy practice. Our licensed providers come directly to your home, with no waiting rooms, no divided attention, and no compromises.</p>
+        <p class="hero-area anim d2"><strong>In-home service area:</strong> Las Vegas, Skye Canyon, Centennial Hills, and Summerlin.<br><strong>Saturdays:</strong> Neuro Movement Gym at <a href="https://www.google.com/maps/search/?api=1&amp;query=7035+W+Ann+Rd+Ste+120+Las+Vegas+NV+89130" target="_blank" rel="noopener">Shinkyokushin Karate Las Vegas</a>.</p>
+        <p class="hero-desc sr-only">Las Vegas's dedicated stroke rehabilitation and vestibular physical therapy practice. Our licensed providers come directly to your home, with no waiting rooms, no divided attention, and no compromises.</p>
         <div class="hero-actions anim d3">
           <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="btn-primary">Book an Appointment</a>
           <a href="#services" class="btn-outline">Explore Services</a>
         </div>
       </div>
       <div class="hero-panel anim d2">
-        <div class="hero-panel-head">Why Families Choose STRIVE</div>
+        <div class="hero-panel-head">Why Patients and Families Choose STRIVE</div>
         <div class="hero-panel-body">
           <div class="hero-point">
             <div class="hero-dot"></div>
@@ -1839,10 +1868,10 @@
           <h3>Spinal Cord Injury / SCI Rehabilitation</h3>
           <p>Individualized rehab for spinal cord injury focused on strength, mobility, transfers, balance, wheelchair function, and building safer day-to-day independence at home.</p>
         </a>
-        <div class="service-card anim">
+        <a href="/prosthetic.html" class="service-card anim">
           <h3>Post-Amputation Rehabilitation</h3>
           <p>Residual limb care, desensitization, strength building, gait re-education, and functional progression with or without a prosthesis.</p>
-        </div>
+        </a>
         <a href="/fnd" class="service-card anim d1">
           <h3>Functional Neurologic Disorder (FND)</h3>
           <p>Thoughtful, individualized care for Functional Neurological Disorder with a focus on listening well, pacing appropriately, and building meaningful daily independence.</p>
