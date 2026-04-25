@@ -32,6 +32,8 @@
       color: var(--ink);
       line-height: 1.7;
       font-weight: 300;
+      padding-top: 70px;
+      overflow-x: hidden;
     }
 
     /* ── NAV ── */
@@ -321,13 +323,25 @@
       transition: border-color .2s, background .2s;
     }
     .target-item:hover { border-left-color: var(--yellow); background: rgba(255,255,255,.04); }
+    .target-item-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
     .target-item h4 {
       font-family: 'IBM Plex Sans Condensed', sans-serif;
       font-size: 1.05rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: .06em; color: var(--warm-white); margin-bottom: 8px;
+      letter-spacing: .06em; color: var(--warm-white); margin-bottom: 0;
     }
     .target-item p { font-size: .84rem; color: rgba(248,246,240,.5); line-height: 1.65; }
-    .target-dot { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; margin-bottom: 14px; }
+    .target-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--yellow);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
 
     /* ── PARTNERS ── */
     .partners-section { background: var(--cream); border-top: 1px solid var(--rule); }
@@ -344,15 +358,41 @@
       background: var(--warm-white);
       padding: 28px 24px;
       display: flex; flex-direction: column; justify-content: center;
-      transition: background .2s;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: background .2s, border-color .2s;
     }
-    .partner-card:hover { background: var(--cream); }
+    .partner-card:hover { background: var(--cream); border-bottom-color: var(--yellow); }
     .partner-name {
       font-family: 'IBM Plex Sans Condensed', sans-serif;
       font-size: 1.1rem; font-weight: 800; text-transform: uppercase;
       letter-spacing: .04em; color: var(--ink); line-height: 1.1; margin-bottom: 6px;
     }
     .partner-type { font-size: .78rem; color: var(--muted); letter-spacing: .04em; }
+    .partners-strip {
+      background: #141f12;
+      border-top: 1px solid rgba(248,246,240,.06);
+      padding: 48px clamp(24px,5vw,80px);
+    }
+    .partners-strip .inner { max-width: 1100px; }
+    .partners-kicker {
+      font-family: 'IBM Plex Sans Condensed', sans-serif;
+      font-size: .68rem;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: rgba(248,246,240,.28);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .partners-kicker::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: rgba(248,246,240,.28);
+    }
 
     /* ── RACE STEPS ── */
     .race-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 44px; border: 1px solid var(--rule); border-radius: 2px; overflow: hidden; }
@@ -400,8 +440,27 @@
     }
     .footer-inner { max-width: 1100px; margin: 0 auto; }
     .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; color: var(--warm-white); letter-spacing: .06em; margin-bottom: 14px; display: block; }
-    .footer-logo small { display: block; font-family: 'IBM Plex Sans', sans-serif; font-size: .65rem; letter-spacing: .16em; font-weight: 300; color: rgba(248,246,240,.35); text-transform: uppercase; margin-top: 3px; }
+    .footer-logo {
+      display: block;
+      margin-bottom: 14px;
+      font-family: 'IBM Plex Sans Condensed', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      line-height: 1;
+      text-transform: uppercase;
+      color: var(--warm-white);
+    }
+    .footer-logo small {
+      display: block;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: .58rem;
+      letter-spacing: .24em;
+      font-weight: 500;
+      color: rgba(248,246,240,.35);
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
     footer p { font-size: .85rem; line-height: 1.75; }
     footer h5 { color: var(--warm-white); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 16px; font-weight: 500; }
     footer ul { list-style: none; }
@@ -423,6 +482,11 @@
     @media (max-width: 860px) {
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
+      .hero {
+        padding-top: 56px;
+        padding-bottom: 56px;
+      }
+      .hero-body { max-width: none; }
       .focus-grid { grid-template-columns: 1fr; }
       .target-grid { grid-template-columns: 1fr 1fr; }
       .partner-grid { grid-template-columns: 1fr 1fr; }
@@ -433,7 +497,59 @@
       .cta-banner { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 560px) {
-      .target-grid, .race-steps, .partner-grid { grid-template-columns: 1fr; }
+      .hero {
+        padding: 48px 5vw 44px;
+      }
+      h1 {
+        font-size: clamp(2.7rem, 14vw, 4.3rem);
+        margin-bottom: 22px;
+      }
+      .hero-body {
+        font-size: .98rem;
+        line-height: 1.75;
+        margin-bottom: 28px;
+      }
+      .btn-row {
+        width: 100%;
+      }
+      .btn-row a {
+        width: 100%;
+        text-align: center;
+      }
+      .focus-card,
+      .target-item,
+      .race-step { padding-left: 22px; padding-right: 22px; }
+      .partners-strip { padding: 32px 5vw; }
+      .partners-kicker {
+        margin-bottom: 18px;
+        font-size: .62rem;
+        letter-spacing: .2em;
+      }
+      .partner-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        background: transparent;
+        border: none;
+      }
+      .partner-card {
+        padding: 14px 0;
+        background: transparent;
+        border-bottom: 1px solid rgba(248,246,240,.14);
+      }
+      .partner-card:hover { background: transparent; border-bottom-color: var(--yellow); }
+      .partner-name {
+        font-size: 0.95rem;
+        line-height: 1.15;
+        margin-bottom: 2px;
+        color: rgba(248,246,240,.92);
+      }
+      .partner-type {
+        font-size: 0.72rem;
+        line-height: 1.35;
+        color: rgba(248,246,240,.46);
+      }
+      .target-grid, .race-steps { grid-template-columns: 1fr; }
       .race-step { border-right: none; border-bottom: 1px solid var(--rule); }
       .footer-top { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
@@ -517,7 +633,6 @@
     </p>
     <div class="btn-row">
       <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" class="btn-yellow">Request a Consultation</a>
-      <a href="#approach" class="btn-outline-white">Our Approach</a>
     </div>
   </div>
 </div>
@@ -554,33 +669,45 @@
     <p class="lead">Every program is shaped around your amputation level, your device, and the life you are working toward.</p>
     <div class="target-grid">
       <div class="target-item">
-        <div class="target-dot"></div>
-        <h4>Residual Limb Conditioning</h4>
+        <div class="target-item-header">
+          <div class="target-dot"></div>
+          <h4>Residual Limb Conditioning</h4>
+        </div>
         <p>Desensitization, shaping, and skin care to prepare the limb for a well-fitting, comfortable prosthesis.</p>
       </div>
       <div class="target-item">
-        <div class="target-dot"></div>
-        <h4>Strength & Conditioning</h4>
+        <div class="target-item-header">
+          <div class="target-dot"></div>
+          <h4>Strength & Conditioning</h4>
+        </div>
         <p>Targeted strengthening of the hip, core, and surrounding musculature to support stable and efficient movement.</p>
       </div>
       <div class="target-item">
-        <div class="target-dot"></div>
-        <h4>Balance & Fall Prevention</h4>
+        <div class="target-item-header">
+          <div class="target-dot"></div>
+          <h4>Balance & Fall Prevention</h4>
+        </div>
         <p>Single-leg and dynamic balance training to build steadiness and reduce fall risk at home and in the community.</p>
       </div>
       <div class="target-item">
-        <div class="target-dot"></div>
-        <h4>Gait Training</h4>
+        <div class="target-item-header">
+          <div class="target-dot"></div>
+          <h4>Gait Training</h4>
+        </div>
         <p>Step-by-step progression from parallel bars to open environments — walking with a prosthesis takes practice and cues.</p>
       </div>
       <div class="target-item">
-        <div class="target-dot"></div>
-        <h4>Transfers & Mobility</h4>
+        <div class="target-item-header">
+          <div class="target-dot"></div>
+          <h4>Transfers & Mobility</h4>
+        </div>
         <p>Safe strategies for getting in and out of bed, chairs, cars, and the floor — with and without your prosthesis.</p>
       </div>
       <div class="target-item">
-        <div class="target-dot"></div>
-        <h4>Community & Terrain Skills</h4>
+        <div class="target-item-header">
+          <div class="target-dot"></div>
+          <h4>Community & Terrain Skills</h4>
+        </div>
         <p>Curbs, ramps, stairs, and uneven ground — we practice the real surfaces you'll encounter outside the home.</p>
       </div>
     </div>
@@ -628,44 +755,29 @@
 </div>
 
 <!-- PARTNERS STRIP -->
-<div style="background:#141f12;border-top:1px solid rgba(248,246,240,.06);padding:48px clamp(24px,5vw,80px);">
-  <div style="max-width:1100px;margin:0 auto;">
-    <p style="font-family:'IBM Plex Sans Condensed',sans-serif;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(248,246,240,.28);margin-bottom:28px;display:flex;align-items:center;gap:12px;">
-      <span style="display:block;width:20px;height:1px;background:rgba(248,246,240,.28);"></span>
-      Prosthetics Partners — Las Vegas, NV
-    </p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(248,246,240,.07);border-radius:2px;overflow:hidden;">
-      <a href="https://www.formotion.com/en-us/locations/formotion-clinic-las-vegas-nv" target="_blank" rel="noopener"
-         style="display:block;padding:28px 24px;background:#1a2a17;text-decoration:none;border-bottom:2px solid transparent;transition:border-color .2s,background .2s;"
-         onmouseover="this.style.borderBottomColor='#c8a84b';this.style.background='#1f3019'"
-         onmouseout="this.style.borderBottomColor='transparent';this.style.background='#1a2a17'">
-        <div style="font-family:'IBM Plex Sans Condensed',sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:rgba(248,246,240,.9);margin-bottom:4px;">ForMotion</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;color:rgba(248,246,240,.35);letter-spacing:.02em;">Prosthetics & Orthotics</div>
+<section class="partners-strip">
+  <div class="inner">
+    <p class="partners-kicker">Prosthetics Partners — Las Vegas, NV</p>
+    <div class="partner-grid">
+      <a href="https://www.formotion.com/en-us/locations/formotion-clinic-las-vegas-nv" target="_blank" rel="noopener" class="partner-card">
+        <div class="partner-name">ForMotion</div>
+        <div class="partner-type">Prosthetics &amp; Orthotics</div>
       </a>
-      <a href="https://hangerclinic.com/clinics/NV/las-vegas/" target="_blank" rel="noopener"
-         style="display:block;padding:28px 24px;background:#1a2a17;text-decoration:none;border-bottom:2px solid transparent;transition:border-color .2s,background .2s;"
-         onmouseover="this.style.borderBottomColor='#c8a84b';this.style.background='#1f3019'"
-         onmouseout="this.style.borderBottomColor='transparent';this.style.background='#1a2a17'">
-        <div style="font-family:'IBM Plex Sans Condensed',sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:rgba(248,246,240,.9);margin-bottom:4px;">Hanger Clinic</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;color:rgba(248,246,240,.35);letter-spacing:.02em;">Prosthetics & Orthotics</div>
+      <a href="https://hangerclinic.com/clinics/NV/las-vegas/" target="_blank" rel="noopener" class="partner-card">
+        <div class="partner-name">Hanger Clinic</div>
+        <div class="partner-type">Prosthetics &amp; Orthotics</div>
       </a>
-      <a href="https://nevadaprosthetics.com" target="_blank" rel="noopener"
-         style="display:block;padding:28px 24px;background:#1a2a17;text-decoration:none;border-bottom:2px solid transparent;transition:border-color .2s,background .2s;"
-         onmouseover="this.style.borderBottomColor='#c8a84b';this.style.background='#1f3019'"
-         onmouseout="this.style.borderBottomColor='transparent';this.style.background='#1a2a17'">
-        <div style="font-family:'IBM Plex Sans Condensed',sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:rgba(248,246,240,.9);margin-bottom:4px;">Nevada Orthotics & Prosthetics</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;color:rgba(248,246,240,.35);letter-spacing:.02em;">Prosthetics & Orthotics</div>
+      <a href="https://nevadaprosthetics.com" target="_blank" rel="noopener" class="partner-card">
+        <div class="partner-name">Nevada Orthotics &amp; Prosthetics</div>
+        <div class="partner-type">Prosthetics &amp; Orthotics</div>
       </a>
-      <a href="https://nvlab1.com" target="_blank" rel="noopener"
-         style="display:block;padding:28px 24px;background:#1a2a17;text-decoration:none;border-bottom:2px solid transparent;transition:border-color .2s,background .2s;"
-         onmouseover="this.style.borderBottomColor='#c8a84b';this.style.background='#1f3019'"
-         onmouseout="this.style.borderBottomColor='transparent';this.style.background='#1a2a17'">
-        <div style="font-family:'IBM Plex Sans Condensed',sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:rgba(248,246,240,.9);margin-bottom:4px;">Nevada Limb & Brace</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;color:rgba(248,246,240,.35);letter-spacing:.02em;">Prosthetics & Orthotics</div>
+      <a href="https://nvlab1.com" target="_blank" rel="noopener" class="partner-card">
+        <div class="partner-name">Nevada Limb &amp; Brace</div>
+        <div class="partner-type">Prosthetics &amp; Orthotics</div>
       </a>
     </div>
   </div>
-</div>
+</section>
 
 
 

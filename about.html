@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a0a0a">
-  <title>Gabrielle Lopez, PT, DPT | STRIVE Physical Therapy Las Vegas</title>
-  <meta name="description" content="Meet Gabrielle Lopez, PT, DPT of STRIVE Physical Therapy in Las Vegas — a neurological physical therapist focused on stroke, vestibular, and neuro wellness care.">
+  <title>Dr. Gabrielle PT DPT | STRIVE Physical Therapy Las Vegas</title>
+  <meta name="description" content="Meet Dr. Gabrielle PT DPT of STRIVE Physical Therapy in Las Vegas — a neurological physical therapist focused on stroke, vestibular, and neuro wellness care.">
   <link rel="canonical" href="https://striveptlv.com/about.html">
 
   <script type="application/ld+json">
@@ -303,7 +303,7 @@
     .section-lead { font-size: 15.5px; color: var(--white-dim); line-height: 1.75; max-width: 580px; }
     .section-inner { max-width: 1080px; margin: 0 auto; }
     .btn-primary {
-      background: var(--lime); color: var(--black); border: none;
+      background: var(--lime); color: #ffffff; border: none;
       padding: 14px 32px; border-radius: 2px;
       font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
       cursor: pointer; text-decoration: none; display: inline-block;
@@ -326,60 +326,119 @@
       background-image:
         radial-gradient(ellipse at 80% 0%, rgba(13,110,138,0.05) 0%, transparent 50%),
         radial-gradient(ellipse at 0% 100%, rgba(26,82,118,0.04) 0%, transparent 50%);
-      padding: 88px 5vw 84px;
+      padding: 96px 5vw 88px;
       border-bottom: 1px solid var(--border);
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
     }
-    .hero-top-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--lime); }
+    .hero-top-bar { display: none; }
     .hero-inner {
-      max-width: 1080px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 72px; align-items: center;
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-copy {
+      max-width: 560px;
+      padding-right: 12px;
     }
     .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--lime-pale); border: 1px solid rgba(13,110,138,0.22);
-      padding: 5px 14px; border-radius: 2px;
-      font-size: 10px; color: var(--lime); letter-spacing: 2.5px;
-      text-transform: uppercase; font-weight: 700; margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.82rem;
+      color: var(--lime);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 20px;
     }
-    .hero-eyebrow::before { content: ''; width: 5px; height: 5px; background: var(--lime); }
+    .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--lime); }
     .hero h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(52px, 6vw, 84px);
-      line-height: 0.93; color: var(--white); letter-spacing: 2px; margin-bottom: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(3rem, 5vw, 4.8rem);
+      font-weight: 600;
+      line-height: 0.98;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+      text-transform: uppercase;
     }
     .hero h1 em { color: var(--lime); font-style: normal; }
-    .hero-sub {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 17px; font-weight: 500; color: var(--white-dim);
-      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 22px;
+    .hero-legal {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.42em;
+      line-height: 1.1;
+      letter-spacing: 0.18em;
+      color: var(--white-dim);
     }
-    .hero-desc { font-size: 15.5px; color: var(--white-dim); line-height: 1.78; margin-bottom: 36px; }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; justify-content: center; }
-    .hero-trust { display: flex; gap: 28px; flex-wrap: wrap; }
+    .hero-desc {
+      font-size: 15.5px;
+      color: var(--white-dim);
+      line-height: 1.78;
+      margin-bottom: 34px;
+      max-width: 560px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      justify-content: flex-start;
+    }
+    .hero-trust { display: none; }
     .trust-item { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--white-dim); }
     .trust-dot { width: 4px; height: 4px; background: var(--lime); flex-shrink: 0; }
 
     /* Hero right — credential panel */
-    .hero-cred-panel { background: var(--dark3); border: 1px solid var(--border-mid); border-top: 3px solid var(--lime); }
+    .hero-cred-panel {
+      background: var(--dark3);
+      border: 1px solid var(--border-mid);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(15,30,46,0.08);
+    }
+    .hero-cred-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--lime), #1a5276);
+    }
     .hero-cred-head {
-      padding: 16px 22px;
-      background: var(--lime-pale); border-bottom: 1px solid var(--border);
-      font-family: 'Barlow Condensed', sans-serif; font-size: 10px;
-      letter-spacing: 3px; text-transform: uppercase; color: var(--lime); font-weight: 700;
+      padding: 34px 34px 12px 40px;
+      background: transparent;
+      border-bottom: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.75rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--white);
+      font-weight: 600;
+      line-height: 1.05;
     }
     .cred-row {
       display: flex; align-items: flex-start; gap: 14px;
-      padding: 16px 22px; border-bottom: 1px solid var(--border);
+      padding: 16px 34px 16px 40px; border-bottom: 1px solid var(--border);
     }
     .cred-row:last-child { border-bottom: none; }
     .cred-icon {
-      width: 34px; height: 34px; flex-shrink: 0;
+      width: 32px; height: 32px; flex-shrink: 0;
       border: 1px solid rgba(13,110,138,0.22); background: var(--lime-pale);
       display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--lime);
     }
-    .cred-icon svg { width: 15px; height: 15px; }
+    .cred-icon svg { display: none; }
     .cred-text strong { display: block; font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
     .cred-text span { font-size: 12px; color: var(--white-dim); line-height: 1.5; }
 
@@ -625,8 +684,13 @@
     @media (max-width: 960px) {
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
+      .hero { padding: 84px 5vw 72px; }
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .hero-cred-panel { display: none; }
+      .hero-copy {
+        max-width: none;
+        padding-right: 0;
+      }
       .pt-card { grid-template-columns: 1fr; }
       .pt-left { border-right: none; border-bottom: 1px solid var(--border); }
       .pt-photo-wrap { max-height: 280px; aspect-ratio: unset; }
@@ -638,12 +702,15 @@
       .schedule-modal { padding: 14px; }
       .schedule-dialog { padding: 26px 20px 20px; }
       .schedule-option { min-height: 0; }
-      .hero { padding: 72px 6vw 76px; }
+      .hero { padding: 72px 5vw 56px; }
       .providers-section, .values-section, .cta-section { padding: 72px 5vw; }
       .pt-right { padding: 24px 22px; }
       .spec-grid { grid-template-columns: 1fr 1fr; }
       .values-grid { grid-template-columns: 1fr; }
+      .hero-actions { margin-bottom: 0; }
       .hero-actions a { width: 100%; text-align: center; }
+      .hero-cred-head { padding: 28px 22px 10px 26px; font-size: 1.4rem; }
+      .cred-row { padding: 14px 22px 14px 26px; }
       .cta-actions a { width: 100%; text-align: center; }
       .footer-top { grid-template-columns: 1fr; }
     }
@@ -744,55 +811,40 @@
 <section class="hero">
   <div class="hero-top-bar"></div>
   <div class="hero-inner">
-    <div>
+    <div class="hero-copy">
       <div class="hero-eyebrow anim">STRIVE Physical Therapy · Las Vegas, NV</div>
-      <h1 class="anim d1">MEET<br><em>GABRIELLE</em></h1>
-      <p class="hero-sub anim d1">Neurological rehabilitation specialist</p>
-      <p class="hero-desc anim d2">Gabrielle Lopez, PT, DPT brings deep passion for neurological rehabilitation, thoughtful clinical reasoning, and a belief that recovery does not end at discharge. STRIVE is built around individualized care that meets people where they are and keeps progressing with them.</p>
+      <h1 class="anim d1">MEET<br><em>DR. GABRIELLE</em><span class="hero-legal">PT DPT</span></h1>
+      <p class="hero-desc anim d2">Dr. Gabrielle PT DPT brings deep passion for neurological rehabilitation, thoughtful clinical reasoning, and a belief that recovery does not end at discharge. STRIVE is built around individualized care that meets people where they are and keeps progressing with them.</p>
       <div class="hero-actions anim d2">
-        <a href="#providers" class="btn-primary">Meet Gabrielle</a>
-        <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="btn-outline">Book a Session</a>
-      </div>
-      <div class="hero-trust anim d3">
-        <span class="trust-item"><span class="trust-dot"></span>Doctors of Physical Therapy</span>
-        <span class="trust-item"><span class="trust-dot"></span>Certified Stroke Rehab Specialists</span>
-        <span class="trust-item"><span class="trust-dot"></span>In-Home &amp; Clinic</span>
+        <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="btn-primary">Book Free Consultation Now</a>
       </div>
     </div>
 
     <div class="hero-cred-panel anim d2">
-      <div class="hero-cred-head">Practice at a Glance</div>
+      <div class="hero-cred-head">How Dr. Gabrielle PT DPT Practices</div>
       <div class="cred-row">
-        <div class="cred-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0d6e8a" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
+        <div class="cred-icon">1</div>
         <div class="cred-text">
           <strong>Doctor of Physical Therapy</strong>
           <span>Stroke, vestibular, spinal cord injury, and neuro wellness care with individualized clinical focus.</span>
         </div>
       </div>
       <div class="cred-row">
-        <div class="cred-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0d6e8a" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
+        <div class="cred-icon">2</div>
         <div class="cred-text">
           <strong>In-Home &amp; Small-Group</strong>
           <span>1-on-1 in-home care and structured small-group neuro wellness classes.</span>
         </div>
       </div>
       <div class="cred-row">
-        <div class="cred-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0d6e8a" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
+        <div class="cred-icon">3</div>
         <div class="cred-text">
           <strong>Serving Las Vegas, NV</strong>
           <span>Summerlin, Centennial Hills, Skye Canyon, and surrounding areas.</span>
         </div>
       </div>
       <div class="cred-row">
-        <div class="cred-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0d6e8a" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
+        <div class="cred-icon">4</div>
         <div class="cred-text">
           <strong>1-on-1 Clinical Care</strong>
           <span>Thoughtful treatment shaped around your goals, your environment, and your pace of recovery.</span>
@@ -806,14 +858,14 @@
 <section class="providers-section" id="providers">
   <div class="section-inner">
     <div class="section-label">Your Clinician</div>
-    <h2 class="section-h2 anim d1">MEET<br><em>GABRIELLE</em></h2>
+    <h2 class="section-h2 anim d1">MEET<br><em>DR. GABRIELLE PT DPT</em></h2>
     <p class="section-lead anim d2" style="margin-bottom:52px;">A licensed doctor of physical therapy with a clinical focus on stroke, vestibular, spinal cord injury, and long-term neurological recovery.</p>
 
     <!-- PT 1 -->
     <div class="pt-card anim" style="margin-bottom:3px;">
       <div class="pt-left">
         <div class="pt-photo-wrap">
-          <img src="gabrielle-lopez.jpg" alt="Dr. Gabrielle Lopez, PT, DPT" onload="this.parentElement.classList.add('has-photo')" onerror="this.remove()">
+          <img src="gabrielle-lopez.jpg" alt="Dr. Gabrielle PT DPT" onload="this.parentElement.classList.add('has-photo')" onerror="this.remove()">
           <div class="pt-photo-slot">
             <div class="pt-photo-label">Add image as gabrielle-lopez.jpg</div>
           </div>
@@ -824,8 +876,8 @@
         </div>
         <div class="pt-identity">
           <div class="pt-role-tag tag-lime">Lead Physical Therapist</div>
-          <div class="pt-name">Dr. Gabrielle Lopez</div>
-          <div class="pt-credential">PT, DPT</div>
+          <div class="pt-name">Dr. Gabrielle PT DPT</div>
+          <div class="pt-credential">Physical Therapist</div>
           <div class="pt-contact" style="margin-top:16px;">
             <div class="pt-contact-row">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -843,7 +895,7 @@
         <div class="pt-bio-block">
           <div class="pt-section-tag">Background</div>
           <p class="pt-bio-text">
-            <strong>Gabrielle</strong> is a physical therapist with a passion for restoring function and independence in clients recovering from stroke, spinal cord injury, and other neurological conditions. After earning a Bachelor's in Physical Therapy degree from University of Santo Tomas, she pursued  her Doctorate degree in Physical Therapy from Arcadia University, and is a <strong>Certified Stroke Rehab Specialist</strong>.
+            <strong>Dr. Gabrielle PT DPT</strong> is a physical therapist with a passion for restoring function and independence in clients recovering from stroke, spinal cord injury, and other neurological conditions. After earning a Bachelor's in Physical Therapy degree from University of Santo Tomas, she pursued her Doctorate degree in Physical Therapy from Arcadia University, and is a <strong>Certified Stroke Rehab Specialist</strong>.
             <br><br>
             Her clinical approach is grounded in evidence-based practice — combining task-specific training, intensive repetition, and a genuine belief that the nervous system retains the capacity to adapt at every stage of recovery. She has special interest in <strong>Spinal Cord Injury rehabilitation</strong>, use of <strong>Pilates-based exercises</strong> in Physical Therapy, and <strong>vestibular rehabilitation</strong>.
           </p>
@@ -891,7 +943,7 @@
 
         <div class="pt-quote">
           <p>"Recovery is not a destination — it's a daily practice. My job is to build the environment, the structure, and the belief that makes that practice possible for every client I work with."</p>
-          <cite>— Dr. Gabrielle Lopez, PT, DPT</cite>
+          <cite>— Dr. Gabrielle PT DPT</cite>
         </div>
       </div>
     </div>

@@ -479,21 +479,19 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 7px 16px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.14);
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: white;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
     .hero-badge::before {
       content: '';
-      width: 6px;
-      height: 6px;
+      display: block;
+      width: 32px;
+      height: 1px;
       background: var(--accent);
       flex-shrink: 0;
     }
@@ -539,6 +537,24 @@
       color: white;
       font-weight: 600;
     }
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .hero-pill {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.88);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.86rem;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
     .hero-desc {
       color: rgba(255,255,255,0.74);
       font-size: 17px;
@@ -565,33 +581,57 @@
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.1);
       box-shadow: 0 20px 50px rgba(0,0,0,0.14);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent), #8ea91c);
     }
     .hero-panel-head {
-      padding: 18px 22px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 30px 30px 14px 34px;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      line-height: 1.35;
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 1.05;
       text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(255,255,255,0.03);
+      color: white;
     }
-    .hero-panel-body { padding: 12px 0; }
+    .hero-panel-body {
+      padding: 0 30px 18px 34px;
+      counter-reset: hero-points;
+    }
     .hero-point {
       display: flex;
       gap: 14px;
-      padding: 18px 22px;
+      padding: 16px 0;
       border-bottom: 1px solid rgba(255,255,255,0.08);
+      counter-increment: hero-points;
     }
     .hero-point:last-child { border-bottom: none; }
     .hero-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--accent);
+      width: 32px;
+      height: 32px;
+      background: rgba(183,214,59,0.14);
+      color: var(--accent);
+      border: 1px solid rgba(183,214,59,0.25);
       flex-shrink: 0;
-      margin-top: 7px;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .hero-dot::before {
+      content: counter(hero-points);
     }
     .hero-point strong {
       display: block;
@@ -1663,13 +1703,19 @@
       .newsletter-form-card { padding-left: 22px; padding-right: 22px; }
       .hero-panel { margin-top: 8px; }
       .hero-panel-head {
-        padding: 16px 18px;
-        font-size: 11px;
-        letter-spacing: 2.2px;
+        padding: 24px 22px 12px 26px;
+        font-size: 1.4rem;
+        letter-spacing: 0.03em;
       }
+      .hero-panel-body { padding: 0 22px 16px 26px; }
       .hero-point {
-        padding: 16px 18px;
+        padding: 14px 0;
         gap: 12px;
+      }
+      .hero-dot {
+        width: 28px;
+        height: 28px;
+        font-size: 0.82rem;
       }
       .hero-point span { font-size: 13px; }
       .footer-bottom { justify-content: center; text-align: center; }
@@ -1775,6 +1821,11 @@
         <h1 class="anim d1"><span class="hero-mark">STRIVE</span><em>for a Better Movement</em></h1>
         <p class="hero-sub anim d2">Stroke and Vestibular Physical Therapy</p>
         <p class="hero-area anim d2"><strong>In-home service area:</strong> Las Vegas, Skye Canyon, Centennial Hills, and Summerlin.<br><strong>Saturdays:</strong> Neuro Movement Gym at <a href="https://www.google.com/maps/search/?api=1&amp;query=7035+W+Ann+Rd+Ste+120+Las+Vegas+NV+89130" target="_blank" rel="noopener">Shinkyokushin Karate Las Vegas</a>.</p>
+        <div class="hero-pills anim d2">
+          <span class="hero-pill">1-on-1 In-Home Care</span>
+          <span class="hero-pill">Stroke &amp; Vestibular Rehab</span>
+          <span class="hero-pill">Saturday Movement Gym</span>
+        </div>
         <p class="hero-desc sr-only">Las Vegas's dedicated stroke rehabilitation and vestibular physical therapy practice. Our licensed providers come directly to your home, with no waiting rooms, no divided attention, and no compromises.</p>
         <div class="hero-actions anim d3">
           <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="btn-primary">Book an Appointment</a>
@@ -1965,7 +2016,7 @@
       <div class="therapist-spotlight-card anim">
         <div class="therapist-spotlight-aside">
           <div>
-            <div class="therapist-badge">Gabrielle Lopez, PT, DPT</div>
+            <div class="therapist-badge">Dr. Gabrielle PT DPT</div>
             <h3>Thoughtful neurological care with real clinical depth</h3>
             <p>Every session is built around listening carefully, identifying what matters most, and helping progress feel relevant to daily life.</p>
           </div>
@@ -1977,7 +2028,7 @@
         </div>
 
         <div class="therapist-spotlight-main">
-          <p>Gabrielle is a physical therapist with a strong commitment to restoring function and independence for people recovering from stroke, spinal cord injury, vestibular conditions, and other neurological diagnoses. Her care style balances evidence-based treatment with genuine attention to the individual in front of her.</p>
+          <p>Dr. Gabrielle PT DPT is a physical therapist with a strong commitment to restoring function and independence for people recovering from stroke, spinal cord injury, vestibular conditions, and other neurological diagnoses. Her care style balances evidence-based treatment with genuine attention to the individual in front of her.</p>
           <p>She completed her Bachelor of Science in Physical Therapy at the University of Santo Tomas, earned her Doctor of Physical Therapy degree from Arcadia University, and became a Certified Stroke Rehabilitation Specialist. She also brings special interest in vestibular rehabilitation, community mobility, and Pilates-informed movement strategies inside physical therapy.</p>
 
           <div class="therapist-feature-grid">
@@ -1996,7 +2047,7 @@
           </div>
 
           <div class="therapist-spotlight-actions">
-            <a href="about.html" class="btn-primary">View Gabrielle's Profile</a>
+            <a href="about.html" class="btn-primary">View Dr. Gabrielle PT DPT's Profile</a>
             <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="btn-outline">Book a Consultation</a>
           </div>
         </div>
@@ -2014,7 +2065,7 @@
           <div class="provider-head">
             <div class="provider-avatar">PT</div>
             <div class="provider-meta">
-              <h3>Dr. Gabrielle Lopez, PT, DPT</h3>
+              <h3>Dr. Gabrielle PT DPT</h3>
               <span>Doctor of Physical Therapy · Las Vegas, NV</span>
             </div>
           </div>
@@ -2022,7 +2073,7 @@
             <div class="cert-badges">
               <span class="cert-badge">CSRS — Certified Stroke Rehabilitation Specialist</span>
             </div>
-            <p class="provider-bio">A doctoral-level physical therapist with a clinical focus on stroke rehabilitation and neurological recovery. With over a decade of experience, Dr. Gabrielle Lopez has worked extensively with patients recovering from stroke, TBI, and complex neurological conditions, bringing compassionate and evidence-based care directly into the home.</p>
+            <p class="provider-bio">A doctoral-level physical therapist with a clinical focus on stroke rehabilitation and neurological recovery. With over a decade of experience, Dr. Gabrielle PT DPT has worked extensively with patients recovering from stroke, TBI, and complex neurological conditions, bringing compassionate and evidence-based care directly into the home.</p>
             <div class="exp-tag">10 Years Clinical Experience</div>
           </div>
         </div>
