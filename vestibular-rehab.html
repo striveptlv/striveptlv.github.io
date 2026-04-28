@@ -425,6 +425,80 @@
       letter-spacing: 0.4px;
       color: var(--ink);
     }
+    .access-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 6px;
+    }
+    .access-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .access-form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .access-form label {
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .access-form input,
+    .access-form textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--mist);
+      color: var(--text);
+      font: inherit;
+      font-size: 15px;
+      padding: 13px 14px;
+      border-radius: 2px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .access-form input:focus,
+    .access-form textarea:focus {
+      outline: none;
+      border-color: var(--accent-deep);
+      background: white;
+    }
+    .access-form textarea {
+      min-height: 136px;
+      resize: vertical;
+      line-height: 1.65;
+    }
+    .access-form button {
+      width: 100%;
+      margin-top: 4px;
+    }
+    .access-form-note {
+      margin-top: 6px;
+      color: var(--text-soft);
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+    .access-form-status {
+      display: none;
+      margin-top: 4px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .access-form-status.success {
+      background: rgba(102, 168, 120, 0.12);
+      border-color: rgba(102, 168, 120, 0.25);
+      color: #22552f;
+    }
+    .access-form-status.error {
+      background: rgba(167, 76, 76, 0.1);
+      border-color: rgba(167, 76, 76, 0.24);
+      color: #7a2323;
+    }
 
     .btn-primary,
     .btn-outline,
@@ -739,6 +813,7 @@
     .overview-section,
     .conditions-section,
     .booking-section { background: var(--paper); }
+    .tool-section { background: white; }
     .problem-section,
     .process-section { background: white; }
     .cta-section {
@@ -1004,6 +1079,89 @@
       border-color: #cab9ff;
       background: rgba(202,185,255,0.08);
     }
+    .tool-section .section-lead { max-width: 520px; }
+    #vestibular-tool .portal-layout {
+      margin-top: 20px;
+      align-items: start;
+    }
+    #vestibular-tool .portal-card {
+      align-self: start;
+      margin-top: -92px;
+    }
+    .tool-points {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 28px 0 30px;
+    }
+    .tool-point {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .tool-point::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent-deep);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .tool-point span {
+      color: var(--text-mid);
+      font-size: 14px;
+      line-height: 1.72;
+    }
+    .tool-link-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .tool-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 22px;
+      max-width: 560px;
+    }
+    .tool-info-card {
+      background: linear-gradient(180deg, #ffffff 0%, #faf8fd 100%);
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--accent-deep);
+      padding: 16px 16px 14px;
+      box-shadow: 0 8px 24px rgba(33,27,49,0.05);
+    }
+    .tool-info-card strong {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .tool-info-card span {
+      display: block;
+      color: var(--text-mid);
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+    .tool-preview-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+    }
+    .tool-preview-label::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--warm);
+    }
 
     .conditions-grid { grid-template-columns: repeat(3, 1fr); margin-top: 44px; }
     .condition-card {
@@ -1210,7 +1368,9 @@
       .overview-highlights,
       .conditions-grid,
       .steps-grid,
-      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-top,
+      .tool-info-grid { grid-template-columns: 1fr 1fr; }
+      #vestibular-tool .portal-card { margin-top: 0; }
       .schedule-options { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
@@ -1225,11 +1385,15 @@
       .conditions-grid,
       .steps-grid,
       .footer-top,
-      .comparison-grid { grid-template-columns: 1fr; }
+      .comparison-grid,
+      .access-form-row,
+      .tool-info-grid { grid-template-columns: 1fr; }
       .hero-actions,
-      .cta-actions { flex-direction: column; align-items: stretch; }
+      .cta-actions,
+      .tool-link-row { flex-direction: column; align-items: stretch; }
       .hero-actions a,
       .cta-actions a,
+      .tool-link-row a,
       .jane-btn,
       .booking-cta .btn-primary { width: 100%; }
       .booking-card-head,
@@ -1329,6 +1493,35 @@
         <strong>Open JaneApp</strong>
       </a>
     </div>
+  </div>
+</div>
+
+<div class="schedule-modal" id="accessRequestModal" aria-hidden="true">
+  <div class="schedule-dialog" role="dialog" aria-modal="true" aria-labelledby="accessRequestTitle">
+    <button type="button" class="schedule-close" aria-label="Close access request form" data-access-close>&times;</button>
+    <div class="schedule-kicker">Patient App Access</div>
+    <h2 id="accessRequestTitle">Request Access</h2>
+    <p>Use this form to request access to the STRIVE Vestibular App. Submissions go directly to our contact inbox for review.</p>
+    <form class="access-form" id="access-request-form">
+      <div class="access-form-row">
+        <div class="access-form-field">
+          <label for="access-name">Name</label>
+          <input id="access-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="access-form-field">
+          <label for="access-email">Email</label>
+          <input id="access-email" name="email" type="email" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="access-form-field">
+        <label for="access-reason">Reason for Requesting Access</label>
+        <textarea id="access-reason" name="reason" placeholder="I usually get dizzy with head turns" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Submit Request</button>
+      <div class="access-form-status success" id="access-request-success">Thanks. Your access request has been sent.</div>
+      <div class="access-form-status error" id="access-request-error">Something went wrong. Please try again or contact STRIVE directly.</div>
+      <div class="access-form-note">Please include enough detail for us to understand whether you are a current patient and why you need access.</div>
+    </form>
   </div>
 </div>
 
@@ -1608,6 +1801,73 @@
   </div>
 </section>
 
+<section class="tool-section" id="vestibular-tool">
+  <div class="section-inner">
+    <div class="section-label">Active Patients Only</div>
+    <h2>STRIVE <em>Vestibular App</em></h2>
+    <p class="section-lead">Limited access for active STRIVE patients using assigned smooth pursuit and gaze stability exercises.</p>
+
+    <div class="portal-layout">
+      <div class="portal-copy anim">
+        <p>Open your prescribed vestibular exercise tool for home use on iPad or laptop.</p>
+        <div class="tool-points">
+          <div class="tool-point"><span>Active patients only</span></div>
+          <div class="tool-point"><span>Smooth pursuit and gaze stability access</span></div>
+          <div class="tool-point"><span>Use only as assigned in your plan of care</span></div>
+        </div>
+        <div class="tool-link-row">
+          <a href="/vo" class="btn-primary">Open Patient App</a>
+          <button type="button" class="btn-outline-dark" data-access-trigger>Request Access</button>
+        </div>
+        <div class="tool-info-grid">
+          <div class="tool-info-card">
+            <strong>Who It Is For</strong>
+            <span>Active STRIVE vestibular patients with this app included in their current home program.</span>
+          </div>
+          <div class="tool-info-card">
+            <strong>When to Use It</strong>
+            <span>Use during assigned home exercise sessions on your iPad or laptop.</span>
+          </div>
+          <div class="tool-info-card">
+            <strong>What It Includes</strong>
+            <span>Smooth pursuit and gaze stability exercises selected for your plan of care.</span>
+          </div>
+          <div class="tool-info-card">
+            <strong>Need Access?</strong>
+            <span>If you are not an active patient, request a consultation first to see if this is appropriate.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portal-card anim d1">
+        <div class="tool-preview-label">Patient Access</div>
+        <div class="portal-screen">
+          <div class="portal-topbar">
+            <div class="portal-dots"><span></span><span></span><span></span></div>
+            <div class="portal-url">striveptlv.com/vo</div>
+          </div>
+          <div class="portal-body">
+            <div class="portal-title">STRIVE Vestibular App</div>
+            <div class="portal-sub">Limited patient access for prescribed vestibular oculomotor exercises.</div>
+            <div class="portal-module">
+              <strong>Smooth Pursuit</strong>
+              <span>Assigned visual tracking exercises.</span>
+            </div>
+            <div class="portal-module">
+              <strong>Gaze Stability</strong>
+              <span>Assigned head-motion and visual stability work.</span>
+            </div>
+            <div class="portal-module">
+              <strong>Plan of Care Access</strong>
+              <span>Use only if it is part of your current STRIVE program.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -1658,11 +1918,23 @@
 <script>
   const scheduleModal = document.getElementById('scheduleModal');
   const scheduleTriggers = document.querySelectorAll('[data-schedule-trigger]');
+  const accessRequestModal = document.getElementById('accessRequestModal');
+  const accessRequestTriggers = document.querySelectorAll('[data-access-trigger]');
+  const accessRequestForm = document.getElementById('access-request-form');
+  const accessRequestSuccess = document.getElementById('access-request-success');
+  const accessRequestError = document.getElementById('access-request-error');
 
   function setScheduleModalState(isOpen) {
     if (!scheduleModal) return;
     scheduleModal.classList.toggle('open', isOpen);
     scheduleModal.setAttribute('aria-hidden', String(!isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  function setAccessRequestModalState(isOpen) {
+    if (!accessRequestModal) return;
+    accessRequestModal.classList.toggle('open', isOpen);
+    accessRequestModal.setAttribute('aria-hidden', String(!isOpen));
     document.body.style.overflow = isOpen ? 'hidden' : '';
   }
 
@@ -1675,14 +1947,37 @@
     setScheduleModalState(false);
   }
 
+  function openAccessRequestModal(event) {
+    if (event) event.preventDefault();
+    if (accessRequestSuccess) accessRequestSuccess.style.display = 'none';
+    if (accessRequestError) accessRequestError.style.display = 'none';
+    setAccessRequestModalState(true);
+  }
+
+  function closeAccessRequestModal() {
+    setAccessRequestModalState(false);
+  }
+
   scheduleTriggers.forEach((trigger) => {
     trigger.addEventListener('click', openScheduleModal);
+  });
+
+  accessRequestTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', openAccessRequestModal);
   });
 
   if (scheduleModal) {
     scheduleModal.addEventListener('click', (event) => {
       if (event.target === scheduleModal || event.target.hasAttribute('data-schedule-close')) {
         closeScheduleModal();
+      }
+    });
+  }
+
+  if (accessRequestModal) {
+    accessRequestModal.addEventListener('click', (event) => {
+      if (event.target === accessRequestModal || event.target.hasAttribute('data-access-close')) {
+        closeAccessRequestModal();
       }
     });
   }
@@ -1708,8 +2003,60 @@
     if (event.key === 'Escape') {
       toggleMenu(false);
       closeScheduleModal();
+      closeAccessRequestModal();
     }
   });
+
+  if (accessRequestForm) {
+    accessRequestForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      if (accessRequestSuccess) accessRequestSuccess.style.display = 'none';
+      if (accessRequestError) accessRequestError.style.display = 'none';
+
+      const submitButton = accessRequestForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton ? submitButton.textContent : '';
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+      }
+
+      const payload = {
+        name: accessRequestForm.name.value,
+        email: accessRequestForm.email.value,
+        reason: accessRequestForm.reason.value,
+        subject: 'Vestibular App Access Request',
+        message:
+          'Vestibular App access request\n\n' +
+          'Name: ' + accessRequestForm.name.value + '\n' +
+          'Email: ' + accessRequestForm.email.value + '\n' +
+          'Reason for requesting access: ' + accessRequestForm.reason.value
+      };
+
+      try {
+        const response = await fetch('https://formspree.io/f/mlgoanwr', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) throw new Error('Form submission failed');
+
+        accessRequestForm.reset();
+        if (accessRequestSuccess) accessRequestSuccess.style.display = 'block';
+      } catch (error) {
+        if (accessRequestError) accessRequestError.style.display = 'block';
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      }
+    });
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
