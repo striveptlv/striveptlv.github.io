@@ -91,7 +91,7 @@
       letter-spacing: 1px !important;
     }
     .nav-book:hover { background: #934725 !important; }
-    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown { position: relative; display: flex; align-items: center; justify-content: center; }
     .nav-dropdown > a { display: flex; align-items: center; gap: 5px; padding: 24px 0; }
     .nav-dropdown > a::after {
       content: "";
@@ -105,6 +105,9 @@
     }
     .nav-dropdown:hover > a::after { transform: rotate(180deg); border-top-color: var(--accent); }
     .dropdown-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
       opacity: 0;
       pointer-events: none;
       position: absolute;
@@ -792,56 +795,74 @@
       <div class="logo-sub">Physical Therapy · Las Vegas</div>
     </div>
   </a>
-  <div class="nav-links">
+    <div class="nav-links">
+    <a href="/about.html">About</a>
     <div class="nav-dropdown">
-      <a href="index.html#services">Services</a>
+      <a href="/#services">Services</a>
       <div class="dropdown-menu">
-        <a href="wellness.html">Wellness Classes</a>
-        <a href="stroke-rehab.html">Stroke Rehab</a>
-        <a href="sci.html">SCI Rehab</a>
-        <a href="vestibular-rehab.html">Vestibular Rehab</a>
+        <a href="/wellness.html">Wellness Classes</a>
+        <a href="/stroke-rehab.html">Stroke Rehab</a>
+        <a href="/sci.html">SCI Rehab</a>
+        <a href="/vestibular-rehab.html">Vestibular Rehab</a>
         <a href="/fnd.html">FND Rehab</a>
       </div>
     </div>
-    <a href="about.html">About</a>
-    <a href="#scheduling" data-schedule-trigger>Scheduling</a>
+    <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener">Scheduling</a>
     <div class="nav-dropdown">
-      <a href="#">Patient Resource</a>
+      <a href="#">Resources</a>
       <div class="dropdown-menu">
-        <a href="insights/">Blog</a>
-        <a href="https://open.spotify.com/show/2nbFBV45QpM37SAdHtobgF?si=Gns3Ft-7SgCNdGbmnOcpag" target="_blank" rel="noopener">Podcast</a>
-        <a href="https://striveptlv.com/moneymanagement/">Online Bill Pay</a>
-        <a href="https://striveptlv.com/patient-resource/">Home Modifications</a>
+        <a href="/insights">Blog</a>
+        <a href="/insights/user-index.html">Articles</a>
       </div>
     </div>
-    <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="nav-book">Book Now</a>
-  </div>
-  <div class="nav-toggle" onclick="toggleMenu()">
+    <div class="nav-dropdown">
+      <a href="#">Clinicians</a>
+      <div class="dropdown-menu">
+        <a href="/moneymanagement/">OT Bank App</a>
+        <a href="/vo">Vestibular App</a>
+      </div>
+    </div>
+    <a href="#scheduling" data-schedule-trigger class="nav-book">Book Now</a>
+  </div><div class="nav-toggle" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" onclick="toggleMenu(false)">Home</a>
-  <a href="about.html" onclick="toggleMenu(false)">About</a>
-  <a href="/fnd.html" onclick="toggleMenu(false)">FND Rehab</a>
-  <a href="stroke-rehab.html" onclick="toggleMenu(false)">Stroke Rehab</a>
-  <a href="sci.html" onclick="toggleMenu(false)">SCI Rehab</a>
-  <a href="vestibular-rehab.html" onclick="toggleMenu(false)">Vestibular Rehab</a>
-  <a href="wellness.html" onclick="toggleMenu(false)">Wellness Classes</a>
-  <a href="#scheduling" data-schedule-trigger onclick="toggleMenu(false)">Scheduling</a>
+  <a href="/" onclick="toggleMenu(false)">Home</a>
+  <a href="/about.html" onclick="toggleMenu(false)">About</a>
   <div class="mob-dropdown">
-    <div class="mob-dropdown-toggle" onclick="toggleMobileDropdown('patientResourceItems', this.querySelector('.mob-arrow'))">
-      Patient Resource <span class="mob-arrow">›</span>
+    <div class="mob-dropdown-toggle" onclick="toggleMobileDropdown('servicesItems', this.querySelector('.mob-arrow'))">
+      Services <span class="mob-arrow">›</span>
     </div>
-    <div class="mob-dropdown-items" id="patientResourceItems">
-      <a href="insights/" onclick="toggleMenu(false)">Blog</a>
-      <a href="https://open.spotify.com/show/2nbFBV45QpM37SAdHtobgF?si=Gns3Ft-7SgCNdGbmnOcpag" target="_blank" rel="noopener">Podcast</a>
-      <a href="https://striveptlv.com/moneymanagement/" onclick="toggleMenu(false)">Online Bill Pay</a>
-      <a href="https://striveptlv.com/patient-resource/" onclick="toggleMenu(false)">Home Modifications</a>
+    <div class="mob-dropdown-items" id="servicesItems">
+      <a href="/wellness.html" onclick="toggleMenu(false)">Wellness Classes</a>
+      <a href="/stroke-rehab.html" onclick="toggleMenu(false)">Stroke Rehab</a>
+      <a href="/sci.html" onclick="toggleMenu(false)">SCI Rehab</a>
+      <a href="/vestibular-rehab.html" onclick="toggleMenu(false)">Vestibular Rehab</a>
+      <a href="/fnd.html" onclick="toggleMenu(false)">FND Rehab</a>
     </div>
   </div>
-  <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" class="mob-book" onclick="toggleMenu(false)">Book an Appointment</a>
+  <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" onclick="toggleMenu(false)">Scheduling</a>
+  <div class="mob-dropdown">
+    <div class="mob-dropdown-toggle" onclick="toggleMobileDropdown('patientResourceItems', this.querySelector('.mob-arrow'))">
+      Resources <span class="mob-arrow">›</span>
+    </div>
+    <div class="mob-dropdown-items" id="patientResourceItems">
+      <a href="/insights" onclick="toggleMenu(false)">Blog</a>
+      <a href="/insights/user-index.html" onclick="toggleMenu(false)">Articles</a>
+    </div>
+  </div>
+  <div class="mob-dropdown">
+    <div class="mob-dropdown-toggle" onclick="toggleMobileDropdown('cliniciansItems', this.querySelector('.mob-arrow'))">
+      Clinicians <span class="mob-arrow">›</span>
+    </div>
+    <div class="mob-dropdown-items" id="cliniciansItems">
+      <a href="/moneymanagement/" onclick="toggleMenu(false)">OT Bank App</a>
+      <a href="/vo" onclick="toggleMenu(false)">Vestibular App</a>
+    </div>
+  </div>
+  <a href="#scheduling" data-schedule-trigger class="mob-book" onclick="toggleMenu(false)">Book Now</a>
 </div>
 
 <div class="schedule-modal" id="scheduleModal" aria-hidden="true">

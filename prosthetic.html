@@ -22,6 +22,11 @@
       --yellow:      #c8a84b;
       --hero-bg:     #1e2d1b;
       --section-pad: clamp(56px, 7vw, 100px);
+      --panel:       var(--warm-white);
+      --line:        var(--rule);
+      --line-strong: rgba(26,34,24,0.18);
+      --text-mid:    var(--muted);
+      --accent-deep: var(--accent);
     }
 
     html { scroll-behavior: smooth; }
@@ -95,7 +100,7 @@
       border-radius: 2px;
     }
     .nav-book:hover { background: var(--accent) !important; }
-    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown { position: relative; display: flex; align-items: center; justify-content: center; }
     .nav-dropdown > a { display: flex; align-items: center; gap: 5px; padding: 24px 0; }
     .nav-dropdown > a::after {
       content: '';
@@ -109,6 +114,9 @@
     }
     .nav-dropdown:hover > a::after { transform: rotate(180deg); }
     .dropdown-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
       opacity: 0;
       pointer-events: none;
       position: absolute;
@@ -173,6 +181,133 @@
       margin-top: 24px;
       border: none !important;
     }
+
+    .schedule-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 240;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(18,23,21,0.44);
+      backdrop-filter: blur(8px);
+    }
+    .schedule-modal.open { display: flex; }
+    .schedule-dialog {
+      position: relative;
+      width: min(100%, 520px);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 28px 64px rgba(18,23,21,0.18);
+      padding: 30px 28px 26px;
+    }
+    .schedule-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      font: inherit;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .schedule-close:hover { background: rgba(18,23,21,0.03); }
+    .schedule-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      margin-bottom: 12px;
+    }
+    .schedule-dialog h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(34px, 5vw, 42px);
+      line-height: 0.98;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .schedule-dialog p {
+      color: var(--text-mid);
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 22px;
+      max-width: 420px;
+    }
+    .schedule-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .schedule-option {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      min-height: 190px;
+      padding: 22px 20px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      background: #fbfaf6;
+      transition: border-color 0.2s, transform 0.15s, background 0.2s;
+    }
+    .schedule-option > div {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .schedule-option:hover {
+      border-color: var(--line-strong);
+      background: #ffffff;
+      transform: translateY(-2px);
+    }
+    .schedule-option-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+    }
+    .schedule-option h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px;
+      line-height: 0.98;
+      color: var(--ink);
+      margin: 10px 0 8px;
+    }
+    .schedule-option p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-mid);
+    }
+    .schedule-option strong {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .schedule-contact {
+      margin-top: -8px;
+      margin-bottom: 22px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      color: var(--ink);
+    }
+
     .mob-dropdown { border-bottom: 1px solid var(--rule); }
     .mob-dropdown-toggle {
       display: flex;
@@ -567,56 +702,103 @@
       <div class="logo-sub">Physical Therapy · Las Vegas</div>
     </div>
   </a>
-  <div class="nav-links">
+    <div class="nav-links">
+    <a href="/about.html">About</a>
     <div class="nav-dropdown">
-      <a href="index.html#services">Services</a>
+      <a href="/#services">Services</a>
       <div class="dropdown-menu">
         <a href="/wellness.html">Wellness Classes</a>
-        <a href="stroke-rehab.html">Stroke Rehab</a>
-        <a href="sci.html">SCI Rehab</a>
-        <a href="vestibular-rehab.html">Vestibular Rehab</a>
+        <a href="/stroke-rehab.html">Stroke Rehab</a>
+        <a href="/sci.html">SCI Rehab</a>
+        <a href="/vestibular-rehab.html">Vestibular Rehab</a>
         <a href="/fnd.html">FND Rehab</a>
       </div>
     </div>
-    <a href="about.html">About</a>
-    <a href="#scheduling">Scheduling</a>
+    <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener">Scheduling</a>
     <div class="nav-dropdown">
-      <a href="#">Patient Resource</a>
+      <a href="#">Resources</a>
       <div class="dropdown-menu">
         <a href="/insights">Blog</a>
-        <a href="https://open.spotify.com/show/2nbFBV45QpM37SAdHtobgF?si=Gns3Ft-7SgCNdGbmnOcpag" target="_blank" rel="noopener">Podcast</a>
-        <a href="https://striveptlv.com/moneymanagement/">Online Bill Pay</a>
-        <a href="https://striveptlv.com/patient-resource/">Home Modifications</a>
+        <a href="/insights/user-index.html">Articles</a>
       </div>
     </div>
-    <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="nav-book">Book Now</a>
-  </div>
-  <div class="nav-toggle" onclick="toggleMenu()">
+    <div class="nav-dropdown">
+      <a href="#">Clinicians</a>
+      <div class="dropdown-menu">
+        <a href="/moneymanagement/">OT Bank App</a>
+        <a href="/vo">Vestibular App</a>
+      </div>
+    </div>
+    <a href="#scheduling" data-schedule-trigger class="nav-book">Book Now</a>
+  </div><div class="nav-toggle" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" onclick="toggleMenu(false)">Home</a>
-  <a href="about.html" onclick="toggleMenu(false)">About</a>
-  <a href="/fnd.html" onclick="toggleMenu(false)">FND Rehab</a>
-  <a href="stroke-rehab.html" onclick="toggleMenu(false)">Stroke Rehab</a>
-  <a href="sci.html" onclick="toggleMenu(false)">SCI Rehab</a>
-  <a href="vestibular-rehab.html" onclick="toggleMenu(false)">Vestibular Rehab</a>
-  <a href="/wellness.html" onclick="toggleMenu(false)">Wellness Classes</a>
-  <a href="#scheduling" onclick="toggleMenu(false)">Scheduling</a>
+  <a href="/" onclick="toggleMenu(false)">Home</a>
+  <a href="/about.html" onclick="toggleMenu(false)">About</a>
+  <div class="mob-dropdown">
+    <div class="mob-dropdown-toggle" onclick="toggleMobileDropdown('servicesItems', this.querySelector('.mob-arrow'))">
+      Services <span class="mob-arrow">›</span>
+    </div>
+    <div class="mob-dropdown-items" id="servicesItems">
+      <a href="/wellness.html" onclick="toggleMenu(false)">Wellness Classes</a>
+      <a href="/stroke-rehab.html" onclick="toggleMenu(false)">Stroke Rehab</a>
+      <a href="/sci.html" onclick="toggleMenu(false)">SCI Rehab</a>
+      <a href="/vestibular-rehab.html" onclick="toggleMenu(false)">Vestibular Rehab</a>
+      <a href="/fnd.html" onclick="toggleMenu(false)">FND Rehab</a>
+    </div>
+  </div>
+  <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" onclick="toggleMenu(false)">Scheduling</a>
   <div class="mob-dropdown">
     <div class="mob-dropdown-toggle" onclick="toggleMobileDropdown('patientResourceItems', this.querySelector('.mob-arrow'))">
-      Patient Resource <span class="mob-arrow">›</span>
+      Resources <span class="mob-arrow">›</span>
     </div>
     <div class="mob-dropdown-items" id="patientResourceItems">
       <a href="/insights" onclick="toggleMenu(false)">Blog</a>
-      <a href="https://open.spotify.com/show/2nbFBV45QpM37SAdHtobgF?si=Gns3Ft-7SgCNdGbmnOcpag" target="_blank" rel="noopener">Podcast</a>
-      <a href="https://striveptlv.com/moneymanagement/" onclick="toggleMenu(false)">Online Bill Pay</a>
-      <a href="https://striveptlv.com/patient-resource/" onclick="toggleMenu(false)">Home Modifications</a>
+      <a href="/insights/user-index.html" onclick="toggleMenu(false)">Articles</a>
     </div>
   </div>
-  <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" class="mob-book" onclick="toggleMenu(false)">Book an Appointment</a>
+  <div class="mob-dropdown">
+    <div class="mob-dropdown-toggle" onclick="toggleMobileDropdown('cliniciansItems', this.querySelector('.mob-arrow'))">
+      Clinicians <span class="mob-arrow">›</span>
+    </div>
+    <div class="mob-dropdown-items" id="cliniciansItems">
+      <a href="/moneymanagement/" onclick="toggleMenu(false)">OT Bank App</a>
+      <a href="/vo" onclick="toggleMenu(false)">Vestibular App</a>
+    </div>
+  </div>
+  <a href="#scheduling" data-schedule-trigger class="mob-book" onclick="toggleMenu(false)">Book Now</a>
+</div>
+
+
+<div class="schedule-modal" id="scheduleModal" aria-hidden="true">
+  <div class="schedule-dialog" role="dialog" aria-modal="true" aria-labelledby="scheduleTitle">
+    <button type="button" class="schedule-close" aria-label="Close scheduling options" data-schedule-close>&times;</button>
+    <div class="schedule-kicker">Scheduling</div>
+    <h2 id="scheduleTitle">Are you a new client or a returning client?</h2>
+    <p>Choose the option that matches where you are in the process, and we’ll send you to the right scheduling page.</p>
+    <div class="schedule-contact">Call/Text: 702 381 4197</div>
+    <div class="schedule-options">
+      <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="schedule-option">
+        <div>
+          <div class="schedule-option-label">First Visit</div>
+          <h3>New Client</h3>
+          <p>Start with your free consultation so we can learn about your needs and confirm the best next step.</p>
+        </div>
+        <strong>Open Calendly</strong>
+      </a>
+      <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" class="schedule-option">
+        <div>
+          <div class="schedule-option-label">Ongoing Care</div>
+          <h3>Returning Client</h3>
+          <p>Use JaneApp if you are already established with STRIVE and need to book a follow-up visit.</p>
+        </div>
+        <strong>Open JaneApp</strong>
+      </a>
+    </div>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -818,23 +1000,59 @@
 </footer>
 
 <script>
+  const scheduleModal = document.getElementById('scheduleModal');
+  const scheduleTriggers = document.querySelectorAll('[data-schedule-trigger]');
+
+  function setScheduleModalState(isOpen) {
+    if (!scheduleModal) return;
+    scheduleModal.classList.toggle('open', isOpen);
+    scheduleModal.setAttribute('aria-hidden', String(!isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  function openScheduleModal(event) {
+    if (event) event.preventDefault();
+    setScheduleModalState(true);
+  }
+
+  function closeScheduleModal() {
+    setScheduleModalState(false);
+  }
+
+  scheduleTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', openScheduleModal);
+  });
+
+  if (scheduleModal) {
+    scheduleModal.addEventListener('click', (event) => {
+      if (event.target === scheduleModal || event.target.hasAttribute('data-schedule-close')) {
+        closeScheduleModal();
+      }
+    });
+  }
+
   function toggleMenu(forceState) {
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (!mobileMenu) return;
-    const shouldOpen = typeof forceState === 'boolean' ? forceState : !mobileMenu.classList.contains('open');
-    mobileMenu.classList.toggle('open', shouldOpen);
-    document.body.style.overflow = shouldOpen ? 'hidden' : '';
+    const menu = document.getElementById('mobileMenu');
+    const shouldOpen = typeof forceState === 'boolean'
+      ? forceState
+      : !menu.classList.contains('open');
+    menu.classList.toggle('open', shouldOpen);
   }
 
-  function toggleMobileDropdown(menuId, arrowEl) {
-    const menu = document.getElementById(menuId);
-    if (!menu) return;
-    const isOpen = menu.classList.toggle('open');
-    if (arrowEl) arrowEl.classList.toggle('open', isOpen);
+  function toggleMobileDropdown(itemsId, arrowEl) {
+    document.getElementById(itemsId).classList.toggle('open');
+    if (arrowEl) arrowEl.classList.toggle('open');
   }
 
-  document.querySelectorAll('#mobileMenu a').forEach((link) => {
-    link.addEventListener('click', () => toggleMenu(false));
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 960) toggleMenu(false);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      toggleMenu(false);
+      closeScheduleModal();
+    }
   });
 </script>
 
