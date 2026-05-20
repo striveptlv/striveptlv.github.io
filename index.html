@@ -902,7 +902,7 @@
     .tools-section .section-lead { color: rgba(255,255,255,0.68); }
     .tools-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
       margin-top: 44px;
     }
@@ -913,6 +913,8 @@
       padding: 30px 28px;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
       transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
     .tool-card::before {
@@ -976,6 +978,8 @@
       margin-top: 7px;
     }
     .tool-card .btn-outline {
+      margin-top: auto;
+      width: fit-content;
       color: #000000;
       background: var(--accent);
       border-color: var(--accent);
@@ -2436,24 +2440,36 @@
 
   <section class="section tools-section" id="clinician-tools">
     <div class="section-inner">
-      <h2 class="section-title">Free patient tools — built by a neuro PT, for your practice</h2>
-      <p class="section-lead">We create digital tools your patients can use between sessions. Both apps are completely free to use and share.</p>
+      <h2 class="section-title">Patient tools — built by a neuro PT, for your practice</h2>
+      <p class="section-lead">We create digital tools your patients can use between sessions, both in the home and between visits.</p>
 
       <div class="tools-grid">
         <div class="tool-card anim">
-          <div class="tool-tag">Free Web App · OT + Rehab</div>
-          <h3>Bill Pay Simulator and Money Management Platform</h3>
+          <div class="tool-tag">Web App · OT + Rehab</div>
+          <h3>STRIVE Money Rehab</h3>
           <p>A simple, structured app to help patients with neurological conditions manage bills, track spending, and practice real-world money tasks — especially useful after stroke, TBI, or when cognitive skills are rebuilding.</p>
           <div class="tool-features">
             <div class="tool-feature">Designed for patients with cognitive or ADL challenges</div>
             <div class="tool-feature">Useful alongside OT and PT in the home</div>
-            <div class="tool-feature">No login, no cost — share the link directly</div>
+            <div class="tool-feature">Simple to share directly with patients and families</div>
           </div>
           <a href="https://striveptlv.com/moneymanagement/" target="_blank" rel="noopener" class="btn-outline">Open the App →</a>
         </div>
 
+        <div class="tool-card anim">
+          <div class="tool-tag">Phone App · AAC</div>
+          <h3>Strive Talk</h3>
+          <p>An AAC phone app built to support people with aphasia and other communication challenges who need a clearer, more accessible way to express needs, choices, and everyday language. App Store release coming soon.</p>
+          <div class="tool-features">
+            <div class="tool-feature">Built with aphasia-friendly language support in mind</div>
+            <div class="tool-feature">Designed for practical use on a phone in daily life</div>
+            <div class="tool-feature">Useful for patients, caregivers, and rehab teams at home and in the community</div>
+          </div>
+          <a href="https://talk.striveptlv.com" target="_blank" rel="noopener" class="btn-outline">Open the App →</a>
+        </div>
+
         <div class="tool-card anim d1">
-          <div class="tool-tag">Free Web App · Vestibular</div>
+          <div class="tool-tag">Web App · Vestibular</div>
           <h3>Vestibular Home Exercise Platform</h3>
           <p>A patient-facing vestibular exercise app your patients can access at home between sessions. Supports compliance and gives patients a clear, guided structure for their HEP.</p>
           <div class="tool-features">
