@@ -38,7 +38,12 @@ permalink: /talk/
   --line: rgba(220,233,247,0.12);
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
 
 body {
   font-family: 'Manrope', sans-serif;
@@ -51,6 +56,10 @@ body {
   overflow-x: hidden;
   line-height: 1.65;
   padding-top: 70px;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  overscroll-behavior-x: none;
 }
 
 body::before {
@@ -661,6 +670,84 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
 @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
 .fade-up { animation: fadeUp 0.75s ease forwards; }
 .d1{animation-delay:0.05s;opacity:0} .d2{animation-delay:0.18s;opacity:0} .d3{animation-delay:0.32s;opacity:0} .d4{animation-delay:0.48s;opacity:0}
+
+@media (max-width: 760px), (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  body {
+    overflow-x: clip;
+    touch-action: pan-y;
+  }
+  .fade-up,
+  .d1,
+  .d2,
+  .d3,
+  .d4,
+  .pain-item,
+  .feat-item,
+  .who-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition-delay: 0ms !important;
+  }
+  .mockup-wrap {
+    animation: none !important;
+    width: min(88vw, 315px);
+    margin-top: 2.5rem;
+  }
+  .mockup-glow {
+    display: none;
+  }
+  .hero h1,
+  .section-title,
+  .pain .section-label {
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto !important;
+  }
+  h1 {
+    font-size: 3.05rem;
+  }
+  .section-title,
+  .features .section-title {
+    font-size: 2.45rem;
+  }
+  .pain .section-label {
+    font-size: 4.2rem;
+  }
+  .pain .section-title {
+    font-size: 1.7rem;
+  }
+  .price-lead .price-amount {
+    font-size: 4.7rem;
+  }
+  .hero,
+  .features,
+  .who,
+  .pain,
+  .testimonials,
+  .pricing,
+  .early-access,
+  .final-cta,
+  footer {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+  .btn-primary,
+  .btn-ghost,
+  .nav-cta {
+    transform: none !important;
+    max-width: 100%;
+  }
+  .cta-group {
+    gap: 0.75rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -1121,6 +1208,8 @@ if (accessForm) {
   });
 }
 
+const motionOff = window.matchMedia('(max-width: 760px), (prefers-reduced-motion: reduce)').matches;
+
 // Scroll-reveal with staggered delay per section
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -1134,6 +1223,11 @@ const observer = new IntersectionObserver((entries) => {
 // Stagger children within each list
 function staggerObserve(selector, baseDelay = 0, step = 80) {
   document.querySelectorAll(selector).forEach((el, i) => {
+    if (motionOff) {
+      el.classList.add('visible');
+      el.style.transitionDelay = '0ms';
+      return;
+    }
     el.style.transitionDelay = (baseDelay + i * step) + 'ms';
     observer.observe(el);
   });
@@ -1160,6 +1254,7 @@ function toggleMobileDropdown(itemsId, arrowEl) {
 const scaleTargets = document.querySelectorAll('.hero h1, .features .section-title, .who .section-title, .pain .section-label, .testimonials .section-title');
 
 function onScroll() {
+  if (motionOff) return;
   scaleTargets.forEach(el => {
     const rect = el.getBoundingClientRect();
     const vh = window.innerHeight;
@@ -1177,14 +1272,23 @@ function onScroll() {
 
 // Set initial state
 scaleTargets.forEach(el => {
+  if (motionOff) {
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+    el.style.transition = 'none';
+    el.style.willChange = 'auto';
+    return;
+  }
   el.style.opacity = '0';
   el.style.transform = 'scale(2)';
   el.style.transition = 'transform 0.1s linear, opacity 0.1s linear';
   el.style.willChange = 'transform, opacity';
 });
 
-window.addEventListener('scroll', onScroll, { passive: true });
-onScroll();
+if (!motionOff) {
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
 </script>
 </body>
 </html>
