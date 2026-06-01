@@ -127,7 +127,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Barlow+Condensed:wght@500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -303,6 +303,14 @@
       text-align: center;
       border-radius: 2px;
       margin-top: 24px;
+      border: none !important;
+    }
+    .mob-text {
+      background: var(--accent);
+      color: var(--ink) !important;
+      text-align: center;
+      border-radius: 2px;
+      margin-top: 12px;
       border: none !important;
     }
     .mob-dropdown { border-bottom: 1px solid var(--line); }
@@ -896,14 +904,86 @@
       font-size: 14.5px;
       line-height: 1.75;
     }
-    .tools-section { background: var(--ink); color: white; }
-    .tools-section .section-title { color: white; }
-    .tools-section .section-lead { color: rgba(255,255,255,0.68); }
+    .tools-section {
+      background:
+        radial-gradient(ellipse 80% 42% at 50% -8%, rgba(27,79,168,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 42% 34% at 92% 18%, rgba(245,130,10,0.10) 0%, transparent 55%),
+        #f6fafc;
+      color: #1a2e44;
+      overflow: hidden;
+      position: relative;
+    }
+    .tools-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(27,79,168,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(27,79,168,.055) 1px, transparent 1px);
+      background-size: 68px 68px;
+      mask-image: radial-gradient(ellipse 85% 80% at 50% 42%, black 20%, transparent 100%);
+      pointer-events: none;
+    }
+    .tools-section::after {
+      content: '';
+      position: absolute;
+      top: -18%;
+      right: -12%;
+      width: min(46vw, 520px);
+      height: min(46vw, 520px);
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, rgba(37,99,235,.13) 0%, rgba(245,130,10,.12) 45%, transparent 72%);
+      pointer-events: none;
+    }
+    .tools-section .section-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .tools-section .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(38px, 5.4vw, 72px);
+      font-weight: 900;
+      line-height: 0.86;
+      color: #132338;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      max-width: 860px;
+    }
+    .tools-section .section-title .independence-word {
+      color: #f5820a;
+    }
+    .tools-section .section-lead {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(17px, 1.55vw, 20px);
+      font-weight: 400;
+      line-height: 1.58;
+      color: rgba(26,46,68,0.74);
+      max-width: 700px;
+    }
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
       margin-top: 44px;
+    }
+    .independence-summary {
+      max-width: 820px;
+      margin-top: 26px;
+    }
+    .independence-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .independence-clinician-note {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #f5820a;
+      margin-bottom: 18px;
     }
     .tool-card {
       background: #f6f2eb;
@@ -987,6 +1067,28 @@
       border-color: #f0a26d;
       color: #000000;
       background: #f0a26d;
+    }
+    .independence-summary .btn-outline {
+      color: #132338;
+      background: #f5820a;
+      border-color: #f5820a;
+      border-radius: 6px;
+    }
+    .independence-summary .btn-outline:hover {
+      border-color: #f0a26d;
+      color: #132338;
+      background: #f0a26d;
+    }
+    .independence-summary .btn-demo {
+      color: #132338;
+      border-color: rgba(19,35,56,0.22);
+      background: rgba(255,255,255,0.74);
+      border-radius: 6px;
+    }
+    .independence-summary .btn-demo:hover {
+      color: #132338;
+      border-color: rgba(245,130,10,0.42);
+      background: #ffffff;
     }
 
     .feature-section {
@@ -2032,6 +2134,7 @@
       .hero-inner,
       .feature-layout,
       .tools-grid,
+      .independence-summary,
       .therapist-spotlight-card,
       .providers-grid,
       .care-options-grid,
@@ -2083,6 +2186,9 @@
       .section,
       .newsletter-section,
       footer { padding-left: 5vw; padding-right: 5vw; }
+      .tools-section .section-title span {
+        display: block;
+      }
       .services-grid,
       .tools-grid,
       .care-options-grid,
@@ -2208,6 +2314,7 @@
   </div>
   <a href="/contact.html" onclick="toggleMenu(false)">Contact</a>
   <a href="#scheduling" data-schedule-trigger class="mob-book" onclick="toggleMenu(false)">Book Now</a>
+  <a href="sms:+17023814197" class="mob-text" onclick="toggleMenu(false)">Text Us</a>
 </div>
 
 <div class="schedule-modal" id="scheduleModal" aria-hidden="true">
@@ -2388,91 +2495,6 @@
           <p>One-on-one rehab after hip, knee, shoulder, or other joint replacement surgery, focused on strength, mobility, gait, balance, stairs, transfers, and confident return to daily life.</p>
         </a>
       </div>
-    </div>
-  </section>
-
-  <section class="section medicare-section" id="medicare-updates">
-    <div class="section-inner">
-      <h2 class="section-title">Medicare Part B Updates</h2>
-      <p class="section-lead">If you are hoping to use Medicare Part B with STRIVE, you can leave your information below and we will reach out when we begin accepting Medicare Part B patients.</p>
-
-      <div class="medicare-wrap">
-        <div class="medicare-copy-card anim">
-          <div class="medicare-kicker">Coming Update</div>
-          <h3>Stay In The Loop For Medicare Part B</h3>
-          <p>We are currently private pay, and Medicare Part B enrollment is still pending. This list is for patients and families who want a direct update once Medicare Part B scheduling becomes available.</p>
-          <div class="medicare-points">
-            <div class="medicare-point">For prospective patients who prefer to wait for Medicare Part B access.</div>
-            <div class="medicare-point">A simple update request, not a commitment and not a guarantee of immediate availability.</div>
-            <div class="medicare-point">We will contact you when that access pathway officially opens.</div>
-          </div>
-        </div>
-
-        <div class="medicare-form-card anim d1">
-          <h3>Request Medicare Part B Update</h3>
-          <p class="medicare-form-subtitle">Leave your contact information and we will notify you when STRIVE begins accepting Medicare Part B patients.</p>
-          <form id="medicare-form">
-            <div class="form-row">
-              <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="Jane" required></div>
-              <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith" required></div>
-            </div>
-            <div class="form-row">
-              <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(702) 555-0000"></div>
-              <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="jane@email.com" required></div>
-            </div>
-            <button class="form-submit" type="submit">Join Medicare Update List &rarr;</button>
-            <p class="form-foot-note">We will only use this information to contact you about Medicare Part B availability.</p>
-            <div class="medicare-success" id="medicare-success">Thank you. We received your request and will update you when Medicare Part B scheduling opens.</div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section tools-section" id="clinician-tools">
-    <div class="section-inner">
-      <h2 class="section-title">Patient tools — built by a neuro PT, for your practice</h2>
-      <p class="section-lead">We create digital tools your patients can use between sessions, both in the home and between visits.</p>
-
-      <div class="tools-grid">
-        <div class="tool-card anim">
-          <div class="tool-tag">Web App · OT + Rehab</div>
-          <h3>STRIVE Money Rehab</h3>
-          <p>A simple, structured app to help patients with neurological conditions manage bills, track spending, and practice real-world money tasks — especially useful after stroke, TBI, or when cognitive skills are rebuilding.</p>
-          <div class="tool-features">
-            <div class="tool-feature">Designed for patients with cognitive or ADL challenges</div>
-            <div class="tool-feature">Useful alongside OT and PT in the home</div>
-            <div class="tool-feature">Simple to share directly with patients and families</div>
-          </div>
-          <a href="https://striveptlv.com/moneymanagement/" target="_blank" rel="noopener" class="btn-outline">Open the App →</a>
-        </div>
-
-        <div class="tool-card anim">
-          <div class="tool-tag">Phone App · AAC</div>
-          <h3>Strive Talk</h3>
-          <p>An AAC phone app built to support people with aphasia and other communication challenges who need a clearer, more accessible way to express needs, choices, and everyday language. App Store release coming soon.</p>
-          <div class="tool-features">
-            <div class="tool-feature">Built with aphasia-friendly language support in mind</div>
-            <div class="tool-feature">Designed for practical use on a phone in daily life</div>
-            <div class="tool-feature">Useful for patients, caregivers, and rehab teams at home and in the community</div>
-          </div>
-          <a href="/talk" class="btn-outline">Try Strive Talk for Free →</a>
-        </div>
-
-        <div class="tool-card anim d1">
-          <div class="tool-tag">Web App · Vestibular</div>
-          <h3>Vestibular Home Exercise Platform</h3>
-          <p>A patient-facing vestibular exercise app your patients can access at home between sessions. Supports compliance and gives patients a clear, guided structure for their HEP.</p>
-          <div class="tool-features">
-            <div class="tool-feature">Designed around common vestibular rehab protocols</div>
-            <div class="tool-feature">Easy to share with any patient — no account needed</div>
-            <div class="tool-feature">Complements your in-clinic or in-home vestibular plan</div>
-          </div>
-          <a href="/vo" class="btn-outline">Open the App →</a>
-        </div>
-      </div>
-
-      <p style="margin-top:28px;font-size:14px;color:rgba(206,222,255,0.62);max-width:700px;">Referring a patient for in-home neuro or vestibular PT in Las Vegas? <a href="/contact.html" style="color:var(--accent-deep);text-decoration:none;">Contact us</a> — no formal referral is required in Nevada, but we're happy to coordinate with your team.</p>
     </div>
   </section>
 
@@ -2810,6 +2832,59 @@
             <button class="form-submit" type="submit">Send Message &rarr;</button>
             <p class="form-foot-note">We typically respond within one business day. Do not include any sensitive information.</p>
             <div class="contact-success" id="contact-success">Thank you. We received your message and will contact you within one business day.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tools-section" id="clinician-tools">
+    <div class="section-inner">
+      <h2 class="section-title"><span>STRIVE</span> <span class="independence-word">Independence</span></h2>
+      <p class="section-lead">A practical rehab platform for teaching online banking, transportation, and independent living skills, with Strive Talk included as a mobile AAC app for communication support.</p>
+
+      <div class="independence-summary">
+        <div class="independence-clinician-note">Built for clinicians, therapy teams, and home carryover</div>
+        <div class="independence-actions">
+          <a href="/independence.html" class="btn-outline anim">Explore STRIVE Independence &rarr;</a>
+          <a href="/talk" class="btn-outline btn-demo anim">Strive Talk &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section medicare-section" id="medicare-updates">
+    <div class="section-inner">
+      <h2 class="section-title">Medicare Part B Updates</h2>
+      <p class="section-lead">If you are hoping to use Medicare Part B with STRIVE, you can leave your information below and we will reach out when we begin accepting Medicare Part B patients.</p>
+
+      <div class="medicare-wrap">
+        <div class="medicare-copy-card anim">
+          <div class="medicare-kicker">Coming Update</div>
+          <h3>Stay In The Loop For Medicare Part B</h3>
+          <p>We are currently private pay, and Medicare Part B enrollment is still pending. This list is for patients and families who want a direct update once Medicare Part B scheduling becomes available.</p>
+          <div class="medicare-points">
+            <div class="medicare-point">For prospective patients who prefer to wait for Medicare Part B access.</div>
+            <div class="medicare-point">A simple update request, not a commitment and not a guarantee of immediate availability.</div>
+            <div class="medicare-point">We will contact you when that access pathway officially opens.</div>
+          </div>
+        </div>
+
+        <div class="medicare-form-card anim d1">
+          <h3>Request Medicare Part B Update</h3>
+          <p class="medicare-form-subtitle">Leave your contact information and we will notify you when STRIVE begins accepting Medicare Part B patients.</p>
+          <form id="medicare-form">
+            <div class="form-row">
+              <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="Jane" required></div>
+              <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(702) 555-0000"></div>
+              <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="jane@email.com" required></div>
+            </div>
+            <button class="form-submit" type="submit">Join Medicare Update List &rarr;</button>
+            <p class="form-foot-note">We will only use this information to contact you about Medicare Part B availability.</p>
+            <div class="medicare-success" id="medicare-success">Thank you. We received your request and will update you when Medicare Part B scheduling opens.</div>
           </form>
         </div>
       </div>
