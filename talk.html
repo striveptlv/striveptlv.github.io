@@ -59,14 +59,21 @@
           "price": "0",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "description": "Free early access before App Store launch"
+          "description": "Free clinician access by request"
+        },
+        {
+          "@type": "Offer",
+          "price": "107.88",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/PreOrder",
+          "description": "$8.99 per month, billed annually at $107.88 per year"
         },
         {
           "@type": "Offer",
           "price": "14.99",
           "priceCurrency": "USD",
           "availability": "https://schema.org/PreOrder",
-          "description": "Regular monthly plan after launch"
+          "description": "$14.99 regular monthly plan, billed monthly"
         }
       ]
     },
@@ -425,8 +432,8 @@ h1 em::after {
   padding: 0;
   list-style: none;
   color: var(--electric);
-  font-size: 0.98rem;
-  font-weight: 700;
+  font-size: 0.82rem;
+  font-weight: 600;
 }
 .hero-points li {
   display: flex;
@@ -743,36 +750,43 @@ h1 em::after {
 .test-author strong { color: var(--off-white); font-weight: 500; }
 
 /* PRICING */
-.pricing { padding: 7rem 6%; max-width: 780px; margin: 0 auto; text-align: center; }
-.price-card {
-  background: var(--panel); border: 1px solid var(--line);
-  border-radius: 24px; padding: 3.5rem 2.5rem; margin-top: 3rem; position: relative; overflow: hidden;
-  box-shadow: 0 24px 70px rgba(29,29,31,0.08);
-  backdrop-filter: blur(16px);
-}
-.price-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--line); }
+.pricing { padding: 7rem 6%; max-width: 980px; margin: 0 auto; text-align: center; }
+.price-layout { margin-top: 4rem; }
 .price-badge { display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(230,138,77,0.12); border: 1px solid rgba(230,138,77,0.32); color: var(--orange); font-size: 0.95rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.42rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; }
-.price-name { font-family: 'Sora', sans-serif; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; text-transform: none; color: var(--white); margin-bottom: 0.5rem; }
-.price-lead { margin: 1.6rem 0 1.8rem; }
-.price-lead .price-amount { font-size: clamp(4.6rem, 11vw, 7.2rem); }
-.price-lead .price-period { font-size: clamp(1.25rem, 2vw, 1.6rem); color: var(--off-white); }
-.price-note { color: var(--muted); font-size: 1.05rem; margin-top: 0.45rem; }
-.price-options { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin: 0.9rem 0 1.7rem; }
-.price-option { border: 0; border-radius: 0; padding: 0; background: transparent; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0.32rem; color: var(--muted); line-height: 1.45; max-width: 100%; }
+.price-name { font-family: 'Sora', sans-serif; font-size: 0.9rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--electric); margin-bottom: 1.5rem; }
+.price-options { max-width: 700px; margin: 0 auto 2.5rem; }
+.price-option { color: var(--muted); line-height: 1.45; }
+.price-option.featured { padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
+.price-option.secondary {
+  padding: 1rem 0 0;
+  opacity: 0.62;
+}
+.price-option-label { color: var(--electric); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
 .price-amount { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 4.4rem; color: var(--white); letter-spacing: -0.05em; line-height: 1; }
 .price-dollar { font-size: 0.42em; vertical-align: 0.55em; letter-spacing: -0.02em; }
 .price-cents { font-size: 0.24em; color: var(--muted); vertical-align: baseline; letter-spacing: -0.01em; }
-.price-option .price-amount { font-size: 1rem; letter-spacing: -0.01em; color: var(--muted); line-height: 1.45; }
-.price-option .price-cents { font-size: 1em; color: var(--muted); }
+.price-option .price-amount { font-size: clamp(5.5rem, 16vw, 10rem); color: var(--white); }
+.price-option .price-cents { font-size: 0.28em; }
+.price-option.secondary .price-option-label { margin-bottom: 0.25rem; font-size: 0.72rem; }
+.price-option.secondary .price-amount { font-size: 1.15rem; color: var(--muted); letter-spacing: -0.02em; }
+.price-option.secondary .price-cents { font-size: 1em; color: inherit; }
+.price-option.secondary .price-dollar { font-size: 1em; vertical-align: baseline; }
+.price-option.secondary .price-period,
+.price-option.secondary .price-billing { display: inline; font-size: 0.82rem; color: var(--muted); }
+.price-option.secondary .price-period::after { content: ' · '; }
 .price-period { font-size: 1.16rem; color: var(--muted); font-weight: 400; margin-bottom: 0.5rem; }
-.price-option .price-period { margin-bottom: 0; font-size: 1rem; line-height: 1.45; }
-.price-trial { display: inline-block; background: rgba(230,138,77,0.12); border: 1px solid rgba(230,138,77,0.28); color: var(--off-white); font-size: 1rem; font-weight: 700; padding: 0.48rem 1.1rem; border-radius: 100px; margin: 0.8rem 0 2rem; }
-.price-compare { color: var(--off-white); font-size: 1rem; font-weight: 700; margin: 0.2rem 0 2rem; }
-.price-features { list-style: none; text-align: left; margin-bottom: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
-@media (max-width:760px) { .price-features { grid-template-columns: 1fr; } }
+.price-option .price-period { margin: 0.45rem 0 0; font-size: 0.98rem; line-height: 1.45; }
+.price-option .price-billing { color: var(--off-white); font-size: 0.92rem; font-weight: 700; margin-top: 0.4rem; }
+.price-trial { color: var(--electric); font-size: 1rem; font-weight: 800; margin-bottom: 1.2rem; }
+.price-compare { color: var(--muted); font-size: 0.92rem; font-weight: 700; margin: 0 0 3rem; }
+.price-features { list-style: none; text-align: left; margin: 0 auto 3rem; padding: 2.5rem 0; max-width: 760px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem 2rem; }
+@media (max-width:760px) {
+  .price-options,
+  .price-features { grid-template-columns: 1fr; }
+}
 .price-features li { font-size: 1.08rem; color: var(--off-white); display: flex; align-items: center; gap: 0.5rem; }
 .price-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
-.price-guarantee { font-size: 1.08rem; color: var(--off-white); margin-top: 1.2rem; font-weight: 700; }
+.price-guarantee { font-size: 0.92rem; color: var(--muted); margin-top: 1.2rem; font-weight: 700; }
 
 /* EARLY ACCESS */
 .early-access {
@@ -821,7 +835,7 @@ h1 em::after {
 }
 .access-close:hover { color: var(--white); background: rgba(255,255,255,0.1); }
 .access-card::before {
-  content: 'Request FREE Access';
+  content: 'Free Clinician Access';
   display: inline-flex;
   align-items: center;
   color: var(--orange);
@@ -1052,7 +1066,7 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
   .price-compare,
   .access-proof,
   .faq-answer {
-    font-size: 1rem;
+    font-size: 0.82rem;
   }
   .hero,
   .features,
@@ -1083,38 +1097,17 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">
+  <a href="/talk" class="nav-logo" aria-label="STRIVE Talk home">
     <img src="/logo.png" alt="STRIVE PT Logo" class="logo-img">
     <div>
       <div class="logo-text">STRIVE</div>
-      <div class="logo-sub">Physical Therapy · Las Vegas</div>
+      <div class="logo-sub">Talk Communication App</div>
     </div>
   </a>
   <div class="nav-links">
-    <a href="/about.html">About</a>
-    <div class="nav-dropdown">
-      <a href="/#services">Services</a>
-      <div class="dropdown-menu">
-        <a href="/wellness.html">Wellness Classes</a>
-        <a href="/stroke.html">Stroke Rehab</a>
-        <a href="/sci.html">SCI Physical Therapy</a>
-        <a href="/vestibular-rehab.html">Vestibular Rehab</a>
-        <a href="/fnd.html">FND Rehab</a>
-      </div>
-    </div>
-    <a href="/private.html">Why STRIVE?</a>
-    <div class="nav-dropdown">
-      <a href="#">Resources</a>
-      <div class="dropdown-menu">
-        <a href="/talk">STRIVE TALK</a>
-        <a href="/independence.html">STRIVE INDEPENDENCE</a>
-        <a href="https://open.spotify.com/show/2nbFBV45QpM37SAdHtobgF?si=Gns3Ft-7SgCNdGbmnOcpag" target="_blank" rel="noopener">PODCAST</a>
-        <a href="/insights">ARTICLES</a>
-        <a href="/money.html">STRIVE MONEY REHAB</a>
-      </div>
-    </div>
+    <a href="/independence.html">STRIVE Independence</a>
+    <a href="https://striveptlv.com/">Physical Therapy</a>
     <a href="/contact.html">Contact</a>
-    <a href="#early-access" class="nav-cta">Request FREE Access</a>
   </div>
   <div class="nav-toggle" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -1122,35 +1115,9 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/" onclick="toggleMenu(false)">Home</a>
-  <a href="/about.html" onclick="toggleMenu(false)">About</a>
-  <div class="mob-dropdown">
-    <div class="mob-dropdown-toggle" onclick="toggleMobileDropdown('servicesItems', this.querySelector('.mob-arrow'))">
-      Services <span class="mob-arrow">›</span>
-    </div>
-    <div class="mob-dropdown-items" id="servicesItems">
-      <a href="/wellness.html" onclick="toggleMenu(false)">Wellness Classes</a>
-      <a href="/stroke.html" onclick="toggleMenu(false)">Stroke Rehab</a>
-      <a href="/sci.html" onclick="toggleMenu(false)">SCI Physical Therapy</a>
-      <a href="/vestibular-rehab.html" onclick="toggleMenu(false)">Vestibular Rehab</a>
-      <a href="/fnd.html" onclick="toggleMenu(false)">FND Rehab</a>
-    </div>
-  </div>
-  <a href="/private.html" onclick="toggleMenu(false)">Why STRIVE?</a>
-  <div class="mob-dropdown">
-    <div class="mob-dropdown-toggle" onclick="toggleMobileDropdown('patientResourceItems', this.querySelector('.mob-arrow'))">
-      Resources <span class="mob-arrow">›</span>
-    </div>
-    <div class="mob-dropdown-items" id="patientResourceItems">
-      <a href="/talk" onclick="toggleMenu(false)">STRIVE TALK</a>
-      <a href="/independence.html" onclick="toggleMenu(false)">STRIVE INDEPENDENCE</a>
-      <a href="https://open.spotify.com/show/2nbFBV45QpM37SAdHtobgF?si=Gns3Ft-7SgCNdGbmnOcpag" target="_blank" rel="noopener">PODCAST</a>
-      <a href="/insights" onclick="toggleMenu(false)">ARTICLES</a>
-      <a href="/money.html" onclick="toggleMenu(false)">STRIVE MONEY REHAB</a>
-    </div>
-  </div>
+  <a href="/independence.html" onclick="toggleMenu(false)">STRIVE Independence</a>
+  <a href="https://striveptlv.com/" onclick="toggleMenu(false)">Physical Therapy</a>
   <a href="/contact.html" onclick="toggleMenu(false)">Contact</a>
-  <a href="#early-access" class="mob-cta" onclick="toggleMenu(false)">Request FREE Access</a>
 </div>
 
 <!-- HERO -->
@@ -1159,7 +1126,7 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
   <h1 class="fade-up d2"><span class="hero-strive">STRIVE</span><span class="hero-talk">TALK</span></h1>
   <p class="hero-sub fade-up d3">Turn any smartphone into a customizable tap-to-speak communication aid. Made for people with aphasia, stroke, ALS, and other speech challenges.</p>
   <div class="cta-group fade-up d3">
-    <a href="#early-access" class="btn-primary">Request FREE Access →</a>
+    <a href="#early-access" class="btn-primary">Request Free Clinician Access →</a>
     <a href="#features" class="btn-ghost">See How It Works</a>
   </div>
   <ul class="hero-points fade-up d3">
@@ -1365,26 +1332,25 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <h2 class="section-title">Simple, transparent pricing</h2>
-  <p class="section-sub" style="margin:0 auto;">Early access is currently free. Paid plans begin after launch.</p>
-  <div class="price-card">
-    <div class="price-badge">✦ Request FREE Access</div>
+  <p class="section-sub" style="margin:0 auto;">Choose annual savings or flexible monthly billing. Clinicians can request free access.</p>
+  <div class="price-layout">
     <div class="price-name">Strive Talk</div>
-    <div class="price-lead">
-      <div class="price-amount"><span class="price-dollar">$</span>14<span class="price-cents">.99</span></div>
-      <div class="price-period">/ month</div>
-      <div class="price-note">regular monthly plan after launch</div>
-    </div>
     <div class="price-options" aria-label="Subscription pricing options">
-      <div class="price-option">
-        <div class="price-amount"><span class="price-dollar">$</span>14<span class="price-cents">.99</span></div>
-        <div class="price-period">/ month</div>
+      <div class="price-option featured">
+        <div class="price-option-label">Best Value · Annual</div>
+        <div class="price-amount"><span class="price-dollar">$</span>8<span class="price-cents">.99</span></div>
+        <div class="price-period">per month</div>
+        <div class="price-billing">Billed annually at $107.88/year</div>
       </div>
-      <div class="price-option">
-        <div class="price-period">$59.99 annual fee</div>
+      <div class="price-option secondary">
+        <div class="price-option-label">Regular · Monthly</div>
+        <div class="price-amount"><span class="price-dollar">$</span>14<span class="price-cents">.99</span></div>
+        <div class="price-period">per month</div>
+        <div class="price-billing">Billed monthly</div>
       </div>
     </div>
     <div class="price-compare">vs. $3,000-$8,000 for many traditional devices</div>
-    <div class="price-trial">Current early access is free before App Store launch</div>
+    <div class="price-trial">Clinicians can request free access</div>
     <ul class="price-features">
       <li>Unlimited communication cards</li>
       <li>Words &amp; phrases libraries</li>
@@ -1395,7 +1361,7 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
       <li>Accidental-delete protection</li>
       <li>Privacy-minded setup</li>
     </ul>
-    <a href="#early-access" class="btn-primary" style="font-size:1.05rem;padding:1rem 3rem;">Request FREE Access →</a>
+    <a href="#early-access" class="btn-primary" style="font-size:1.05rem;padding:1rem 3rem;">Request Free Clinician Access →</a>
     <p class="price-guarantee">Cancel anytime.</p>
   </div>
 </section>
@@ -1404,8 +1370,8 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
 <section class="early-access" id="early-access">
   <div class="access-card" role="dialog" aria-labelledby="access-title">
     <a class="access-close" href="#pricing" aria-label="Close access form">&times;</a>
-    <h2 class="section-title" id="access-title">Request free early access</h2>
-    <p class="access-intro">Early access is currently free before the App Store launch. Share a few details so we can improve STRIVE Talk for the people who need it most.</p>
+    <h2 class="section-title" id="access-title">Request free clinician access</h2>
+    <p class="access-intro">Clinicians can request free access to evaluate STRIVE Talk with the people they serve. Share a few details to get started.</p>
     <form class="access-form" id="access-form" action="https://formspree.io/f/xdajgera" method="POST">
       <div class="access-field">
         <label for="access-name">Name</label>
@@ -1420,11 +1386,13 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
         <input id="access-mobile" name="mobile" type="tel" autocomplete="tel" placeholder="(555) 555-5555" required>
       </div>
       <div class="access-field">
-        <label for="access-reason">Reason for trying STRIVE Talk</label>
+        <label for="access-reason">Clinical role</label>
         <select id="access-reason" name="reason_for_trying_app" required>
-          <option value="">Select one</option>
-          <option value="self_or_family_member">For myself or a family member</option>
-          <option value="clinician">Clinician</option>
+          <option value="">Select your role</option>
+          <option value="speech_language_pathologist">Speech-language pathologist</option>
+          <option value="occupational_therapist">Occupational therapist</option>
+          <option value="physical_therapist">Physical therapist</option>
+          <option value="other_clinician">Other clinician</option>
         </select>
       </div>
       <label class="access-consent" for="access-consent">
@@ -1432,10 +1400,10 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
         <span>I agree to receive calls and emails from STRIVE Talk to improve the app.</span>
       </label>
       <div class="access-row" id="access-row">
-        <button class="btn-primary" id="access-submit" type="submit">Request FREE Access →</button>
+        <button class="btn-primary" id="access-submit" type="submit">Request Free Clinician Access →</button>
       </div>
       <input type="hidden" name="source" value="STRIVE Talk landing page">
-      <p class="access-note" id="access-note">Early access and STRIVE Talk launch updates.</p>
+      <p class="access-note" id="access-note">Free clinician access and STRIVE Talk launch updates.</p>
       <div class="access-status success" id="access-success">You're in. STRIVE Talk is unlocked on this browser.</div>
       <div class="access-status error" id="access-error">Something did not go through. Please try again in a moment.</div>
     </form>
@@ -1476,8 +1444,8 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
 <!-- FINAL CTA -->
 <section class="final-cta">
   <h2>Give your patients<br>their voice back.</h2>
-  <p>Strive Talk takes two minutes to set up and works on the phone they already own. Start early access today and follow along as the App Store version gets closer.</p>
-  <a href="#early-access" class="btn-primary" style="font-size:1.1rem;padding:1.1rem 3rem;margin-bottom:1.2rem;">Request FREE Access →</a>
+  <p>Strive Talk takes two minutes to set up and works on the phone patients already own. Clinicians can request free access to evaluate it in practice.</p>
+  <a href="#early-access" class="btn-primary" style="font-size:1.1rem;padding:1.1rem 3rem;margin-bottom:1.2rem;">Request Free Clinician Access →</a>
   <br>
 </section>
 </main>
@@ -1565,7 +1533,7 @@ if (accessForm) {
       accessError.style.display = 'block';
     } finally {
       accessSubmit.disabled = false;
-      accessSubmit.textContent = 'Request FREE Access →';
+      accessSubmit.textContent = 'Request Free Clinician Access →';
     }
   });
 }
