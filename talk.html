@@ -3,19 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STRIVE Talk — Communication App for Stroke, Aphasia &amp; ALS | No Hardware Needed</title>
-<meta name="description" content="Turn any smartphone into a communication device for stroke survivors, aphasia, and ALS. Works one-handed, offline, and costs a fraction of traditional AAC hardware.">
+<title>AAC Communication App for Aphasia &amp; Stroke | STRIVE Talk</title>
+<meta name="description" content="STRIVE Talk is an affordable AAC communication app for people with aphasia, stroke, ALS, and speech challenges. Use tap-to-speak cards on any smartphone.">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://striveptlv.com/talk/">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="STRIVE Physical Therapy">
-<meta property="og:title" content="STRIVE Talk — Communication App for Stroke, Aphasia &amp; ALS">
-<meta property="og:description" content="Turn any smartphone into a communication device for stroke survivors, aphasia, and ALS.">
+<meta property="og:title" content="AAC Communication App for Aphasia &amp; Stroke | STRIVE Talk">
+<meta property="og:description" content="Affordable tap-to-speak AAC communication cards for people with aphasia, stroke, ALS, and other speech challenges.">
 <meta property="og:url" content="https://striveptlv.com/talk/">
 <meta property="og:image" content="https://striveptlv.com/talkbanner.png">
+<meta property="og:image:width" content="1536">
+<meta property="og:image:height" content="1024">
 <meta property="og:image:alt" content="STRIVE Talk communication app for stroke survivors, aphasia, and ALS">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="STRIVE Talk — Communication App for Stroke, Aphasia &amp; ALS">
-<meta name="twitter:description" content="Turn any smartphone into a communication device for stroke survivors, aphasia, and ALS.">
+<meta name="twitter:title" content="AAC Communication App for Aphasia &amp; Stroke | STRIVE Talk">
+<meta name="twitter:description" content="Affordable tap-to-speak AAC communication cards for people with aphasia, stroke, ALS, and other speech challenges.">
 <meta name="twitter:image" content="https://striveptlv.com/talkbanner.png">
 <meta name="twitter:image:alt" content="STRIVE Talk communication app for stroke survivors, aphasia, and ALS">
 <script type="application/ld+json">
@@ -26,20 +30,45 @@
       "@type": "SoftwareApplication",
       "@id": "https://striveptlv.com/talk/#app",
       "name": "STRIVE Talk",
+      "url": "https://striveptlv.com/talk/",
+      "image": "https://striveptlv.com/talkbanner.png",
       "applicationCategory": "HealthApplication",
-      "operatingSystem": "iOS, Android, Web",
-      "description": "A communication app for stroke survivors, aphasia, ALS, and people who need a voice that goes where they go.",
-      "offers": {
-        "@type": "Offer",
-        "price": "59.99",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/PreOrder"
+      "applicationSubCategory": "Augmentative and Alternative Communication",
+      "operatingSystem": "Any operating system with a modern web browser",
+      "description": "An affordable AAC communication app with customizable tap-to-speak cards for people with aphasia, stroke, ALS, and other speech challenges.",
+      "featureList": [
+        "Customizable tap-to-speak communication cards",
+        "Single-hand operation",
+        "Offline support after setup",
+        "Adjustable voice pitch and speed",
+        "English and Spanish interface"
+      ],
+      "audience": {
+        "@type": "PeopleAudience",
+        "suggestedMinAge": "13",
+        "audienceType": "People with speech or communication challenges, caregivers, and speech-language pathologists"
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "3"
-      }
+      "creator": {
+        "@type": "Organization",
+        "name": "STRIVE Physical Therapy",
+        "url": "https://striveptlv.com/"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "Free early access before App Store launch"
+        },
+        {
+          "@type": "Offer",
+          "price": "14.99",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/PreOrder",
+          "description": "Regular monthly plan after launch"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
@@ -371,20 +400,6 @@ h1 em::after {
   max-width: 680px; margin: 0 auto 2.5rem; font-weight: 400;
 }
 .hero-sub strong { color: var(--ink); font-weight: 700; }
-.hero-cost {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  color: var(--off-white);
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.04);
-  border-radius: 999px;
-  padding: 0.55rem 1rem;
-  font-size: 1rem;
-  font-weight: 700;
-  margin: -0.6rem auto 1.5rem;
-}
 .hero-pullquote {
   max-width: 610px;
   margin: 0 auto 1.7rem;
@@ -397,7 +412,35 @@ h1 em::after {
 
 .cta-group {
   display: flex; align-items: center; justify-content: center;
-  gap: 1rem; flex-wrap: wrap; margin-bottom: 2.8rem;
+  gap: 1rem; flex-wrap: wrap; margin-bottom: 1.45rem;
+}
+.hero-points {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem 1.6rem;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto 2.8rem;
+  padding: 0;
+  list-style: none;
+  color: var(--electric);
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.hero-points li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.hero-points li::before {
+  content: '';
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 50%;
+  background: var(--electric);
+  box-shadow: 0 0 0 5px rgba(142,202,230,0.1);
+  flex: 0 0 auto;
 }
 
 .btn-primary {
@@ -1004,7 +1047,7 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
   .price-lead .price-amount {
     font-size: 4.35rem;
   }
-  .hero-cost,
+  .hero-points,
   .hero-pullquote,
   .price-compare,
   .access-proof,
@@ -1063,12 +1106,11 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
     <div class="nav-dropdown">
       <a href="#">Resources</a>
       <div class="dropdown-menu">
-        <a href="/private.html">Why Choose STRIVE</a>
-        <a href="https://open.spotify.com/show/2nbFBV45QpM37SAdHtobgF?si=Gns3Ft-7SgCNdGbmnOcpag" target="_blank" rel="noopener">Podcast</a>
-        <a href="/insights">Articles</a>
-        <a href="https://striveptlv.com/moneymanagement/">STRIVE Money Rehab</a>
-        <a href="/vo">Vestibular App</a>
         <a href="/talk">STRIVE TALK</a>
+        <a href="/independence.html">STRIVE INDEPENDENCE</a>
+        <a href="https://open.spotify.com/show/2nbFBV45QpM37SAdHtobgF?si=Gns3Ft-7SgCNdGbmnOcpag" target="_blank" rel="noopener">PODCAST</a>
+        <a href="/insights">ARTICLES</a>
+        <a href="/money.html">STRIVE MONEY REHAB</a>
       </div>
     </div>
     <a href="/contact.html">Contact</a>
@@ -1100,12 +1142,11 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
       Resources <span class="mob-arrow">›</span>
     </div>
     <div class="mob-dropdown-items" id="patientResourceItems">
-      <a href="/private.html" onclick="toggleMenu(false)">Why Choose STRIVE</a>
-      <a href="https://open.spotify.com/show/2nbFBV45QpM37SAdHtobgF?si=Gns3Ft-7SgCNdGbmnOcpag" target="_blank" rel="noopener">Podcast</a>
-      <a href="/insights" onclick="toggleMenu(false)">Articles</a>
-      <a href="https://striveptlv.com/moneymanagement/" onclick="toggleMenu(false)">STRIVE Money Rehab</a>
-      <a href="/vo" onclick="toggleMenu(false)">Vestibular App</a>
       <a href="/talk" onclick="toggleMenu(false)">STRIVE TALK</a>
+      <a href="/independence.html" onclick="toggleMenu(false)">STRIVE INDEPENDENCE</a>
+      <a href="https://open.spotify.com/show/2nbFBV45QpM37SAdHtobgF?si=Gns3Ft-7SgCNdGbmnOcpag" target="_blank" rel="noopener">PODCAST</a>
+      <a href="/insights" onclick="toggleMenu(false)">ARTICLES</a>
+      <a href="/money.html" onclick="toggleMenu(false)">STRIVE MONEY REHAB</a>
     </div>
   </div>
   <a href="/contact.html" onclick="toggleMenu(false)">Contact</a>
@@ -1113,14 +1154,18 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
 </div>
 
 <!-- HERO -->
+<main>
 <section class="hero">
   <h1 class="fade-up d2"><span class="hero-strive">STRIVE</span><span class="hero-talk">TALK</span></h1>
-  <p class="hero-sub fade-up d3">Turn any smartphone into a communication device. Made for stroke survivors, ALS patients, and anyone who needs a voice that goes where they go.</p>
-  <div class="hero-cost fade-up d3">A fraction of the $3,000-$8,000 cost of traditional devices</div>
+  <p class="hero-sub fade-up d3">Turn any smartphone into a customizable tap-to-speak communication aid. Made for people with aphasia, stroke, ALS, and other speech challenges.</p>
   <div class="cta-group fade-up d3">
     <a href="#early-access" class="btn-primary">Request FREE Access →</a>
     <a href="#features" class="btn-ghost">See How It Works</a>
   </div>
+  <ul class="hero-points fade-up d3">
+    <li>AAC communication app for aphasia, stroke &amp; ALS</li>
+    <li>A fraction of the $3,000-$8,000 cost of traditional devices</li>
+  </ul>
   <div class="mockup-wrap fade-up d4">
     <div class="mockup-glow"></div>
     <div class="phone-frame">
@@ -1158,43 +1203,43 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
   <div class="feat-list">
     <div class="feat-item">
       <div class="feat-left">
-        <div class="feat-title">Tap-to-Speak</div>
+        <h3 class="feat-title">Tap-to-Speak AAC Cards</h3>
         <div class="feat-body">One tap on any card and the app speaks it aloud — instantly, naturally. No typing. No menus. No delay.</div>
       </div>
     </div>
     <div class="feat-item">
       <div class="feat-left">
-        <div class="feat-title">Fully Customizable Cards</div>
+        <h3 class="feat-title">Fully Customizable Cards</h3>
         <div class="feat-body">Build a personal library of words and phrases. Color-code by category. Add emojis for fast visual recognition.</div>
       </div>
     </div>
     <div class="feat-item">
       <div class="feat-left">
-        <div class="feat-title">Single-Hand Operation</div>
+        <h3 class="feat-title">Single-Hand Operation</h3>
         <div class="feat-body">Every interaction is designed for one finger, one thumb, or even a stylus. No pinching, no swiping, no two-handed combos.</div>
       </div>
     </div>
     <div class="feat-item">
       <div class="feat-left">
-        <div class="feat-title">Offline Support</div>
+        <h3 class="feat-title">Offline Support</h3>
         <div class="feat-body">Designed to keep key communication cards available after setup, so weak connections do not stop every interaction.</div>
       </div>
     </div>
     <div class="feat-item">
       <div class="feat-left">
-        <div class="feat-title">Voice Customization</div>
+        <h3 class="feat-title">Voice Customization</h3>
         <div class="feat-body">13 voice languages, adjustable pitch and speed. Settings are remembered automatically — set it and forget it.</div>
       </div>
     </div>
     <div class="feat-item">
       <div class="feat-left">
-        <div class="feat-title">Privacy-Minded</div>
+        <h3 class="feat-title">Privacy-Minded</h3>
         <div class="feat-body">Built to minimize setup friction and keep communication simple without asking patients to manage a complicated account flow.</div>
       </div>
     </div>
     <div class="feat-item">
       <div class="feat-left">
-        <div class="feat-title">Accidental-Delete Protection</div>
+        <h3 class="feat-title">Accidental-Delete Protection</h3>
         <div class="feat-body">Cards can only be removed in a deliberate delete mode — essential for users with motor control challenges.</div>
       </div>
     </div>
@@ -1210,27 +1255,27 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
 
   <div class="who-list">
     <div class="who-item">
-      <div class="who-name">Stroke Survivors</div>
+      <h3 class="who-name">Stroke Survivors</h3>
       <div class="who-desc">Aphasia, dysarthria, and motor speech disorders</div>
     </div>
     <div class="who-item">
-      <div class="who-name">ALS / MND</div>
+      <h3 class="who-name">ALS / MND</h3>
       <div class="who-desc">Progressive loss of speech and motor control</div>
     </div>
     <div class="who-item">
-      <div class="who-name">Cerebral Palsy</div>
+      <h3 class="who-name">Cerebral Palsy</h3>
       <div class="who-desc">Motor speech disorders, limited hand function</div>
     </div>
     <div class="who-item">
-      <div class="who-name">Autism Spectrum</div>
+      <h3 class="who-name">Autism Spectrum</h3>
       <div class="who-desc">Non-verbal and minimally verbal individuals</div>
     </div>
     <div class="who-item">
-      <div class="who-name">Therapists &amp; SLPs</div>
+      <h3 class="who-name">Therapists &amp; SLPs</h3>
       <div class="who-desc">Extend communication support beyond the clinic</div>
     </div>
     <div class="who-item">
-      <div class="who-name">Caregivers &amp; Family</div>
+      <h3 class="who-name">Caregivers &amp; Family</h3>
       <div class="who-desc">Easy setup, no training required</div>
     </div>
   </div>
@@ -1247,37 +1292,37 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
   <div class="pain-list">
     <div class="pain-item">
       <div class="pain-text-wrap">
-        <div class="pain-title">Too heavy to carry</div>
+        <h3 class="pain-title">Too heavy to carry</h3>
         <div class="pain-body">Patients already managing wheelchairs, walkers, and mobility aids don't need another bulky device weighing them down.</div>
       </div>
     </div>
     <div class="pain-item">
       <div class="pain-text-wrap">
-        <div class="pain-title">Demands two hands</div>
+        <h3 class="pain-title">Demands two hands</h3>
         <div class="pain-body">Many dedicated devices assume full fine motor control — exactly what stroke and mobility patients have lost.</div>
       </div>
     </div>
     <div class="pain-item">
       <div class="pain-text-wrap">
-        <div class="pain-title">Creates social stigma</div>
+        <h3 class="pain-title">Creates social stigma</h3>
         <div class="pain-body">Carrying a dedicated medical device signals disability in every room. That stigma stops patients from using the tools they need.</div>
       </div>
     </div>
     <div class="pain-item">
       <div class="pain-text-wrap">
-        <div class="pain-title">Costs thousands</div>
+        <h3 class="pain-title">Costs thousands</h3>
         <div class="pain-body">Dedicated communication devices can cost $3,000-$8,000. Insurance coverage is uncertain. Cost should never determine whether someone has a voice.</div>
       </div>
     </div>
     <div class="pain-item">
       <div class="pain-text-wrap">
-        <div class="pain-title">Complex to set up</div>
+        <h3 class="pain-title">Complex to set up</h3>
         <div class="pain-body">Long setup processes, professional programming requirements, and confusing interfaces frustrate patients and caregivers.</div>
       </div>
     </div>
     <div class="pain-item">
       <div class="pain-text-wrap">
-        <div class="pain-title">Fails without power or Wi-Fi</div>
+        <h3 class="pain-title">Fails without power or Wi-Fi</h3>
         <div class="pain-body">Many solutions require internet connections or frequent charging. Communication needs don't pause for tech problems.</div>
       </div>
     </div>
@@ -1325,13 +1370,13 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
     <div class="price-badge">✦ Request FREE Access</div>
     <div class="price-name">Strive Talk</div>
     <div class="price-lead">
-      <div class="price-amount"><span class="price-dollar">$</span>8<span class="price-cents">.99</span></div>
+      <div class="price-amount"><span class="price-dollar">$</span>14<span class="price-cents">.99</span></div>
       <div class="price-period">/ month</div>
-      <div class="price-note">monthly plan after launch</div>
+      <div class="price-note">regular monthly plan after launch</div>
     </div>
     <div class="price-options" aria-label="Subscription pricing options">
       <div class="price-option">
-        <div class="price-amount"><span class="price-dollar">$</span>8<span class="price-cents">.99</span></div>
+        <div class="price-amount"><span class="price-dollar">$</span>14<span class="price-cents">.99</span></div>
         <div class="price-period">/ month</div>
       </div>
       <div class="price-option">
@@ -1435,6 +1480,7 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
   <a href="#early-access" class="btn-primary" style="font-size:1.1rem;padding:1.1rem 3rem;margin-bottom:1.2rem;">Request FREE Access →</a>
   <br>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>
