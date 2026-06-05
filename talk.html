@@ -908,6 +908,12 @@ h1 em::after {
   accent-color: var(--orange);
 }
 .access-consent span { display: block; }
+.access-consent a {
+  color: var(--electric);
+  font-weight: 800;
+  text-decoration: none;
+}
+.access-consent a:hover { text-decoration: underline; }
 .access-note,
 .access-status {
   font-size: 1rem;
@@ -1399,10 +1405,15 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
         <input id="access-consent" name="consent_to_calls_and_emails" type="checkbox" value="yes" required>
         <span>I agree to receive calls and emails from STRIVE Talk to improve the app.</span>
       </label>
+      <label class="access-consent" for="access-agreement">
+        <input id="access-agreement" name="accepted_user_agreement" type="checkbox" value="yes" required>
+        <span>I have read and agree to the <a href="/strive-talk-user-agreement.docx" target="_blank" rel="noopener">STRIVE Talk User Agreement and Terms of Use</a>.</span>
+      </label>
       <div class="access-row" id="access-row">
         <button class="btn-primary" id="access-submit" type="submit">Request Free Clinician Access →</button>
       </div>
       <input type="hidden" name="source" value="STRIVE Talk landing page">
+      <input type="hidden" name="user_agreement_version" value="User Agreement and Terms of Use effective June 4, 2026">
       <p class="access-note" id="access-note">Free clinician access and STRIVE Talk launch updates.</p>
       <div class="access-status success" id="access-success">You're in. STRIVE Talk is unlocked on this browser.</div>
       <div class="access-status error" id="access-error">Something did not go through. Please try again in a moment.</div>
