@@ -914,6 +914,41 @@ h1 em::after {
   text-decoration: none;
 }
 .access-consent a:hover { text-decoration: underline; }
+.agreement-box {
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.06);
+  color: var(--muted-strong);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+.agreement-box:focus {
+  outline: 2px solid rgba(142,202,230,0.38);
+  outline-offset: 2px;
+}
+.agreement-box h3 {
+  color: var(--white);
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+}
+.agreement-box h4 {
+  color: var(--electric);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  margin: 0.9rem 0 0.25rem;
+  text-transform: uppercase;
+}
+.agreement-box p { margin-bottom: 0.65rem; }
+.agreement-box ul {
+  margin: 0.35rem 0 0.75rem 1rem;
+  padding: 0;
+}
+.agreement-box li { margin-bottom: 0.28rem; }
 .access-note,
 .access-status {
   font-size: 1rem;
@@ -1405,9 +1440,50 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
         <input id="access-consent" name="consent_to_calls_and_emails" type="checkbox" value="yes" required>
         <span>I agree to receive calls and emails from STRIVE Talk to improve the app.</span>
       </label>
+      <div class="agreement-box" tabindex="0" aria-label="STRIVE Talk User Agreement and Terms of Use">
+        <h3>STRIVE Talk User Agreement and Terms of Use</h3>
+        <p><strong>Intellectual Property, License, and Shop Rights Waiver</strong><br>Effective Date: June 4, 2026</p>
+        <p>Please read this User Agreement ("Agreement") carefully before accessing or using this application ("Product"). By accessing, installing, or using the Product in any manner, you ("User") acknowledge that you have read, understood, and agree to be bound by all terms and conditions set forth herein. If you do not agree, do not access or use the Product.</p>
+
+        <h4>1. Definitions</h4>
+        <p>"Product" means the web application, software, interfaces, visual design, code, algorithms, workflows, documentation, and all associated elements made available by Owner. "Owner" means [Your Name/Company Name], the sole developer and proprietor of the Product. "User" means any individual who accesses, views, installs, uses, or evaluates the Product in any capacity, including during a free trial or evaluation period.</p>
+        <p>"Intellectual Property" means all patents, patent applications, copyrights, trademarks, trade dress, trade secrets, know-how, moral rights, and any other proprietary rights recognized under applicable law. "Likeness" means the visual appearance, design language, user interface, branding, aesthetic elements, and any distinctive features of the Product.</p>
+
+        <h4>2. Exclusive Ownership of Intellectual Property</h4>
+        <p>All rights, title, and interest in and to the Product, including all associated patents, copyrights, trademarks, trade secrets, trade dress, source code, object code, algorithms, user interface designs, visual elements, and documentation, are and shall remain the exclusive property of Owner. User acquires no ownership interest in the Product by virtue of this Agreement or any use thereof.</p>
+        <p>To the fullest extent permitted by applicable law, User irrevocably waives, releases, and relinquishes any claims, rights, or interests User may have or assert in or to the Product or any component thereof, including claims of co-authorship, co-inventorship, joint ownership, implied license, quasi-contract, derivative works, or claims arising from access, use, or feedback. Any suggestions, feedback, improvements, or ideas communicated to Owner regarding the Product shall become the sole property of Owner, with no compensation due to User.</p>
+        <p>Owner reserves all rights not specifically granted herein. No license, express or implied, is granted to User except the limited personal-use license described below.</p>
+
+        <h4>3. Personal Use License; No Commercial License</h4>
+        <p>Subject to User's compliance with this Agreement, Owner grants User a revocable, non-exclusive, non-transferable, non-sublicensable license to access and use the Product solely for User's own personal, non-commercial purposes. This license does not include the right to modify, adapt, translate, reverse engineer, reproduce, distribute, display, sell, sublicense, commercially exploit, remove proprietary notices from, or use the Product for any commercial purpose or public display.</p>
+        <p>Where Owner makes the Product available at no charge, including as a free trial, beta access, evaluation period, or similar free access, such access is granted solely as a personal, non-commercial evaluation license. It does not constitute a commercial transaction, employment relationship, work-for-hire arrangement, or any relationship that could give rise to implied property rights, ownership, co-ownership, shop rights, or analogous equitable interests in the Product.</p>
+
+        <h4>4. IP Assignment and Shop Rights Waiver</h4>
+        <p>All rights, title, and interest in and to the Product, including associated patents, copyrights, trademarks, and trade secrets developed under this Agreement, shall belong exclusively to Owner. To the extent User contributes to, modifies, or uses the Product in any way that could give rise to intellectual property rights in User's favor, User irrevocably assigns all such rights to Owner and agrees to execute additional documents reasonably requested to confirm such assignment.</p>
+        <p>User expressly, irrevocably, and unconditionally waives and relinquishes all implied licenses, non-exclusive usage rights, shop rights, or similar common-law claims that might otherwise arise from User's use of personal time, facilities, equipment, resources, free access, evaluation access, promotional access, incidental contributions, modifications, or any other theory that could be construed to grant User an implied license or partial ownership interest in the Product.</p>
+
+        <h4>5. Owner's Retention of Rights</h4>
+        <p>Owner retains all legal rights to the Likeness of the Product, including visual design, interface layout, color scheme, typography, icons, branding, and distinctive aesthetic elements. User may not reproduce, copy, imitate, use, or incorporate the Product's Likeness in any way that suggests affiliation, endorsement, sponsorship, or creates another product, application, or service based on it without Owner's prior written consent.</p>
+        <p>Owner retains the exclusive right to determine how, when, where, by whom, and under what conditions the Product may be used. Owner may modify, suspend, discontinue, restrict, revoke, change terms, or pursue legal remedies for violations at any time as permitted by law.</p>
+
+        <h4>6. No Warranties; Limitation of Liability</h4>
+        <p>The Product is provided "as is" and "as available" without warranty of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, non-infringement, or accuracy. Owner does not warrant that the Product will meet User's requirements or operate uninterrupted or error-free. To the maximum extent permitted by law, Owner shall not be liable for indirect, incidental, special, consequential, punitive, or exemplary damages arising from or related to use of, or inability to use, the Product.</p>
+
+        <h4>7. Indemnification</h4>
+        <p>User agrees to defend, indemnify, and hold harmless Owner and its officers, directors, employees, agents, licensors, and successors from claims, damages, losses, liabilities, costs, and expenses arising out of or related to User's use of the Product, breach of this Agreement, violation of law, or third-party claims arising from User's actions in connection with the Product.</p>
+
+        <h4>8. Governing Law and Dispute Resolution</h4>
+        <p>This Agreement shall be governed by the laws of [Your State/Jurisdiction], without regard to conflict of law provisions. Any dispute arising out of or relating to this Agreement or the Product shall be resolved exclusively in the state or federal courts located in [Your County/District, Your State], and User consents to the personal jurisdiction of such courts.</p>
+
+        <h4>9. General Provisions</h4>
+        <p>This Agreement constitutes the entire agreement between the parties and supersedes prior or contemporaneous understandings. If any provision is held invalid, illegal, or unenforceable, it shall be modified to the minimum extent necessary and the remaining provisions shall continue in effect. Owner's failure to enforce any right shall not constitute a waiver. User may not assign this Agreement without Owner's prior written consent. Owner may freely assign this Agreement. Owner may amend this Agreement at any time, with continued use constituting acceptance of amended terms.</p>
+
+        <h4>Acceptance</h4>
+        <p>By using the Product, User acknowledges that they have read this Agreement, understand it, and agree to be bound by its terms and conditions. If User is accepting on behalf of a company or other legal entity, User represents that they have authority to bind such entity to these terms.</p>
+      </div>
       <label class="access-consent" for="access-agreement">
         <input id="access-agreement" name="accepted_user_agreement" type="checkbox" value="yes" required>
-        <span>I have read and agree to the <a href="/strive-talk-user-agreement.docx" target="_blank" rel="noopener">STRIVE Talk User Agreement and Terms of Use</a>.</span>
+        <span>I have read and agree to the STRIVE Talk User Agreement and Terms of Use above.</span>
       </label>
       <div class="access-row" id="access-row">
         <button class="btn-primary" id="access-submit" type="submit">Request Free Clinician Access →</button>
