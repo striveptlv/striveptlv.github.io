@@ -155,6 +155,8 @@ nav{
 .dropdown-menu a[aria-current="page"]{color:var(--orange)}
 .nav-cta{background:var(--orange);color:var(--navy)!important;padding:9px 20px;font-weight:900;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;border-radius:2px;transition:opacity .2s,transform .15s;white-space:nowrap}
 .nav-cta:hover{opacity:.87;transform:translateY(-1px)}
+.is-disabled{opacity:.54!important;cursor:not-allowed!important;pointer-events:none!important;filter:saturate(.65)}
+.is-disabled:hover{transform:none!important;box-shadow:none!important}
 .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
 .nav-toggle span{width:24px;height:2px;background:var(--navy);border-radius:1px;transition:transform .25s,opacity .25s}
 .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -346,7 +348,6 @@ h1 sup{font-size:.18em;letter-spacing:0;vertical-align:super;margin-left:.08em;c
   border-radius:18px;padding:2.6rem;
   display:flex;flex-direction:column;
   position:relative;overflow:hidden;
-  cursor:pointer;
   /* scroll reveal start */
   opacity:0;transform:translateY(40px) scale(.97);
   transition:
@@ -403,41 +404,7 @@ h1 sup{font-size:.18em;letter-spacing:0;vertical-align:super;margin-left:.08em;c
   letter-spacing:-.025em;text-transform:uppercase;color:var(--navy);
   margin-bottom:.75rem;line-height:1.03;
 }
-.sim-desc{font-size:.97rem;color:var(--muted-s);line-height:1.68;flex:1;margin-bottom:1.8rem}
-
-.sim-action-bar{
-  display:flex;align-items:center;justify-content:flex-start;
-  padding:1rem 1.3rem;
-  border:1px solid var(--gb);border-radius:10px;
-  background:rgba(27,79,168,.045);
-  position:relative;overflow:hidden;
-}
-.sim-action-bar::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,transparent 0%,rgba(27,79,168,.055) 50%,transparent 100%);
-  background-size:200% 100%;
-  animation:shimmer 3.5s ease-in-out infinite;
-  pointer-events:none;
-}
-@keyframes shimmer{0%,100%{background-position:200% 0}50%{background-position:-200% 0}}
-
-.action-left{display:none}
-.module-icon{
-  width:28px;height:28px;border-radius:6px;flex-shrink:0;
-  border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;
-  background:rgba(255,255,255,.9);
-  color:var(--orange);font-size:12px;font-weight:900;
-}
-.action-text{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-s)}
-
-.demo-hint{
-  display:flex;align-items:center;gap:.5rem;
-  font-size:12px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--orange);opacity:.75;transition:opacity .25s;
-}
-.sim-card:hover .demo-hint{opacity:1}
-.demo-hint svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
-.sim-card:hover .demo-hint svg{transform:translateX(3px)}
+.sim-desc{font-size:.97rem;color:var(--muted-s);line-height:1.68;flex:1;margin-bottom:0}
 
 /* ─────────────────────────
    ACCESS MODAL
@@ -547,12 +514,18 @@ h1 sup{font-size:.18em;letter-spacing:0;vertical-align:super;margin-left:.08em;c
   font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.2em;
   text-transform:uppercase;color:var(--orange);
 }
-.email-capture-form input{
+.email-capture-form input,.email-capture-form select{
   width:100%;min-height:48px;border-radius:10px;border:1px solid rgba(19,35,56,.14);
   background:#fff;color:var(--navy);font:inherit;font-size:.97rem;padding:0 1rem;
 }
 .email-capture-form input::placeholder{color:rgba(26,46,68,.34)}
-.email-capture-form input:focus{outline:none;border-color:rgba(245,130,10,.55)}
+.email-capture-form input:focus,.email-capture-form select:focus{outline:none;border-color:rgba(245,130,10,.55)}
+.email-capture-form select{
+  appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--orange) 50%),linear-gradient(135deg,var(--orange) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 21px,calc(100% - 12px) 21px;
+  background-size:6px 6px,6px 6px;background-repeat:no-repeat;
+}
 .email-capture-form button{width:100%;justify-content:center}
 .email-capture-note{font-size:12px;color:var(--muted);text-align:center}
 @media(max-width:860px){.email-capture-inner{grid-template-columns:1fr}.email-capture{padding-bottom:5rem}}
@@ -815,7 +788,8 @@ h1 sup{font-size:.18em;letter-spacing:0;vertical-align:super;margin-left:.08em;c
     <a href="https://www.striveptlv.com/">Physical Therapy</a>
     <a href="https://www.striveptlv.com/talk">STRIVE Talk</a>
     <a href="#pricing">Pricing</a>
-    <a class="nav-cta" href="https://www.striveptlv.com/independence/auth.html">Create Account</a>
+    <a href="https://www.striveptlv.com/independence/demo.html">Demo Access</a>
+    <a class="nav-cta is-disabled" aria-disabled="true" tabindex="-1">Access Your Account</a>
   </div>
   <button class="nav-toggle" id="navToggle" aria-label="Open menu" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -827,7 +801,8 @@ h1 sup{font-size:.18em;letter-spacing:0;vertical-align:super;margin-left:.08em;c
   <a href="https://www.striveptlv.com/" onclick="toggleMenu(false)">Physical Therapy</a>
   <a href="https://www.striveptlv.com/talk" onclick="toggleMenu(false)">STRIVE Talk</a>
   <a href="#pricing" onclick="toggleMenu(false)">Pricing</a>
-  <a href="https://www.striveptlv.com/independence/auth.html" class="mob-book" onclick="toggleMenu(false)">Create Account</a>
+  <a href="https://www.striveptlv.com/independence/demo.html" onclick="toggleMenu(false)">Demo Access</a>
+  <a class="mob-book is-disabled" aria-disabled="true" tabindex="-1">Access Your Account</a>
 </div>
 
 <!-- HERO -->
@@ -840,7 +815,7 @@ h1 sup{font-size:.18em;letter-spacing:0;vertical-align:super;margin-left:.08em;c
   </h1>
   <p class="hero-sub">Real-world practice for banking, communication, transportation, and independent living. STRIVE gives clinicians practical digital environments where patients can practice safely, repeatedly, and without real-world risk.</p>
   <div class="cta-group">
-    <a href="#demo" class="btn-primary" onclick="openModal();return false;">Request Free Trial</a>
+    <a class="btn-primary is-disabled" aria-disabled="true" tabindex="-1">Create an account</a>
     <a href="#simulations" class="btn-ghost">Explore Simulations</a>
   </div>
   <div class="hero-cues">
@@ -854,10 +829,6 @@ h1 sup{font-size:.18em;letter-spacing:0;vertical-align:super;margin-left:.08em;c
 <section class="final-cta early-cta">
   <div class="final-h2">Give Your Patients<br>A Safe Place to <em>Practice.</em></div>
   <p class="final-p">STRIVE INDEPENDENCE sets up in minutes and works on any device. See how communication, banking, and community mobility practice can fit into your treatment sessions.</p>
-  <div class="cta-group">
-    <a href="#demo" class="btn-primary" onclick="openModal();return false;">Request Free Trial</a>
-    <a href="#simulations" class="btn-ghost">View Platform Modules</a>
-  </div>
 </section>
 
 <!-- MARQUEE -->
@@ -925,80 +896,40 @@ h1 sup{font-size:.18em;letter-spacing:0;vertical-align:super;margin-left:.08em;c
   </div>
   <div class="sims-grid">
 
-    <article class="sim-card c-talk" onclick="openModal(this)" data-target="/talk">
+    <article class="sim-card c-talk">
       <div class="sim-row">
         <div class="sim-num">01</div>
         <span class="sim-badge c-talk">AAC &amp; Communication</span>
       </div>
       <h3 class="sim-title">STRIVE Talk</h3>
       <p class="sim-desc">Tap-to-speak communication support for aphasia, ALS, stroke-related speech changes, and patients who need fast, practical phrase access during daily routines.</p>
-      <div class="sim-action-bar">
-        <div class="action-left">
-          <div class="module-icon">S</div>
-          <span class="action-text">Included module</span>
-        </div>
-        <div class="demo-hint">
-          Request trial
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </div>
     </article>
 
-    <article class="sim-card c-bill" onclick="openModal(this)" data-target="./Bill%20Pay/Bill%20Pay%20Homepage.html">
+    <article class="sim-card c-bill">
       <div class="sim-row">
         <div class="sim-num">02</div>
         <span class="sim-badge c-bill">Mock Electric Bill</span>
       </div>
       <h3 class="sim-title">Bill Pay Simulation</h3>
       <p class="sim-desc">Utility payment tasks with realistic account navigation and multi-step payment workflow practice. Targets attention to detail, number entry accuracy, and sequential task completion.</p>
-      <div class="sim-action-bar">
-        <div class="action-left">
-          <div class="module-icon">B</div>
-          <span class="action-text">Guided practice</span>
-        </div>
-        <div class="demo-hint">
-          Request trial
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </div>
     </article>
 
-    <article class="sim-card c-bank" onclick="openModal(this)" data-target="./Credit%20Union%20Account/Las%20Vegas%20School%20District%20Credit%20Union%20Homepage.html">
+    <article class="sim-card c-bank">
       <div class="sim-row">
         <div class="sim-num">03</div>
         <span class="sim-badge c-bank">Mock Banking &amp; Credit</span>
       </div>
       <h3 class="sim-title">Banking &amp; Credit Practice</h3>
       <p class="sim-desc">Online banking and credit card practice for account review, card management, form completion, payment navigation, and everyday money management. Supports executive function, divided attention, and financial IADL goals.</p>
-      <div class="sim-action-bar">
-        <div class="action-left">
-          <div class="module-icon">M</div>
-          <span class="action-text">Money rehab</span>
-        </div>
-        <div class="demo-hint">
-          Request trial
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </div>
     </article>
 
-    <article class="sim-card c-ride" onclick="openModal(this)" data-target="./Ride%20Share/index.html">
+    <article class="sim-card c-ride">
       <div class="sim-row">
         <div class="sim-num">04</div>
         <span class="sim-badge c-ride">Mock Ride Share</span>
       </div>
       <h3 class="sim-title">Ride Booking Simulation</h3>
       <p class="sim-desc">Mobile-first ride-share practice for choosing pickup, destination, ride type, confirmation, driver review, and safe cancellation. Supports community mobility independence goals.</p>
-      <div class="sim-action-bar">
-        <div class="action-left">
-          <div class="module-icon">R</div>
-          <span class="action-text">Community mobility</span>
-        </div>
-        <div class="demo-hint">
-          Request trial
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </div>
     </article>
 
   </div>
@@ -1079,7 +1010,7 @@ h1 sup{font-size:.18em;letter-spacing:0;vertical-align:super;margin-left:.08em;c
         <div class="tier-name">Individual</div>
         <div class="tier-tagline">For solo users, therapists, caregivers, or single clinicians.</div>
         <div class="tier-price">$14.99</div>
-        <div class="tier-price-note">/ month · one user</div>
+        <div class="tier-price-note">/ month · 30-day free trial</div>
         <div class="tier-sep"></div>
         <ul class="tier-features">
           <li><span class="chk">✓</span>One user account</li>
@@ -1089,14 +1020,14 @@ h1 sup{font-size:.18em;letter-spacing:0;vertical-align:super;margin-left:.08em;c
           <li><span class="chk">✓</span>Independent living skill practice</li>
           <li><span class="chk">✓</span>Email support</li>
         </ul>
-        <a href="https://www.striveptlv.com/independence/auth.html" class="tier-cta solid">Create Account</a>
+        <a class="tier-cta solid is-disabled" aria-disabled="true" tabindex="-1">Start 30-Day Free Trial</a>
       </div>
 
       <div class="tier-card">
         <div class="tier-name">Clinic</div>
         <div class="tier-tagline">For one clinic or team with multiple staff members.</div>
         <div class="tier-price">$79.99</div>
-        <div class="tier-price-note">/ month · $49.99/month for nonprofits</div>
+        <div class="tier-price-note">/ month · 30-day free trial</div>
         <div class="tier-sep"></div>
         <ul class="tier-features">
           <li><span class="chk">✓</span>Up to 10 team members</li>
@@ -1106,7 +1037,7 @@ h1 sup{font-size:.18em;letter-spacing:0;vertical-align:super;margin-left:.08em;c
           <li><span class="chk">✓</span>Team use across treatment sessions</li>
           <li><span class="chk">✓</span>Email support</li>
         </ul>
-        <a href="https://www.striveptlv.com/independence/auth.html" class="tier-cta outline">Create Account</a>
+        <a class="tier-cta outline is-disabled" aria-disabled="true" tabindex="-1">Start 30-Day Free Trial</a>
       </div>
 
       <div class="tier-card">
@@ -1123,11 +1054,11 @@ h1 sup{font-size:.18em;letter-spacing:0;vertical-align:super;margin-left:.08em;c
           <li><span class="chk">✓</span>Custom onboarding and setup</li>
           <li><span class="chk">✓</span>Priority support for custom needs</li>
         </ul>
-        <a href="https://www.striveptlv.com/independence/auth.html" class="tier-cta outline">Create Account</a>
+        <a class="tier-cta outline is-disabled" aria-disabled="true" tabindex="-1">Create Account</a>
       </div>
 
     </div>
-    <p class="pricing-note">All plans include STRIVE account access. Pricing is based on user count and organization size. Nonprofit Clinic pricing is $49.99/month.</p>
+    <p class="pricing-note">All plans include STRIVE account access. Pricing is based on user count and organization size.</p>
   </div>
 </section>
 
@@ -1200,10 +1131,23 @@ h1 sup{font-size:.18em;letter-spacing:0;vertical-align:super;margin-left:.08em;c
       </ul>
     </div>
     <form class="email-capture-form" action="https://formspree.io/f/mykvqkpz" method="POST">
-      <label for="capture-email">Waitlist Email</label>
+      <label for="capture-name">Full Name</label>
+      <input id="capture-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+      <label for="capture-email">Email</label>
       <input id="capture-email" name="email" type="email" placeholder="you@organization.com" autocomplete="email" required>
-      <label for="capture-org">Organization</label>
-      <input id="capture-org" name="organization" type="text" placeholder="Clinic, university, ALF, ILF, or agency">
+      <label for="capture-phone">Phone Number</label>
+      <input id="capture-phone" name="phone" type="tel" placeholder="(555) 123-4567" autocomplete="tel" inputmode="tel">
+      <label for="capture-profession">Profession</label>
+      <input id="capture-profession" name="profession" type="text" placeholder="OT, SLP, caregiver, administrator" autocomplete="organization-title" required>
+      <label for="capture-source">How Did You Hear About Us?</label>
+      <select id="capture-source" name="heard_about" required>
+        <option value="" selected disabled>Select one</option>
+        <option value="LinkedIn">LinkedIn</option>
+        <option value="Instagram">Instagram</option>
+        <option value="Facebook">Facebook</option>
+        <option value="Colleague">Colleague</option>
+        <option value="Other">Other</option>
+      </select>
       <input type="hidden" name="source" value="STRIVE INDEPENDENCE — launch waitlist 30 day trial">
       <button class="btn-primary" type="submit">Join The Waitlist</button>
       <p class="email-capture-note">Waitlist members receive launch details and a 30-day free trial offer. No spam.</p>
@@ -1242,16 +1186,7 @@ function toggleMobileDropdown(id,arrow){
 window.addEventListener('resize',()=>{if(window.innerWidth>960)toggleMenu(false)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){toggleMenu(false);closeModal()}});
 
-/* ── DEMO MODAL ── */
-const DEMO_KEY='striveDemoRequested';
 let pendingTarget=null;
-
-function markDemoRequested(){
-  try{localStorage.setItem(DEMO_KEY,'true')}catch(e){}
-  document.querySelectorAll('.demo-hint').forEach(el=>{
-    el.innerHTML='Trial requested <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-  });
-}
 
 function openModal(card){
   pendingTarget=card?card.dataset.target:null;
@@ -1279,7 +1214,6 @@ async function handleModalSubmit(e){
   try{
     const r=await fetch(e.target.action,{method:'POST',headers:{Accept:'application/json'},body:new FormData(e.target)});
     if(!r.ok)throw new Error();
-    markDemoRequested();
     document.getElementById('accessForm').style.display='none';
     document.getElementById('modalConfirmed').style.display='block';
   }catch(err){
