@@ -56,24 +56,17 @@
       "offers": [
         {
           "@type": "Offer",
-          "price": "0",
+          "price": "8.99",
           "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "Free clinician access by request"
+          "availability": "https://schema.org/PreOrder",
+          "description": "$8.99 monthly plan"
         },
         {
           "@type": "Offer",
-          "price": "107.88",
+          "price": "60",
           "priceCurrency": "USD",
           "availability": "https://schema.org/PreOrder",
-          "description": "$8.99 per month, billed annually at $107.88 per year"
-        },
-        {
-          "@type": "Offer",
-          "price": "14.99",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/PreOrder",
-          "description": "$14.99 regular monthly plan, billed monthly"
+          "description": "$60 yearly plan"
         }
       ]
     },
@@ -133,27 +126,27 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy: #08111f;
-  --ink: #eaf4ff;
-  --ink-deep: #07101d;
-  --paper: #08111f;
-  --paper-deep: #101b2b;
-  --panel: rgba(12,24,40,0.72);
+  --navy: #083d7a;
+  --ink: #0e2f5d;
+  --ink-deep: #082b56;
+  --paper: #fffaf2;
+  --paper-deep: #eef8ff;
+  --panel: rgba(255,255,255,0.92);
   --electric: #8ecae6;
-  --electric-dim: rgba(142,202,230,0.12);
-  --electric-glow: rgba(142,202,230,0.22);
-  --white: #f7fbff;
-  --off-white: #dce9f7;
-  --muted: rgba(220,233,247,0.66);
-  --muted-strong: rgba(220,233,247,0.84);
-  --card-bg: rgba(12,24,40,0.72);
-  --card-border: rgba(142,202,230,0.18);
+  --electric-dim: rgba(142,202,230,0.18);
+  --electric-glow: rgba(142,202,230,0.28);
+  --white: #083d7a;
+  --off-white: #0e2f5d;
+  --muted: #536174;
+  --muted-strong: #334b68;
+  --card-bg: rgba(255,255,255,0.9);
+  --card-border: rgba(46,117,182,0.18);
   --gold: #e68a4d;
   --orange: #e68a4d;
   --orange-dim: rgba(230,138,77,0.12);
   --orange-glow: rgba(230,138,77,0.28);
   --green: #2e7d5b;
-  --line: rgba(220,233,247,0.12);
+  --line: rgba(46,117,182,0.18);
 }
 
 html {
@@ -167,9 +160,9 @@ body {
   font-family: 'Manrope', sans-serif;
   font-size: 18px;
   background:
-    radial-gradient(circle at 50% -10%, rgba(142,202,230,0.22) 0%, rgba(142,202,230,0.08) 30%, transparent 58%),
-    radial-gradient(circle at 85% 20%, rgba(230,138,77,0.12) 0%, transparent 32%),
-    linear-gradient(180deg, #07101d 0%, #0b1626 44%, #08111f 100%);
+    linear-gradient(135deg, rgba(191,234,255,0.54), transparent 42%),
+    radial-gradient(circle at 86% 18%, rgba(230,138,77,0.18), transparent 26%),
+    linear-gradient(180deg, #fffaf2 0%, #fffaf2 58%, #eef8ff 100%);
   color: var(--off-white);
   overflow-x: hidden;
   line-height: 1.65;
@@ -193,27 +186,29 @@ nav {
   display: flex; align-items: center; justify-content: space-between;
   height: 70px;
   padding: 0 5vw;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255,255,255,0.42);
   position: fixed; top: 0; left: 0; right: 0;
-  background: rgba(8,17,31,0.78);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.58), rgba(255,250,242,0.32));
+  backdrop-filter: saturate(180%) blur(24px);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  box-shadow: 0 14px 40px rgba(8,61,122,0.06);
   z-index: 100;
 }
 .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
 .logo-img { width: 46px; height: 46px; object-fit: contain; flex-shrink: 0; }
 .logo-text {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 27px;
+  font-size: 25px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1.4px;
   color: var(--white);
   line-height: 1;
   text-transform: uppercase;
 }
 .logo-sub {
   font-size: 9px;
-  color: rgba(220,233,247,0.78);
+  color: var(--orange);
   font-weight: 700;
   letter-spacing: 2.2px;
   text-transform: uppercase;
@@ -221,7 +216,7 @@ nav {
 }
 .nav-links { display: flex; align-items: center; gap: 22px; }
 .nav-links a {
-  color: rgba(220,233,247,0.72);
+  color: var(--muted);
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
@@ -239,7 +234,7 @@ nav {
   height: 0;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 5px solid rgba(220,233,247,0.62);
+  border-top: 5px solid rgba(8,61,122,0.58);
   transition: transform 0.2s, border-top-color 0.2s;
 }
 .nav-dropdown:hover > a::after { transform: rotate(180deg); border-top-color: var(--ink); }
@@ -254,9 +249,9 @@ nav {
   left: 50%;
   transform: translateX(-50%);
   min-width: 178px;
-  background: rgba(12,24,40,0.96);
+  background: rgba(255,255,255,0.96);
   border: 1px solid var(--line);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.24);
+  box-shadow: 0 18px 40px rgba(8,61,122,0.12);
   text-align: center;
   transition: opacity 0.15s;
 }
@@ -265,7 +260,7 @@ nav {
   display: block;
   padding: 10px 14px;
   border-bottom: 1px solid var(--line);
-  color: rgba(220,233,247,0.72);
+  color: var(--muted);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -273,7 +268,7 @@ nav {
   text-align: center;
 }
 .dropdown-menu a:last-child { border-bottom: none; }
-.dropdown-menu a:hover, .dropdown-menu a[aria-current="page"] { background: rgba(255,255,255,0.04); color: var(--white); }
+.dropdown-menu a:hover, .dropdown-menu a[aria-current="page"] { background: var(--blue-soft, #e8f5ff); color: var(--white); }
 .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
 .nav-toggle span { width: 24px; height: 2px; background: var(--white); }
 .mobile-menu {
@@ -284,7 +279,9 @@ nav {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #08111f;
+  background: rgba(255,250,242,0.72);
+  backdrop-filter: saturate(180%) blur(24px);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
   z-index: 99;
   padding: 28px 6vw;
   overflow-y: auto;
@@ -292,7 +289,7 @@ nav {
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
   text-decoration: none;
-  color: var(--off-white);
+  color: var(--ink);
   font-size: 21px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -302,7 +299,7 @@ nav {
 }
 .mob-cta {
   background: var(--orange);
-  color: #07101d !important;
+  color: #10233c !important;
   text-align: center;
   border-radius: 2px;
   margin-top: 24px;
@@ -313,7 +310,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--off-white);
+  color: var(--ink);
   font-size: 21px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -328,13 +325,13 @@ nav {
 .mob-dropdown-items a { font-size: 15px !important; text-transform: none; letter-spacing: 0; font-weight: 600; }
 .nav-cta {
   background: var(--orange);
-  color: #07101d !important;
+  color: #10233c !important;
   font-weight: 700; font-size: 13px;
   padding: 10px 18px; border-radius: 2px;
   border: none; cursor: pointer; text-decoration: none;
   transition: transform 0.15s, box-shadow 0.15s;
 }
-.nav-cta:hover { background: #f0a26d; color: #07101d !important; transform: translateY(-1px); box-shadow: none; }
+.nav-cta:hover { background: #f0a26d; color: #10233c !important; transform: translateY(-1px); box-shadow: none; }
 @media (max-width: 960px) {
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
@@ -355,8 +352,8 @@ nav {
   left: calc(50% - 50vw);
   right: calc(50% - 50vw);
   background:
-    radial-gradient(circle at 50% 0%, rgba(142,202,230,0.08) 0%, transparent 42%),
-    linear-gradient(180deg, #050a13 0%, #07101d 62%, rgba(7,16,29,0) 100%);
+    radial-gradient(circle at 50% 0%, rgba(142,202,230,0.28) 0%, transparent 42%),
+    linear-gradient(180deg, rgba(255,255,255,0.58) 0%, rgba(255,250,242,0.68) 62%, rgba(255,250,242,0) 100%);
   z-index: -1;
 }
 
@@ -431,7 +428,7 @@ h1 em::after {
   margin: 0 auto 2.8rem;
   padding: 0;
   list-style: none;
-  color: var(--electric);
+  color: #4f8ead;
   font-size: 0.82rem;
   font-weight: 600;
 }
@@ -445,30 +442,31 @@ h1 em::after {
   width: 0.48rem;
   height: 0.48rem;
   border-radius: 50%;
-  background: var(--electric);
-  box-shadow: 0 0 0 5px rgba(142,202,230,0.1);
+  background: #8ecae6;
+  box-shadow: 0 0 0 5px rgba(142,202,230,0.18);
   flex: 0 0 auto;
 }
 
 .btn-primary {
-  background: var(--orange); color: #061f3f;
+  background: var(--orange); color: #10233c;
   font-weight: 700; font-size: 1.1rem;
   padding: 1rem 2.35rem; border-radius: 100px;
   border: none; cursor: pointer; text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.15s; white-space: nowrap;
+  transition: transform 0.15s, box-shadow 0.15s; white-space: normal;
+  text-align: center;
   display: inline-block;
 }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(8,61,122,0.12); }
 
 .btn-ghost {
-  background: transparent; color: var(--white);
+  background: rgba(255,255,255,0.62); color: var(--navy);
   font-weight: 600; font-size: 1.05rem;
   padding: 1rem 1.95rem; border-radius: 100px;
   border: 1px solid var(--line);
   cursor: pointer; text-decoration: none;
   transition: border-color 0.15s, background 0.15s;
 }
-.btn-ghost:hover { border-color: rgba(220,233,247,0.42); background: rgba(220,233,247,0.06); }
+.btn-ghost:hover { border-color: rgba(8,61,122,0.24); background: rgba(232,245,255,0.88); }
 
 .hero-trust {
   display: flex; align-items: center; justify-content: center;
@@ -509,7 +507,7 @@ h1 em::after {
 .phone-status { display: flex; justify-content: space-between; font-size: 0.8rem; color: rgba(245,250,255,0.68); margin-bottom: 0.9rem; padding: 0 0.2rem; }
 .phone-appbar { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
 .phone-appbar-logo { width: 28px; height: 28px; background: var(--electric); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--navy); }
-.phone-appbar-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); }
+.phone-appbar-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; }
 .yes-no-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.62rem; margin-bottom: 0.9rem; }
 .choice-card {
   min-height: 112px;
@@ -573,7 +571,7 @@ h1 em::after {
   position: absolute;
   inset: 4rem 2vw auto;
   height: 240px;
-  background: radial-gradient(ellipse at top left, rgba(255,255,255,0.05), transparent 68%);
+  background: radial-gradient(ellipse at top left, rgba(142,202,230,0.2), transparent 68%);
   pointer-events: none;
 }
 .pain .section-title em,
@@ -636,7 +634,7 @@ h1 em::after {
   position: absolute;
   inset: 4rem 2vw auto;
   height: 260px;
-  background: radial-gradient(ellipse at top right, rgba(255,255,255,0.05), transparent 68%);
+  background: radial-gradient(ellipse at top right, rgba(142,202,230,0.2), transparent 68%);
   pointer-events: none;
 }
 .features .section-title { color: var(--white); }
@@ -725,7 +723,7 @@ h1 em::after {
 .pt-section { padding: 6rem 6%; max-width: 900px; margin: 0 auto; }
 .pt-card {
   background: var(--panel); border: 1px solid var(--line);
-  border-radius: 24px; padding: 3rem 3.5rem;
+  border-radius: 14px; padding: 3rem 3.5rem;
   backdrop-filter: blur(16px);
   box-shadow: 0 24px 70px rgba(29,29,31,0.08);
 }
@@ -750,42 +748,125 @@ h1 em::after {
 .test-author strong { color: var(--off-white); font-weight: 500; }
 
 /* PRICING */
-.pricing { padding: 7rem 6%; max-width: 980px; margin: 0 auto; text-align: center; }
-.price-layout { margin-top: 4rem; }
+.pricing { padding: 7rem 6%; max-width: 1060px; margin: 0 auto; text-align: center; }
+.price-layout { margin-top: 2.4rem; }
 .price-badge { display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(230,138,77,0.12); border: 1px solid rgba(230,138,77,0.32); color: var(--orange); font-size: 0.95rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.42rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; }
-.price-name { font-family: 'Sora', sans-serif; font-size: 0.9rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--electric); margin-bottom: 1.5rem; }
-.price-options { max-width: 700px; margin: 0 auto 2.5rem; }
-.price-option { color: var(--muted); line-height: 1.45; }
-.price-option.featured { padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
-.price-option.secondary {
-  padding: 1rem 0 0;
-  opacity: 0.62;
+.price-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0 auto;
 }
-.price-option-label { color: var(--electric); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
-.price-amount { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 4.4rem; color: var(--white); letter-spacing: -0.05em; line-height: 1; }
-.price-dollar { font-size: 0.42em; vertical-align: 0.55em; letter-spacing: -0.02em; }
-.price-cents { font-size: 0.24em; color: var(--muted); vertical-align: baseline; letter-spacing: -0.01em; }
-.price-option .price-amount { font-size: clamp(5.5rem, 16vw, 10rem); color: var(--white); }
-.price-option .price-cents { font-size: 0.28em; }
-.price-option.secondary .price-option-label { margin-bottom: 0.25rem; font-size: 0.72rem; }
-.price-option.secondary .price-amount { font-size: 1.15rem; color: var(--muted); letter-spacing: -0.02em; }
-.price-option.secondary .price-cents { font-size: 1em; color: inherit; }
-.price-option.secondary .price-dollar { font-size: 1em; vertical-align: baseline; }
-.price-option.secondary .price-period,
-.price-option.secondary .price-billing { display: inline; font-size: 0.82rem; color: var(--muted); }
-.price-option.secondary .price-period::after { content: ' · '; }
-.price-period { font-size: 1.16rem; color: var(--muted); font-weight: 400; margin-bottom: 0.5rem; }
-.price-option .price-period { margin: 0.45rem 0 0; font-size: 0.98rem; line-height: 1.45; }
-.price-option .price-billing { color: var(--off-white); font-size: 0.92rem; font-weight: 700; margin-top: 0.4rem; }
-.price-trial { color: var(--electric); font-size: 1rem; font-weight: 800; margin-bottom: 1.2rem; }
-.price-compare { color: var(--muted); font-size: 0.92rem; font-weight: 700; margin: 0 0 3rem; }
-.price-features { list-style: none; text-align: left; margin: 0 auto 3rem; padding: 2.5rem 0; max-width: 760px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem 2rem; }
+.price-option {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.58);
+  border-radius: 14px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.46), rgba(255,250,242,0.22));
+  box-shadow: 0 22px 58px rgba(8,61,122,0.1), inset 0 1px 0 rgba(255,255,255,0.72);
+  backdrop-filter: saturate(180%) blur(24px);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  padding: clamp(1.35rem,3vw,2rem);
+  color: var(--muted);
+  line-height: 1.45;
+  text-align: center;
+}
+.price-option.featured {
+  border-color: rgba(230,138,77,0.34);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.54), rgba(238,248,255,0.28));
+  box-shadow: 0 24px 64px rgba(8,61,122,0.12), inset 0 1px 0 rgba(255,255,255,0.78);
+}
+.price-option-label {
+  width: max-content;
+  max-width: 100%;
+  border-radius: 999px;
+  background: rgba(230,138,77,0.15);
+  color: #9a4b00;
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  padding: 6px 10px;
+  text-transform: uppercase;
+}
+.price-plan-name {
+  margin-top: 18px;
+  color: var(--navy);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.price-plan-copy {
+  min-height: 3.2em;
+  margin-top: 8px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.price-amount {
+  margin-top: 18px;
+  color: var(--navy);
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(3.2rem,6vw,4.8rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 0.85;
+}
+.price-dollar { font-size: 0.5em; vertical-align: 0.5em; }
+.price-cents { font-size: 0.38em; color: var(--muted); vertical-align: baseline; }
+.price-period {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 700;
+}
+.price-divider { height: 1px; background: var(--line); margin: 20px 0; }
+.price-features {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 9px;
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 @media (max-width:760px) {
-  .price-options,
-  .price-features { grid-template-columns: 1fr; }
+  .price-options { grid-template-columns: 1fr; }
 }
-.price-features li { font-size: 1.08rem; color: var(--off-white); display: flex; align-items: center; gap: 0.5rem; }
-.price-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+.price-features li { font-size: 1rem; color: var(--muted); display: flex; align-items: flex-start; justify-content: center; gap: 0.6rem; font-weight: 600; }
+.price-features li::before {
+  content: '✓';
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  border-radius: 50%;
+  background: rgba(230,138,77,0.16);
+  color: var(--orange);
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+.price-option .btn-primary {
+  width: 100%;
+  margin-top: 22px;
+  border-radius: 7px;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  padding: 0.9rem 1rem;
+  text-transform: uppercase;
+}
 .price-guarantee { font-size: 0.92rem; color: var(--muted); margin-top: 1.2rem; font-weight: 700; }
 
 /* EARLY ACCESS */
@@ -795,7 +876,7 @@ h1 em::after {
   inset: 0;
   z-index: 300;
   padding: 5rem 6% 2rem;
-  background: rgba(4,9,18,0.84);
+  background: rgba(8,61,122,0.24);
   backdrop-filter: blur(14px);
   overflow-y: auto;
 }
@@ -807,7 +888,7 @@ h1 em::after {
 .access-card {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: 14px;
   padding: 2.5rem;
   margin: 0 auto;
   width: min(100%, 720px);
@@ -824,8 +905,8 @@ h1 em::after {
   height: 38px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  color: var(--off-white);
-  background: rgba(255,255,255,0.06);
+  color: var(--ink);
+  background: rgba(255,255,255,0.68);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -833,9 +914,9 @@ h1 em::after {
   font-size: 1.35rem;
   line-height: 1;
 }
-.access-close:hover { color: var(--white); background: rgba(255,255,255,0.1); }
+.access-close:hover { color: var(--white); background: rgba(232,245,255,0.9); }
 .access-card::before {
-  content: 'Free Clinician Access';
+  content: 'Account Access';
   display: inline-flex;
   align-items: center;
   color: var(--orange);
@@ -872,8 +953,8 @@ h1 em::after {
   min-height: 54px;
   border-radius: 16px;
   border: 1px solid var(--line);
-  background: rgba(255,255,255,0.08);
-  color: var(--white);
+  background: #fff;
+  color: var(--ink);
   font: inherit;
   font-size: 1rem;
   padding: 0 1.25rem;
@@ -885,7 +966,7 @@ h1 em::after {
   background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
 }
-.access-form input::placeholder { color: rgba(220,233,247,0.42); }
+.access-form input::placeholder { color: rgba(83,97,116,0.62); }
 .access-form input:focus,
 .access-form select:focus {
   outline: 2px solid rgba(142,202,230,0.38);
@@ -919,8 +1000,8 @@ h1 em::after {
   overflow-y: auto;
   padding: 1rem 1.1rem;
   border: 1px solid var(--line);
-  border-radius: 16px;
-  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+  background: rgba(232,245,255,0.72);
   color: var(--muted-strong);
   font-size: 0.82rem;
   line-height: 1.55;
@@ -965,8 +1046,8 @@ h1 em::after {
 }
 .access-proof strong { color: var(--white); }
 .access-status { display: none; font-weight: 600; }
-.access-status.success { color: #a7f3d0; }
-.access-status.error { color: #fecaca; }
+.access-status.success { color: #047857; }
+.access-status.error { color: #b91c1c; }
 .access-unlocked {
   display: none;
   margin-top: 1.5rem;
@@ -1141,8 +1222,8 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
   <a href="/talk" class="nav-logo" aria-label="STRIVE Talk home">
     <img src="/logo.png" alt="STRIVE PT Logo" class="logo-img">
     <div>
-      <div class="logo-text">STRIVE</div>
-      <div class="logo-sub">Talk Communication App</div>
+      <div class="logo-text">STRIVE Talk</div>
+      <div class="logo-sub">Mobile AAC App</div>
     </div>
   </a>
   <div class="nav-links">
@@ -1167,8 +1248,8 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
   <h1 class="fade-up d2"><span class="hero-strive">STRIVE</span><span class="hero-talk">TALK</span></h1>
   <p class="hero-sub fade-up d3">Turn any smartphone into a customizable tap-to-speak communication aid. Made for people with aphasia, stroke, ALS, and other speech challenges.</p>
   <div class="cta-group fade-up d3">
-    <a href="#early-access" class="btn-primary">Request Free Clinician Access →</a>
-    <a href="#features" class="btn-ghost">See How It Works</a>
+    <a href="/strivetalk/public/auth.html?panel=login" class="btn-primary">Access Account →</a>
+    <a href="/strivetalk/public/auth.html?panel=createTalk" class="btn-ghost">Start 60 Day Free Access →</a>
   </div>
   <ul class="hero-points fade-up d3">
     <li>AAC communication app for aphasia, stroke &amp; ALS</li>
@@ -1373,36 +1454,34 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <h2 class="section-title">Simple, transparent pricing</h2>
-  <p class="section-sub" style="margin:0 auto;">Choose annual savings or flexible monthly billing. Clinicians can request free access.</p>
+  <p class="section-sub" style="margin:0 auto;">Choose the plan that fits, then create or access your account.</p>
   <div class="price-layout">
-    <div class="price-name">Strive Talk</div>
     <div class="price-options" aria-label="Subscription pricing options">
-      <div class="price-option featured">
-        <div class="price-option-label">Best Value · Annual</div>
+      <div class="price-option">
+        <div class="price-plan-name">Monthly</div>
         <div class="price-amount"><span class="price-dollar">$</span>8<span class="price-cents">.99</span></div>
         <div class="price-period">per month</div>
-        <div class="price-billing">Billed annually at $107.88/year</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>Unlimited communication cards</li>
+          <li>Voice pitch and speed controls</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <a href="/strivetalk/public/auth.html?panel=createTalk" class="btn-primary">Start 60 Day Free Access →</a>
       </div>
-      <div class="price-option secondary">
-        <div class="price-option-label">Regular · Monthly</div>
-        <div class="price-amount"><span class="price-dollar">$</span>14<span class="price-cents">.99</span></div>
-        <div class="price-period">per month</div>
-        <div class="price-billing">Billed monthly</div>
+      <div class="price-option featured">
+        <div class="price-plan-name">Yearly</div>
+        <div class="price-amount"><span class="price-dollar">$</span>60</div>
+        <div class="price-period">per year</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>Everything in monthly</li>
+          <li>Save compared with monthly billing</li>
+          <li>Works on the phone patients already own</li>
+        </ul>
+        <a href="/strivetalk/public/auth.html?panel=createTalk" class="btn-primary">Start 60 Day Free Access →</a>
       </div>
     </div>
-    <div class="price-compare">vs. $3,000-$8,000 for many traditional devices</div>
-    <div class="price-trial">Clinicians can request free access</div>
-    <ul class="price-features">
-      <li>Unlimited communication cards</li>
-      <li>Words &amp; phrases libraries</li>
-      <li>Pitch &amp; speed customization</li>
-      <li>Single-hand operation</li>
-      <li>Offline support after setup</li>
-      <li>English &amp; Spanish UI</li>
-      <li>Accidental-delete protection</li>
-      <li>Privacy-minded setup</li>
-    </ul>
-    <a href="#early-access" class="btn-primary" style="font-size:1.05rem;padding:1rem 3rem;">Request Free Clinician Access →</a>
     <p class="price-guarantee">Cancel anytime.</p>
   </div>
 </section>
@@ -1411,8 +1490,8 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
 <section class="early-access" id="early-access">
   <div class="access-card" role="dialog" aria-labelledby="access-title">
     <a class="access-close" href="#pricing" aria-label="Close access form">&times;</a>
-    <h2 class="section-title" id="access-title">Request free clinician access</h2>
-    <p class="access-intro">Clinicians can request free access to evaluate STRIVE Talk with the people they serve. Share a few details to get started.</p>
+    <h2 class="section-title" id="access-title">Create or access your account</h2>
+    <p class="access-intro">Use your STRIVE Talk account to manage access and continue setup.</p>
     <form class="access-form" id="access-form" action="https://formspree.io/f/xdajgera" method="POST">
       <div class="access-field">
         <label for="access-name">Name</label>
@@ -1486,11 +1565,11 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
         <span>I have read and agree to the STRIVE Talk User Agreement and Terms of Use above.</span>
       </label>
       <div class="access-row" id="access-row">
-        <button class="btn-primary" id="access-submit" type="submit">Request Free Clinician Access →</button>
+        <button class="btn-primary" id="access-submit" type="submit">Create Account or Access Account →</button>
       </div>
       <input type="hidden" name="source" value="STRIVE Talk landing page">
       <input type="hidden" name="user_agreement_version" value="User Agreement and Terms of Use effective June 4, 2026">
-      <p class="access-note" id="access-note">Free clinician access and STRIVE Talk launch updates.</p>
+      <p class="access-note" id="access-note">STRIVE Talk account access and launch updates.</p>
       <div class="access-status success" id="access-success">You're in. STRIVE Talk is unlocked on this browser.</div>
       <div class="access-status error" id="access-error">Something did not go through. Please try again in a moment.</div>
     </form>
@@ -1531,8 +1610,8 @@ footer { border-top: 1px solid var(--line); padding: 2rem 6%; display: flex; ali
 <!-- FINAL CTA -->
 <section class="final-cta">
   <h2>Give your patients<br>their voice back.</h2>
-  <p>Strive Talk takes two minutes to set up and works on the phone patients already own. Clinicians can request free access to evaluate it in practice.</p>
-  <a href="#early-access" class="btn-primary" style="font-size:1.1rem;padding:1.1rem 3rem;margin-bottom:1.2rem;">Request Free Clinician Access →</a>
+  <p>Strive Talk takes two minutes to set up and works on the phone patients already own. Create an account or sign in to continue.</p>
+  <a href="/strivetalk/public/auth.html" class="btn-primary" style="font-size:1.1rem;padding:1.1rem 3rem;margin-bottom:1.2rem;">Create Account or Access Account →</a>
   <br>
 </section>
 </main>
@@ -1620,7 +1699,7 @@ if (accessForm) {
       accessError.style.display = 'block';
     } finally {
       accessSubmit.disabled = false;
-      accessSubmit.textContent = 'Request Free Clinician Access →';
+      accessSubmit.textContent = 'Create Account or Access Account →';
     }
   });
 }
