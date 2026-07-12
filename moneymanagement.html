@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f6fafc">
   <title>STRIVE INDEPENDENCE | Money Management Launchpad</title>
-  <meta name="description" content="Launch STRIVE INDEPENDENCE starter apps, including Bill Pay, Left/Right practice, and a downloadable Medication Management trial.">
+  <meta name="description" content="Launch STRIVE INDEPENDENCE starter apps, including Basic Bill Pay, Left/Right practice, and the free Grocery Shopping Task.">
   <meta name="robots" content="index, follow">
   <meta name="keywords" content="money management simulator, STRIVE INDEPENDENCE, bill pay practice, left right discrimination game, occupational therapy money management, IADL training, cognitive rehab, executive function practice, stroke rehab, brain injury rehab">
   <link rel="canonical" href="https://striveptlv.com/independence.html">
   <meta property="og:title" content="STRIVE INDEPENDENCE | Money Management Launchpad">
-  <meta property="og:description" content="Launch available STRIVE INDEPENDENCE apps, download the Medication Management trial, and view the broader app library.">
+  <meta property="og:description" content="Launch available STRIVE INDEPENDENCE starter apps and view the broader app library, including the free Grocery Shopping Task.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://striveptlv.com/independence.html">
   <meta property="og:image" content="https://striveptlv.com/logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="STRIVE INDEPENDENCE | Money Management Launchpad">
-  <meta name="twitter:description" content="Launch available STRIVE INDEPENDENCE apps, download the Medication Management trial, and view the broader app library.">
+  <meta name="twitter:description" content="Launch available STRIVE INDEPENDENCE starter apps and view the broader app library, including the free Grocery Shopping Task.">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -25,7 +25,7 @@
     "alternateName": "Money Management Simulator",
     "applicationCategory": "HealthApplication",
     "operatingSystem": "Web",
-    "description": "Starter launchpad for money-management and functional cognition practice, including mock bill pay, basic left/right discrimination, a downloadable medication management trial, and access to the full app library.",
+    "description": "Starter launchpad for money-management and functional cognition practice, including mock bill pay, basic left/right discrimination, grocery shopping practice, and access to the full app library.",
     "isPartOf": {
       "@type": "SoftwareApplication",
       "name": "STRIVE INDEPENDENCE"
@@ -39,7 +39,7 @@
     "featureList": [
       "Mock bill pay",
       "Basic left/right discrimination practice",
-      "Downloadable medication management trial",
+      "Free grocery shopping task",
       "Paid upgrade prompts",
       "Money-management IADL practice",
       "Executive function practice"
@@ -244,8 +244,6 @@
     }
     .available-grid {
       margin-bottom: 18px;
-    }
-    .available-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
     .restricted-grid {
@@ -273,6 +271,15 @@
       border-color: var(--accent);
       box-shadow: 0 24px 64px rgba(19, 35, 56, 0.13);
     }
+    .app-card.disabled {
+      cursor: default;
+      opacity: 0.76;
+    }
+    .app-card.disabled:hover {
+      transform: none;
+      border-color: var(--line);
+      box-shadow: 0 18px 50px rgba(19, 35, 56, 0.08);
+    }
     .app-card.restricted {
       background: rgba(255, 255, 255, 0.58);
       border-style: dashed;
@@ -293,6 +300,21 @@
       font-family: "DM Mono", monospace;
       font-size: 0.72rem;
       font-weight: 500;
+    }
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--tint);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      line-height: 1;
+      text-transform: uppercase;
     }
     .app-card h2 {
       margin-top: 18px;
@@ -331,7 +353,7 @@
     .talk { --accent: #db2777; --tint: rgba(219, 39, 119, 0.1); --border: rgba(219, 39, 119, 0.22); }
     .stride { --accent: #7c3aed; --tint: rgba(124, 58, 237, 0.11); --border: rgba(124, 58, 237, 0.22); }
     .left-right { --accent: #0f766e; --tint: rgba(15, 118, 110, 0.11); --border: rgba(15, 118, 110, 0.24); }
-    .medication { --accent: #be123c; --tint: rgba(190, 18, 60, 0.1); --border: rgba(190, 18, 60, 0.22); }
+    .grocery { --accent: #16a34a; --tint: rgba(22, 163, 74, 0.11); --border: rgba(22, 163, 74, 0.24); }
     .upgrade-panel {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -366,7 +388,7 @@
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
       .launch-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .available-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .available-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     .redirect {
       color: var(--muted);
@@ -517,7 +539,7 @@
       <p class="lead">The Money Management simulator is now part of STRIVE INDEPENDENCE. Clinicians can continue using realistic practice for bill pay, online banking, and transportation tasks inside the larger independence platform.</p>
 
       <div class="launch-grid available-grid" aria-label="Available STRIVE INDEPENDENCE apps">
-        <a class="app-card bill" href="free/Bill%20Pay/Bill%20Pay%20Homepage.html">
+        <a class="app-card bill" href="https://www.striveptlv.com/independence/free/Bill%20Pay/Bill%20Pay%20Homepage.html">
           <div>
             <div class="app-top"><span class="app-num">01</span></div>
             <h2>Bill Pay</h2>
@@ -526,35 +548,35 @@
           <div class="app-launch">Open app <span>→</span></div>
         </a>
 
-        <a class="app-card left-right" href="free/left-right-basic/index.html">
+        <a class="app-card left-right" href="https://www.striveptlv.com/independence/free/left-right-basic/index.html">
           <div>
-            <div class="app-top"><span class="app-num">02</span></div>
+            <div class="app-top"><span class="app-badge">FREE APP</span><span class="app-num">02</span></div>
             <h2>Left/Right Discrimination</h2>
-            <p>Practice identifying left and right directions through focused visual discrimination and response tasks.</p>
+            <p>Try the free left/right starter version for focused direction practice. Paid access adds more levels, activity variety, and clinical progression.</p>
           </div>
           <div class="app-launch">Open app <span>→</span></div>
         </a>
 
-        <a class="app-card medication" href="free/medication-management-trial.html" download>
+        <a class="app-card grocery" href="https://www.striveptlv.com/independence/free/grocery-shopping-task/index.html">
           <div>
-            <div class="app-top"><span class="app-num">03</span></div>
-            <h2>Medication Management</h2>
-            <p>Download a printable trial for reading medication labels, organizing schedules, checking doses, and making safe routine decisions.</p>
+            <div class="app-top"><span class="app-badge">FREE APP</span><span class="app-num">03</span></div>
+            <h2>Grocery Shopping Task</h2>
+            <p>Try the free grocery shopping version with starter practice. Paid access adds more levels, harder scenarios, and expanded clinical activities.</p>
           </div>
-          <div class="app-launch">Download trial <span>→</span></div>
+          <div class="app-launch">Open app <span>→</span></div>
         </a>
       </div>
 
       <div class="upgrade-panel" aria-label="Paid access prompt">
         <div>
           <h2>Explore the full STRIVE INDEPENDENCE library.</h2>
-          <p>Paid access adds online banking, credit card practice, STRIDE Ride Share, STRIVE Talk, full dashboard access, and more guided activities for functional independence practice.</p>
+          <p>Paid access adds more Left/Right Discrimination and Grocery Shopping Task levels, online banking, credit card practice, STRIDE Ride Share, STRIVE Talk, full dashboard access, and more guided activities for functional independence practice.</p>
         </div>
         <a class="button" href="choose-plan.html?upgrade=1">Get Paid Access</a>
       </div>
 
       <div class="launch-grid restricted-grid" aria-label="Restricted STRIVE INDEPENDENCE apps">
-        <a class="app-card stride restricted" href="auth.html" aria-label="Create an account for STRIDE Ride Share">
+        <a class="app-card stride restricted" href="https://www.striveptlv.com/independence/auth.html" aria-label="Create an account for STRIDE Ride Share">
           <div>
             <div class="app-top"><span class="app-num">04</span></div>
             <h2>STRIDE Ride Share</h2>
@@ -563,7 +585,7 @@
           <div class="app-launch">Create account <span>→</span></div>
         </a>
 
-        <a class="app-card bank restricted" href="auth.html" aria-label="Create an account for Online Banking">
+        <a class="app-card bank restricted" href="https://www.striveptlv.com/independence/auth.html" aria-label="Create an account for Online Banking">
           <div>
             <div class="app-top"><span class="app-num">05</span></div>
             <h2>Online Banking</h2>
@@ -572,7 +594,7 @@
           <div class="app-launch">Create account <span>→</span></div>
         </a>
 
-        <a class="app-card credit restricted" href="auth.html" aria-label="Create an account for Credit Card">
+        <a class="app-card credit restricted" href="https://www.striveptlv.com/independence/auth.html" aria-label="Create an account for Credit Card">
           <div>
             <div class="app-top"><span class="app-num">06</span></div>
             <h2>Credit Card</h2>
@@ -581,7 +603,7 @@
           <div class="app-launch">Create account <span>→</span></div>
         </a>
 
-        <a class="app-card talk restricted" href="auth.html" aria-label="Create an account for STRIVE Talk">
+        <a class="app-card talk restricted" href="https://www.striveptlv.com/independence/auth.html" aria-label="Create an account for STRIVE Talk">
           <div>
             <div class="app-top"><span class="app-num">07</span></div>
             <h2>STRIVE Talk</h2>
