@@ -451,6 +451,19 @@
       margin-bottom: 28px;
     }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .hero-referral {
+      margin-top: 20px;
+      color: var(--text-mid);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .hero-referral strong { color: var(--ink); }
+    .hero-referral a {
+      color: var(--warn);
+      font-weight: 700;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
     .section { padding: 76px 5vw; border-top: 1px solid var(--line); }
     .section-inner { max-width: 1180px; margin: 0 auto; }
     .section-kicker {
@@ -1041,6 +1054,7 @@
         <a href="#consultation" data-consult-trigger class="btn-primary">Request a Consultation</a>
         <a href="#scheduling" data-schedule-trigger class="btn-outline">Book Now</a>
       </div>
+      <p class="hero-referral anim d3"><strong>Clinic referrals:</strong> Fax <a href="fax:+17252392032">(725) 239-2032</a> — referrals only.</p>
     </div>
   </section>
 
@@ -1327,6 +1341,7 @@
       <span>Licensed Physical Therapists - State of Nevada</span>
     </div>
   </div>
+  <div style="width:100%;margin-top:16px;text-align:center;font-size:13px;opacity:.72;">Fax: (725) 239-2032</div>
 </footer>
 
 <script>

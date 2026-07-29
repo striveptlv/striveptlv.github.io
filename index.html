@@ -1835,6 +1835,47 @@
       line-height: 1.8;
       margin-bottom: 24px;
     }
+    .referral-fax-box {
+      margin: 0 0 26px;
+      padding: 22px;
+      background: var(--ink);
+      border-left: 6px solid var(--accent);
+      color: white;
+    }
+    .referral-fax-box .fax-label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.76);
+      margin-bottom: 6px;
+    }
+    .referral-fax-box .fax-number {
+      display: block;
+      width: fit-content;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(30px, 4vw, 42px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 1px;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+    .referral-fax-box .fax-number:hover { color: var(--accent); }
+    .referral-fax-box p {
+      color: rgba(255,255,255,0.86);
+      font-size: 13px;
+      line-height: 1.55;
+      margin: 0;
+    }
+    .referral-fax-box p a {
+      color: white;
+      font-weight: 700;
+      text-underline-offset: 3px;
+    }
     .contact-detail {
       display: flex;
       gap: 14px;
@@ -2350,7 +2391,7 @@
         <div class="hero-badge anim">STRIVE PT Las Vegas · In-Home &amp; Mobile Physical Therapy</div>
         <h1 class="anim d1"><span class="hero-mark">STRIVE</span><em>for better movement</em></h1>
         <p class="hero-sub anim d2">In-home physical therapy and mobile physical therapy in Las Vegas for stroke, vestibular, and neurological care.</p>
-        <p class="hero-area anim d2"><strong>Mobile PT service area:</strong> Las Vegas, Skye Canyon, Centennial Hills, and Summerlin.<br><strong>Saturdays:</strong> Neuro Movement Gym at <a href="https://www.google.com/maps/search/?api=1&amp;query=7035+W+Ann+Rd+Ste+120+Las+Vegas+NV+89130" target="_blank" rel="noopener">Shinkyokushin Karate Las Vegas</a>.</p>
+        <p class="hero-area anim d2"><strong>Mobile PT service area:</strong> Las Vegas, Skye Canyon, Centennial Hills, and Summerlin.<br><strong>Saturdays:</strong> Neuro Movement Gym at <a href="https://www.google.com/maps/search/?api=1&amp;query=7035+W+Ann+Rd+Ste+120+Las+Vegas+NV+89130" target="_blank" rel="noopener">Shinkyokushin Karate Las Vegas</a>.<br><strong>Clinic referrals:</strong> Fax <a href="fax:+17252392032">(725) 239-2032</a>.</p>
         <p class="hero-desc sr-only">Looking for mobile physical therapy near you in Las Vegas? STRIVE provides in-home physical therapy for stroke rehab, vestibular rehab, walking, balance, mobility, transfers, independence, and broader neuro rehab and wellness services.</p>
         <div class="hero-actions anim d3">
           <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" class="btn-primary">Book an Appointment</a>
@@ -2777,6 +2818,12 @@
           <h3>We're Here to Help</h3>
           <p>STRIVE works with Las Vegas-area patients looking for private stroke rehabilitation, vestibular rehab, and high-attention neuro-focused care. Your first conversation with us is always straightforward and pressure-free.</p>
 
+          <div class="referral-fax-box" aria-label="Clinic referral fax information">
+            <span class="fax-label">Clinics &amp; Care Teams — Fax Referrals</span>
+            <a class="fax-number" href="fax:+17252392032">(725) 239-2032</a>
+            <p>For patient referrals only. Please include the therapy order, patient demographics and contact information, and relevant clinical documentation. <a href="/referrals.html">Referral details</a></p>
+          </div>
+
           <div class="contact-detail">
             <div class="c-dot"></div>
             <div class="c-text">
@@ -2823,6 +2870,10 @@
             <div class="form-row">
               <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(702) 555-0000"></div>
               <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="jane@email.com" required></div>
+            </div>
+            <div class="form-group">
+              <label>ZIP Code</label>
+              <input type="text" name="zipcode" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" maxlength="10" placeholder="89130" required>
             </div>
             <div class="form-group"><label>Contact Me Through</label><select name="contact_preference"><option value="">Select an option...</option><option>Phone Call</option><option>Text</option><option>Email</option></select></div>
             <div class="form-group"><label>Message</label><textarea name="message" placeholder="Please do not include sensitive medical information. This form is for general inquiries only."></textarea></div>
@@ -2977,6 +3028,7 @@
       <span>Licensed Physical Therapists &middot; State of Nevada</span>
     </div>
   </div>
+  <div style="width:100%;margin-top:16px;text-align:center;font-size:13px;opacity:.72;">Fax: (725) 239-2032</div>
 </footer>
 
 <script>
@@ -3085,6 +3137,7 @@
       last_name: form.last_name.value,
       phone: form.phone.value,
       email: form.email.value,
+      zipcode: form.zipcode.value,
       contact_preference: form.contact_preference.value,
       message: form.message.value
     };
