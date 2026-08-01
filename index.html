@@ -44,7 +44,7 @@
           "https://www.instagram.com/striveptlv/",
           "https://open.spotify.com/show/2nbFBV45QpM37SAdHtobgF"
         ],
-        "description": "STRIVE PT is a 1-on-1 in-home physical therapy and mobile physical therapy practice in Las Vegas, Nevada including neurological physical therapy, stroke rehabilitation, vestibular rehabilitation, spinal cord injury rehab, prosthetic rehab, FND rehab, and neuro wellness classes and programs.",
+        "description": "STRIVE PT is a 1-on-1 in-home physical therapy and mobile physical therapy practice in Las Vegas, Nevada including neurological physical therapy, stroke rehabilitation, vestibular rehabilitation, spinal cord injury rehab, prosthetic rehab, and FND rehab.",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Las Vegas",
@@ -169,6 +169,39 @@
     }
     img { max-width: 100%; height: auto; }
     a { color: inherit; }
+
+    .practice-update-banner {
+      background: var(--ink);
+      color: #ffffff;
+      border-bottom: 4px solid var(--accent);
+      padding: 14px 5vw;
+    }
+    .practice-update-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      text-align: center;
+    }
+    .practice-update-label {
+      flex-shrink: 0;
+      padding: 5px 9px;
+      border-radius: 2px;
+      background: var(--accent);
+      color: #ffffff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+    .practice-update-banner p {
+      font-size: 15px;
+      line-height: 1.45;
+    }
+    .practice-update-banner strong { color: #ffffff; }
 
     nav {
       position: fixed;
@@ -2197,6 +2230,16 @@
     }
 
     @media (max-width: 640px) {
+      .practice-update-inner {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .practice-update-banner {
+        padding: 13px 6vw 14px;
+      }
+      .practice-update-banner p {
+        font-size: 14px;
+      }
       .hero { padding: 92px 5vw 68px; min-height: auto; }
       .hero::before { background-position: 78% center; }
       .hero::after {
@@ -2298,7 +2341,6 @@
     <div class="nav-dropdown">
       <a href="#services">Services</a>
         <div class="dropdown-menu">
-          <a href="/wellness.html">Wellness Classes</a>
           <a href="/stroke.html">Stroke Rehab</a>
           <a href="sci.html">SCI Physical Therapy</a>
           <a href="vestibular-rehab.html">Vestibular Rehab</a>
@@ -2331,7 +2373,6 @@
       Services <span class="mob-arrow">›</span>
     </div>
     <div class="mob-dropdown-items" id="servicesItems">
-      <a href="/wellness.html" onclick="toggleMenu(false)">Wellness Classes</a>
       <a href="/stroke.html" onclick="toggleMenu(false)">Stroke Rehab</a>
       <a href="sci.html" onclick="toggleMenu(false)">SCI Physical Therapy</a>
       <a href="vestibular-rehab.html" onclick="toggleMenu(false)">Vestibular Rehab</a>
@@ -2384,6 +2425,12 @@
 </div>
 
 <main>
+  <aside class="practice-update-banner" aria-label="STRIVE practice update">
+    <div class="practice-update-inner">
+      <span class="practice-update-label">Practice Update</span>
+      <p><strong>July 31, 2026 was our final day at the Neuro Movement Gym.</strong> As of August 1, STRIVE is focused on private, one-on-one physical therapy delivered in your home.</p>
+    </div>
+  </aside>
   <section class="hero" id="top">
     <div class="hero-grid"></div>
     <div class="hero-inner">
@@ -2391,7 +2438,7 @@
         <div class="hero-badge anim">STRIVE PT Las Vegas · In-Home &amp; Mobile Physical Therapy</div>
         <h1 class="anim d1"><span class="hero-mark">STRIVE</span><em>for better movement</em></h1>
         <p class="hero-sub anim d2">In-home physical therapy and mobile physical therapy in Las Vegas for stroke, vestibular, and neurological care.</p>
-        <p class="hero-area anim d2"><strong>Mobile PT service area:</strong> Las Vegas, Skye Canyon, Centennial Hills, and Summerlin.<br><strong>Saturdays:</strong> Neuro Movement Gym at <a href="https://www.google.com/maps/search/?api=1&amp;query=7035+W+Ann+Rd+Ste+120+Las+Vegas+NV+89130" target="_blank" rel="noopener">Shinkyokushin Karate Las Vegas</a>.<br><strong>Clinic referrals:</strong> Fax <a href="fax:+17252392032">(725) 239-2032</a>.</p>
+        <p class="hero-area anim d2"><strong>Mobile PT service area:</strong> Las Vegas, Skye Canyon, Centennial Hills, and Summerlin.<br><strong>Clinic referrals:</strong> Fax <a href="fax:+17252392032">(725) 239-2032</a>.</p>
         <p class="hero-desc sr-only">Looking for mobile physical therapy near you in Las Vegas? STRIVE provides in-home physical therapy for stroke rehab, vestibular rehab, walking, balance, mobility, transfers, independence, and broader neuro rehab and wellness services.</p>
         <div class="hero-actions anim d3">
           <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" class="btn-primary">Book an Appointment</a>
@@ -2413,10 +2460,6 @@
             <div class="hero-point">
               <div class="hero-dot"></div>
               <div><strong>Mobile PT Across Las Vegas</strong><span>In-home physical therapy happens where daily life actually takes place, which makes treatment more practical and more relevant.</span></div>
-            </div>
-            <div class="hero-point">
-              <div class="hero-dot"></div>
-              <div><strong>Outpatient Neuro Movement Gym</strong><span>Now open and fully operating at Shinkyokushin Karate Las Vegas. Join us for Saturday neuro movement gym classes and wellness programs.</span></div>
             </div>
           </div>
         </div>
@@ -2454,7 +2497,7 @@
         <span class="bar-split"></span>
         <span>Vestibular rehab</span>
         <span class="bar-split"></span>
-        <span>Neuro wellness</span>
+        <span>Neurological rehab</span>
         <span class="bar-split"></span>
         <span>Now seeing patients</span>
         <span class="bar-split"></span>
@@ -2464,7 +2507,7 @@
         <span class="bar-split"></span>
         <span>Vestibular rehab</span>
         <span class="bar-split"></span>
-        <span>Neuro wellness</span>
+        <span>Neurological rehab</span>
       </div>
     </div>
   </div>
@@ -2504,8 +2547,8 @@
 
   <section class="section services-section" id="services">
     <div class="section-inner">
-      <h2 class="section-title">In-home physical therapy, mobile PT, and neuro wellness services</h2>
-      <p class="section-lead">STRIVE provides in-home physical therapy and mobile physical therapy in Las Vegas, including stroke rehab, neurological physical therapy, vestibular rehab, wellness classes and programs, SCI physical therapy, prosthetic rehab, and joint replacement rehab. Most services are delivered one-on-one in your home, with Saturday wellness and strengthening options at our movement gym.</p>
+      <h2 class="section-title">In-home physical therapy and mobile PT services</h2>
+      <p class="section-lead">STRIVE provides in-home physical therapy and mobile physical therapy in Las Vegas, including stroke rehab, neurological physical therapy, vestibular rehab, SCI physical therapy, prosthetic rehab, and joint replacement rehab. Our final day at the Neuro Movement Gym is July 31, 2026; beginning August 1, services will focus on private, one-on-one home visits.</p>
 
       <div class="services-grid">
         <a href="/stroke.html" class="service-card anim">
@@ -2516,13 +2559,9 @@
           <h3>Vestibular Rehabilitation</h3>
           <p>Evidence-based mobile physical therapy for dizziness, BPPV, vestibular loss, imbalance, chronic motion sensitivity, and related visual-vestibular symptoms.</p>
         </a>
-        <a href="/wellness.html" class="service-card anim">
-          <h3>Neuro Wellness Classes &amp; Programs</h3>
-          <p>Wheelchair-friendly neuro wellness classes and structured programs that support strength, endurance, balance, long-term mobility, and confidence after traditional therapy ends.</p>
-        </a>
         <a href="sci.html" class="service-card anim d1">
           <h3>Spinal Cord Injury / SCI Physical Therapy</h3>
-          <p>Individualized spinal cord injury rehab in Las Vegas focused on strength, mobility, transfers, balance, wheelchair function, and safer day-to-day independence at home or in the Neuro Movement Gym.</p>
+          <p>Individualized spinal cord injury rehab in Las Vegas focused on strength, mobility, transfers, balance, wheelchair function, and safer day-to-day independence in your home and real-life environment.</p>
         </a>
         <a href="/prosthetic.html" class="service-card anim">
           <h3>Post-Amputation Rehabilitation</h3>
@@ -2596,10 +2635,6 @@
               <strong>Vestibular Care</strong>
               <span>Support for dizziness, balance dysfunction, and safer movement in everyday environments.</span>
             </div>
-            <div class="therapist-feature">
-              <strong>Neuro Wellness</strong>
-              <span>Wheelchair-friendly classes and structured programs for people who want to keep improving beyond discharge.</span>
-            </div>
           </div>
 
           <div class="therapist-spotlight-actions">
@@ -2639,8 +2674,8 @@
 
         <div class="care-option-card anim d2">
           <div class="care-option-kicker">03</div>
-          <h3 class="care-option-title">Gym-Based Physical Therapy</h3>
-          <p class="care-option-desc">Neuro Movement Gym in <a href="https://www.google.com/maps/search/?api=1&query=7035+W+Ann+Rd+Ste+120+Las+Vegas+NV+89130" target="_blank" rel="noopener">Shinkyokushin Karate Las Vegas</a> for people who need higher-level movement work, progressive loading, and more room to train complex tasks.</p>
+          <h3 class="care-option-title">Home-Visit Physical Therapy</h3>
+          <p class="care-option-desc">Private, one-on-one physical therapy in your home, with treatment shaped around the movements, spaces, and daily tasks that matter most to you.</p>
           <div class="care-option-points">
             <div class="care-option-point">Emphasis on lifting, balance, motor planning, gait progression, and building capacity in a structured rehab setting.</div>
             <div class="care-option-point">A strong fit for patients who are ready for a more intensive clinic-style environment.</div>
@@ -2707,7 +2742,7 @@
   <section class="section pricing-section" id="pricing" style="display:none;">
     <div class="section-inner">
       <h2 class="section-title">Transparent access with no surprise bills</h2>
-      <p class="section-lead">We keep access straightforward. STRIVE is a private-pay model for in-home sessions, and our outpatient neuro movement gym is now open and fully operating at Shinkyokushin Karate Las Vegas.</p>
+      <p class="section-lead">We keep access straightforward. STRIVE is a private-pay model for in-home sessions. Our final day at the outpatient Neuro Movement Gym is July 31, 2026, and our practice will focus on home visits beginning August 1.</p>
 
       <div class="pricing-grid">
         <div class="pricing-card light anim">
@@ -2725,7 +2760,7 @@
 
         <div class="pricing-card anim d1">
           <div class="pricing-type">Now Open</div>
-          <div class="pricing-name">Neuro Movement Gym</div>
+          <div class="pricing-name">Neuro Movement Gym — Ending July 31</div>
           <div class="pricing-feats">
             <div class="pricing-feat">Group Wellness Classes</div>
             <div class="pricing-feat">Shinkyokushin Karate Las Vegas</div>
@@ -2740,8 +2775,8 @@
       <div class="pricing-banner anim d2">
         <div class="pricing-banner-dot"></div>
         <div>
-          <h4> Neuro Movement Gym — Now Open</h4>
-          <p>Our outpatient neuro movement gym is now open and fully operating inside Shinkyokushin Karate Las Vegas at 7035 W Ann Rd Ste 120, Las Vegas, NV 89130. Use the contact form below to ask questions or confirm Saturday availability.</p>
+          <h4>Neuro Movement Gym — Final Day July 31, 2026</h4>
+          <p>Our outpatient Neuro Movement Gym will close after July 31, 2026. Beginning August 1, STRIVE will focus on private home visits throughout the Las Vegas valley. Use the contact form below to ask about scheduling an in-home visit.</p>
         </div>
       </div>
     </div>
@@ -2801,7 +2836,7 @@
         <div class="faq-item"><div class="faq-q"><span class="faq-q-text">How is STRIVE different from a home health agency?</span><span class="faq-toggle">+</span></div><div class="faq-a">Home health PT is typically designed for homebound patients who need basic functional support. STRIVE is built for patients who want more focused, higher-attention neurological and vestibular care in the home.</div></div>
         <div class="faq-item"><div class="faq-q"><span class="faq-q-text">What do CSRS and CBIS certifications mean?</span><span class="faq-toggle">+</span></div><div class="faq-a">CSRS and CBIS are advanced certifications that reflect deeper knowledge and clinical competency in stroke rehabilitation and brain injury care.</div></div>
         <div class="faq-item"><div class="faq-q"><span class="faq-q-text">Can BPPV be treated in one visit?</span><span class="faq-toggle">+</span></div><div class="faq-a">Many cases of BPPV respond quickly to repositioning maneuvers such as the Epley maneuver. The exact number of visits depends on the type of BPPV and what we find during evaluation.</div></div>
-        <div class="faq-item"><div class="faq-q"><span class="faq-q-text">Is your Las Vegas outpatient neuro movement gym open?</span><span class="faq-toggle">+</span></div><div class="faq-a">Yes. Our outpatient neuro movement gym is now open and fully operating inside Shinkyokushin Karate Las Vegas at 7035 W Ann Rd Ste 120, Las Vegas, NV 89130. Use the contact form below if you want details about Saturday access.</div></div>
+        <div class="faq-item"><div class="faq-q"><span class="faq-q-text">Is your Las Vegas outpatient Neuro Movement Gym closing?</span><span class="faq-toggle">+</span></div><div class="faq-a">Yes. July 31, 2026 is STRIVE's final day at the Neuro Movement Gym. Beginning August 1, our practice will focus on private, one-on-one home visits throughout the Las Vegas valley.</div></div>
         <div class="faq-item"><div class="faq-q"><span class="faq-q-text">How long are sessions and how often will I be seen?</span><span class="faq-toggle">+</span></div><div class="faq-a">Initial evaluations are typically 60–75 minutes. Follow-up sessions are usually 45–60 minutes. Frequency depends on your diagnosis, goals, and how your plan progresses.</div></div>
         <div class="faq-item"><div class="faq-q"><span class="faq-q-text">Can I use my HSA or FSA card?</span><span class="faq-toggle">+</span></div><div class="faq-a">Yes. Physical therapy is generally an eligible HSA/FSA expense. We can also provide superbills for potential out-of-network reimbursement depending on your plan.</div></div>
       </div>
@@ -2848,8 +2883,8 @@
           <div class="contact-detail">
             <div class="c-dot"></div>
             <div class="c-text">
-              <strong>Outpatient Neuro Movement Gym</strong>
-              <span>Now open and fully operating at Shinkyokushin Karate Las Vegas, 7035 W Ann Rd Ste 120, Las Vegas, NV 89130. <a href="https://www.google.com/maps/search/?api=1&query=7035+W+Ann+Rd+Ste+120+Las+Vegas+NV+89130" target="_blank" rel="noopener">View on Google Maps</a>.</span>
+              <strong>Home-Visit Focus Beginning August 1</strong>
+              <span>Our final day at the Neuro Movement Gym is July 31, 2026. After that date, STRIVE will provide private, one-on-one care through home visits across the Las Vegas valley.</span>
             </div>
           </div>
 
@@ -2942,14 +2977,14 @@
   <section class="section newsletter-section" id="newsletter">
     <div class="section-inner">
       <h2 class="section-title">Join our newsletter</h2>
-      <p class="section-lead">Get occasional updates from STRIVE Physical Therapy, including practice news, practical patient education, and updates from our now-open outpatient neuro movement gym.</p>
+      <p class="section-lead">Get occasional updates from STRIVE Physical Therapy, including practice news, practical patient education, and updates about our home-visit services.</p>
 
       <div class="newsletter-inner">
         <div class="newsletter-copy anim">
-          <p>We keep email updates occasional and useful. This is where we share new articles, practice updates, and meaningful news about the Las Vegas outpatient location at Shinkyokushin Karate Las Vegas.</p>
+          <p>We keep email updates occasional and useful. This is where we share new articles, practice updates, and meaningful news about our in-home physical therapy services across Las Vegas.</p>
           <div class="newsletter-bullets">
             <div class="newsletter-bullet">Practical guidance on neurological recovery, dizziness, balance, and home safety</div>
-            <div class="newsletter-bullet">Updates from our now-open neuro movement gym at Shinkyokushin Karate Las Vegas</div>
+            <div class="newsletter-bullet">Updates about private home visits and mobile physical therapy across Las Vegas</div>
             <div class="newsletter-bullet">No spam and no crowded marketing blasts</div>
           </div>
           <a href="/insights" class="newsletter-archive-link">Prefer to browse first? Explore our article and newsletter archive.</a>
