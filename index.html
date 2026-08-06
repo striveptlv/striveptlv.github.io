@@ -1870,10 +1870,11 @@
     }
     .referral-fax-box {
       margin: 0 0 26px;
-      padding: 22px;
-      background: var(--ink);
-      border-left: 6px solid var(--accent);
-      color: white;
+      padding: 18px 20px;
+      background: var(--paper);
+      border: 1px solid var(--line-strong);
+      border-left: 4px solid var(--accent);
+      color: var(--ink);
     }
     .referral-fax-box .fax-label {
       display: block;
@@ -1882,30 +1883,30 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.76);
+      color: var(--text-mid);
       margin-bottom: 6px;
     }
     .referral-fax-box .fax-number {
       display: block;
       width: fit-content;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(30px, 4vw, 42px);
+      font-size: clamp(27px, 3vw, 34px);
       font-weight: 700;
       line-height: 1;
       letter-spacing: 1px;
-      color: white;
+      color: var(--ink);
       text-decoration: none;
       margin-bottom: 10px;
     }
     .referral-fax-box .fax-number:hover { color: var(--accent); }
     .referral-fax-box p {
-      color: rgba(255,255,255,0.86);
+      color: var(--text-mid);
       font-size: 13px;
       line-height: 1.55;
       margin: 0;
     }
     .referral-fax-box p a {
-      color: white;
+      color: var(--ink);
       font-weight: 700;
       text-underline-offset: 3px;
     }
@@ -1936,6 +1937,11 @@
       color: #000000;
       font-size: 14px;
       line-height: 1.7;
+    }
+    .c-text a {
+      color: var(--ink);
+      font-weight: 700;
+      text-underline-offset: 3px;
     }
     .book-cta-box {
       margin-top: 28px;
@@ -2393,7 +2399,7 @@
   </div>
   <a href="/contact.html" onclick="toggleMenu(false)">Contact</a>
   <a href="#scheduling" data-schedule-trigger class="mob-book" onclick="toggleMenu(false)">Book Now</a>
-  <a href="sms:+17025001291" class="mob-text" onclick="toggleMenu(false)">Text Us</a>
+  <a href="sms:+17023814197" class="mob-text" onclick="toggleMenu(false)">Text Us</a>
 </div>
 
 <div class="schedule-modal" id="scheduleModal" aria-hidden="true">
@@ -2402,7 +2408,7 @@
     <div class="schedule-kicker">Scheduling</div>
     <h2 id="scheduleTitle">Are you a new client or a returning client?</h2>
     <p>Choose the option that matches where you are in the process, and we’ll send you to the right scheduling page.</p>
-    <div class="schedule-contact">Call/Text: (702) 500-1291</div>
+    <div class="schedule-contact">Call: (702) 500-1291</div>
     <div class="schedule-options">
       <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="schedule-option">
         <div>
@@ -2438,7 +2444,7 @@
         <div class="hero-badge anim">STRIVE PT Las Vegas · In-Home &amp; Mobile Physical Therapy</div>
         <h1 class="anim d1"><span class="hero-mark">STRIVE</span><em>for better movement</em></h1>
         <p class="hero-sub anim d2">In-home physical therapy and mobile physical therapy in Las Vegas for stroke, vestibular, and neurological care.</p>
-        <p class="hero-area anim d2"><strong>Mobile PT service area:</strong> Las Vegas, Skye Canyon, Centennial Hills, and Summerlin.<br><strong>Call/Text:</strong> <a href="tel:+17025001291">(702) 500-1291</a> · <strong>Clinic referrals:</strong> Fax <a href="fax:+17252392032">(725) 239-2032</a>.</p>
+        <p class="hero-area anim d2"><strong>Mobile PT service area:</strong> Las Vegas, Skye Canyon, Centennial Hills, and Summerlin.<br><strong>Call:</strong> <a href="tel:+17025001291">(702) 500-1291</a> · <strong>Clinic referrals:</strong> Fax <a href="fax:+17252392032">(725) 239-2032</a>.</p>
         <p class="hero-desc sr-only">Looking for mobile physical therapy near you in Las Vegas? STRIVE provides in-home physical therapy for stroke rehab, vestibular rehab, walking, balance, mobility, transfers, independence, and broader neuro rehab and wellness services.</p>
         <div class="hero-actions anim d3">
           <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" class="btn-primary">Book an Appointment</a>
@@ -2548,7 +2554,7 @@
   <section class="section services-section" id="services">
     <div class="section-inner">
       <h2 class="section-title">In-home physical therapy and mobile PT services</h2>
-      <p class="section-lead">STRIVE provides in-home physical therapy and mobile physical therapy in Las Vegas, including stroke rehab, neurological physical therapy, vestibular rehab, SCI physical therapy, prosthetic rehab, and joint replacement rehab. The Neuro Movement Gym will continue through August 31, 2026; beginning September 1, we will expand our focus on personalized, one-on-one home visits.</p>
+      <p class="section-lead">STRIVE provides in-home physical therapy and mobile physical therapy in Las Vegas, including stroke rehab, neurological physical therapy, vestibular rehab, SCI physical therapy, prosthetic rehab, joint replacement rehab, and general strengthening and wellness. The Neuro Movement Gym will continue through August 31, 2026; beginning September 1, we will expand our focus on personalized, one-on-one home visits.</p>
 
       <div class="services-grid">
         <a href="/stroke.html" class="service-card anim">
@@ -2570,6 +2576,10 @@
         <a href="/joint.html" class="service-card anim d1">
           <h3>Joint Replacement Rehabilitation</h3>
           <p>One-on-one rehab after hip, knee, shoulder, or other joint replacement surgery, focused on strength, mobility, gait, balance, stairs, transfers, and confident return to daily life.</p>
+        </a>
+        <a href="/wellness.html" class="service-card anim">
+          <h3>General Strengthening &amp; Wellness</h3>
+          <p>Personalized strength, balance, mobility, and conditioning for adults who want to build capacity, stay active, and move with greater confidence through one-on-one care.</p>
         </a>
       </div>
     </div>
@@ -2684,11 +2694,11 @@
 
         <div class="care-option-card anim d3">
           <div class="care-option-kicker">04</div>
-          <h3 class="care-option-title">Wellness Classes</h3>
-          <p class="care-option-desc">Structured group classes designed to keep people improving beyond traditional rehab through smart, progressive training in a supportive setting.</p>
+          <h3 class="care-option-title">Caregiver Education &amp; Training</h3>
+          <p class="care-option-desc">Practical, hands-on guidance that helps family members and caregivers support mobility, safety, and meaningful progress at home.</p>
           <div class="care-option-points">
-            <div class="care-option-point">Classes focus on strength, agility, endurance, balance, and motor planning.</div>
-            <div class="care-option-point">Built for people who want consistency, challenge, and community as part of their long-term recovery and wellness plan.</div>
+            <div class="care-option-point">Practice safer transfers, walking assistance, positioning, home exercises, and equipment use with a physical therapist.</div>
+            <div class="care-option-point">Training is tailored to the patient’s needs, the caregiver’s role, and the routines that matter most at home.</div>
           </div>
         </div>
       </div>
@@ -2762,13 +2772,13 @@
           <div class="pricing-type">Now Open</div>
           <div class="pricing-name">Neuro Movement Gym — Available Through August 31</div>
           <div class="pricing-feats">
-            <div class="pricing-feat">Group Wellness Classes</div>
+            <div class="pricing-feat">Caregiver Education &amp; Training</div>
             <div class="pricing-feat">Shinkyokushin Karate Las Vegas</div>
             <div class="pricing-feat">Clear clinical direction and same mindset</div>
             <div class="pricing-feat">Progress not limited by insurance</div>
             <div class="pricing-feat">Expanded equipment access</div>
           </div>
-          <div class="pricing-note">Saturday wellness classes at 7035 W Ann Rd Ste 120, Las Vegas, NV 89130. <a href="https://www.google.com/maps/search/?api=1&query=7035+W+Ann+Rd+Ste+120+Las+Vegas+NV+89130" target="_blank" rel="noopener">View on Google Maps</a>.</div>
+          <div class="pricing-note">Caregiver training can be incorporated into treatment to improve safety, confidence, and carryover between visits.</div>
         </div>
       </div>
 
@@ -2846,58 +2856,45 @@
   <section class="section contact-section" id="contact">
     <div class="section-inner">
       <h2 class="section-title">Questions or ready to connect?</h2>
-      <p class="section-lead">Not sure where to start, want to talk before booking, or have a question about your condition or fit? Send us a message and we will respond promptly.</p>
+      <p class="section-lead">Call or send a message to ask about services, scheduling, or whether STRIVE is the right fit.</p>
 
       <div class="contact-grid">
         <div class="contact-panel anim">
-          <h3>We're Here to Help</h3>
-          <p>STRIVE works with Las Vegas-area patients looking for private stroke rehabilitation, vestibular rehab, and high-attention neuro-focused care. Your first conversation with us is always straightforward and pressure-free.</p>
+          <h3>Contact STRIVE</h3>
+          <p>Speak directly with our team or use the form for a general inquiry.</p>
 
-          <div class="referral-fax-box" aria-label="Clinic referral fax information">
-            <span class="fax-label">Clinics &amp; Care Teams — Fax Referrals</span>
-            <a class="fax-number" href="fax:+17252392032">(725) 239-2032</a>
-            <p>Questions before sending a referral? Call or text <a href="tel:+17025001291">(702) 500-1291</a>.</p>
-            <p>For patient referrals only. Please include the therapy order, patient demographics and contact information, and relevant clinical documentation. <a href="/referrals.html">Referral details</a></p>
+          <div class="contact-detail">
+            <div class="c-dot"></div>
+            <div class="c-text">
+              <strong>Call</strong>
+              <span><a href="tel:+17025001291">(702) 500-1291</a></span>
+            </div>
           </div>
-
           <div class="contact-detail">
             <div class="c-dot"></div>
             <div class="c-text">
               <strong>Las Vegas Service Area</strong>
-              <span>Las Vegas · Skye Canyon · Centennial Hills · Summerlin and surrounding communities, NV</span>
+              <span>Las Vegas · Skye Canyon · Centennial Hills · Summerlin and surrounding communities</span>
             </div>
           </div>
           <div class="contact-detail">
             <div class="c-dot"></div>
             <div class="c-text">
-              <strong>Phone / Text</strong>
-              <span>Call or text us with scheduling questions, fit questions, or general inquiries.</span>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="c-dot"></div>
-            <div class="c-text">
-              <strong>Scheduling Hours</strong>
-              <span>Flexible availability, including evening and weekend options depending on location and provider schedule.</span>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="c-dot"></div>
-            <div class="c-text">
-              <strong>A New Chapter Beginning September 1</strong>
-              <span>The Neuro Movement Gym will continue through August 31, 2026. Beginning September 1, STRIVE will provide personalized, one-on-one care through home visits across the Las Vegas valley.</span>
+              <strong>Care Focus</strong>
+              <span>Stroke, vestibular, neurological, SCI, prosthetic, joint replacement, and general strengthening care</span>
             </div>
           </div>
 
-          <div class="book-cta-box">
-            <p><strong>Ready to book?</strong> Start with a free consultation through Calendly, and we will guide you to the right next step.</p>
-            <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="btn-primary">Book Free Consultation</a>
+          <div class="referral-fax-box" aria-label="Clinic referral fax information">
+            <span class="fax-label">Referral Fax</span>
+            <a class="fax-number" href="fax:+17252392032">(725) 239-2032</a>
+            <p>For clinics and care teams. <a href="/referrals.html">View referral details</a></p>
           </div>
         </div>
 
         <div class="contact-form-card anim d1">
-          <h3>Book Your Free Consultation</h3>
-          <p class="form-subtitle">Schedule your free consultation and get a plan built for you.</p>
+          <h3>Send a Message</h3>
+          <p class="form-subtitle">Share a general question and our team will follow up.</p>
           <form id="contact-form">
             <div class="form-row">
               <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="Jane" required></div>
@@ -3064,7 +3061,7 @@
       <span>Licensed Physical Therapists &middot; State of Nevada</span>
     </div>
   </div>
-  <div style="width:100%;margin-top:16px;text-align:center;font-size:13px;opacity:.72;">Call/Text: <a href="tel:+17025001291">(702) 500-1291</a> · Fax: (725) 239-2032</div>
+  <div style="width:100%;margin-top:16px;text-align:center;font-size:13px;opacity:.72;">Call: <a href="tel:+17025001291">(702) 500-1291</a> · Fax: (725) 239-2032</div>
 </footer>
 
 <script>
