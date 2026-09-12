@@ -170,39 +170,6 @@
     img { max-width: 100%; height: auto; }
     a { color: inherit; }
 
-    .practice-update-banner {
-      background: var(--ink);
-      color: #ffffff;
-      border-bottom: 4px solid var(--accent);
-      padding: 14px 5vw;
-    }
-    .practice-update-inner {
-      width: min(1180px, 100%);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      text-align: center;
-    }
-    .practice-update-label {
-      flex-shrink: 0;
-      padding: 5px 9px;
-      border-radius: 2px;
-      background: var(--accent);
-      color: #ffffff;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-    }
-    .practice-update-banner p {
-      font-size: 15px;
-      line-height: 1.45;
-    }
-    .practice-update-banner strong { color: #ffffff; }
-
     nav {
       position: fixed;
       top: 0;
@@ -2236,16 +2203,6 @@
     }
 
     @media (max-width: 640px) {
-      .practice-update-inner {
-        flex-direction: column;
-        gap: 8px;
-      }
-      .practice-update-banner {
-        padding: 13px 6vw 14px;
-      }
-      .practice-update-banner p {
-        font-size: 14px;
-      }
       .hero { padding: 92px 5vw 68px; min-height: auto; }
       .hero::before { background-position: 78% center; }
       .hero::after {
@@ -2410,33 +2367,27 @@
     <p>Choose the option that matches where you are in the process, and we’ll send you to the right scheduling page.</p>
     <div class="schedule-contact">Call: (702) 500-1291</div>
     <div class="schedule-options">
-      <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="schedule-option">
+      <a href="/contact.html#contact-form" class="schedule-option">
         <div>
           <div class="schedule-option-label">First Visit</div>
           <h3>New Client</h3>
           <p>Start with your free consultation so we can learn about your needs and confirm the best next step.</p>
         </div>
-        <strong>Open Calendly</strong>
+        <strong>Open Contact Form</strong>
       </a>
-      <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" class="schedule-option">
+      <a href="/contact.html#contact-form" class="schedule-option">
         <div>
           <div class="schedule-option-label">Ongoing Care</div>
           <h3>Returning Client</h3>
-          <p>Use JaneApp if you are already established with STRIVE and need to book a follow-up visit.</p>
+          <p>Use our contact form if you are already established with STRIVE and need to request a follow-up visit.</p>
         </div>
-        <strong>Open JaneApp</strong>
+        <strong>Open Contact Form</strong>
       </a>
     </div>
   </div>
 </div>
 
 <main>
-  <aside class="practice-update-banner" aria-label="STRIVE practice update">
-    <div class="practice-update-inner">
-      <span class="practice-update-label">Practice Update</span>
-      <p><strong>The Neuro Movement Gym will continue through August 31, 2026.</strong> Beginning September 1, STRIVE’s next chapter will bring an expanded focus on personalized, one-on-one physical therapy delivered in your home.</p>
-    </div>
-  </aside>
   <section class="hero" id="top">
     <div class="hero-grid"></div>
     <div class="hero-inner">
@@ -2447,7 +2398,7 @@
         <p class="hero-area anim d2"><strong>Mobile PT service area:</strong> Las Vegas, Skye Canyon, Centennial Hills, and Summerlin.<br><strong>Call:</strong> <a href="tel:+17025001291">(702) 500-1291</a> · <strong>Clinic referrals:</strong> Fax <a href="fax:+17252392032">(725) 239-2032</a>.</p>
         <p class="hero-desc sr-only">Looking for mobile physical therapy near you in Las Vegas? STRIVE provides in-home physical therapy for stroke rehab, vestibular rehab, walking, balance, mobility, transfers, independence, and broader neuro rehab and wellness services.</p>
         <div class="hero-actions anim d3">
-          <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" class="btn-primary">Book an Appointment</a>
+          <a href="/contact.html#contact-form" class="btn-primary">Book an Appointment</a>
           <a href="#services" class="btn-outline">Explore Services</a>
         </div>
       </div>
@@ -2649,7 +2600,7 @@
 
           <div class="therapist-spotlight-actions">
             <a href="about.html" class="btn-primary">Learn More About Gabrielle</a>
-            <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="btn-outline">Book a Consultation</a>
+            <a href="/contact.html#contact-form" class="btn-outline">Book a Consultation</a>
           </div>
         </div>
       </div>
@@ -2765,7 +2716,7 @@
             <div class="pricing-feat">Las Vegas valley-wide coverage</div>
             <div class="pricing-feat">Evening and weekend availability</div>
           </div>
-          <div class="pricing-note">Book a free consultation through Calendly, or contact us to discuss fit, timing, and availability.</div>
+          <div class="pricing-note">Book a free consultation through our contact form, or contact us to discuss fit, timing, and availability.</div>
         </div>
 
         <div class="pricing-card anim d1">
@@ -2795,7 +2746,7 @@
   <section class="section booking-section" id="booking">
     <div class="section-inner">
       <h2 class="section-title">Book your appointment in minutes</h2>
-      <p class="section-lead">We are now seeing patients throughout the Las Vegas valley. New patients should begin with a free consultation through Calendly, while returning patients can continue to use JaneApp for follow-up visits.</p>
+      <p class="section-lead">We are now seeing patients throughout the Las Vegas valley. New patients should begin with a free consultation through our contact form, while returning patients can request follow-up visits through our contact form.</p>
 
       <div class="booking-grid">
         <div class="booking-card anim">
@@ -2811,7 +2762,7 @@
               <div class="booking-feat">Personalized treatment plan developed</div>
               <div class="booking-feat">Available throughout the Las Vegas valley</div>
             </div>
-            <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="jane-btn">Book Free Consultation</a>
+            <a href="/contact.html#contact-form" class="jane-btn">Book Free Consultation</a>
           </div>
         </div>
 
@@ -2821,14 +2772,14 @@
             <h3>Follow-Up Session</h3>
           </div>
           <div class="booking-card-body">
-            <p>Already a STRIVE patient? Return to JaneApp to schedule your next one-on-one visit using your history and current plan.</p>
+            <p>Already a STRIVE patient? Use our contact form to request your next one-on-one visit using your history and current plan.</p>
             <div class="booking-feats">
               <div class="booking-feat">50-60 minute treatment session</div>
               <div class="booking-feat">Continuity across your plan of care</div>
               <div class="booking-feat">Flexible scheduling options</div>
               <div class="booking-feat">In-home across the Las Vegas valley</div>
             </div>
-            <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" class="jane-btn">Book Follow-Up Session on JaneApp</a>
+            <a href="/contact.html#contact-form" class="jane-btn">Book Follow-Up Session through our contact form</a>
           </div>
         </div>
       </div>
@@ -3049,7 +3000,7 @@
 
       <div class="footer-col">
         <h4>Las Vegas</h4>
-        <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener">Book Free Consultation</a>
+        <a href="/contact.html#contact-form">Book Free Consultation</a>
         <a href="/contact.html">Contact Us</a>
         <a href="/contact.html">Skye Canyon / Centennial Hills</a>
         <a href="/contact.html">Summerlin</a>

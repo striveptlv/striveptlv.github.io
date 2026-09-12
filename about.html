@@ -550,39 +550,7 @@
       position: relative; overflow: hidden;
       flex-shrink: 0;
     }
-    .pt-photo-wrap.has-photo .pt-photo-placeholder,
-    .pt-photo-wrap.has-photo .pt-photo-slot { display: none; }
-    .pt-photo-slot {
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
-      border: 1px dashed rgba(8,61,122,0.22);
-      background: rgba(255,255,255,0.34);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 10px 12px;
-      z-index: 2;
-    }
     .pt-photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .pt-photo-placeholder {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 12px;
-    }
-    .pt-initials {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 64px; letter-spacing: 4px; line-height: 1;
-      font-weight: 600;
-      color: var(--accent);
-    }
-    .pt-card.alt .pt-initials { color: var(--ink); }
-    .pt-photo-label {
-      font-size: 10px; font-weight: 600; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--white-dim);
-    }
     .pt-identity { padding: 24px 22px; flex: 1; }
     .pt-role-tag {
       display: inline-block;
@@ -982,21 +950,21 @@
     <p>Choose the option that matches where you are in the process, and we’ll send you to the right scheduling page.</p>
     <div class="schedule-contact">Call: (702) 500-1291</div>
     <div class="schedule-options">
-      <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="schedule-option">
+      <a href="/contact.html#contact-form" class="schedule-option">
         <div>
           <div class="schedule-option-label">First Visit</div>
           <h3>New Client</h3>
           <p>Start with your free consultation so we can learn about your needs and confirm the best next step.</p>
         </div>
-        <strong>Open Calendly</strong>
+        <strong>Open Contact Form</strong>
       </a>
-      <a href="https://striveptlv.janeapp.com" target="_blank" rel="noopener" class="schedule-option">
+      <a href="/contact.html#contact-form" class="schedule-option">
         <div>
           <div class="schedule-option-label">Ongoing Care</div>
           <h3>Returning Client</h3>
-          <p>Use JaneApp if you are already established with STRIVE and need to book a follow-up visit.</p>
+          <p>Use our contact form if you are already established with STRIVE and need to request a follow-up visit.</p>
         </div>
-        <strong>Open JaneApp</strong>
+        <strong>Open Contact Form</strong>
       </a>
     </div>
   </div>
@@ -1011,7 +979,7 @@
       <h1 class="anim d1">MEET<br><em>THE STRIVE TEAM</em><span class="hero-legal">PHYSICAL THERAPY</span></h1>
       <p class="hero-desc anim d2">STRIVE is built around two physical therapists with a shared commitment to neurological rehabilitation, individualized clinical reasoning, and meaningful long-term recovery. Gabrielle continues to lead the physical therapy team, with Joshua supporting care across stroke, brain injury, vestibular, and broader neuro rehab needs.</p>
       <div class="hero-actions anim d2">
-        <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="btn-primary">Book Free Consultation Now</a>
+        <a href="/contact.html#contact-form" class="btn-primary">Book Free Consultation Now</a>
       </div>
       <p class="hero-referral anim d2"><strong>Call:</strong> <a href="tel:+17025001291">(702) 500-1291</a> · <strong>Clinic referrals:</strong> Fax <a href="fax:+17252392032">(725) 239-2032</a> — referrals only.</p>
     </div>
@@ -1061,14 +1029,7 @@
     <div class="pt-card anim">
       <div class="pt-left">
         <div class="pt-photo-wrap">
-          <img src="gabrielle-lopez.jpg" alt="Dr. Gabrielle Lopez PT DPT" onload="this.parentElement.classList.add('has-photo')" onerror="this.remove()">
-          <div class="pt-photo-slot">
-            <div class="pt-photo-label">Add image as gabrielle-lopez.jpg</div>
-          </div>
-          <div class="pt-photo-placeholder">
-            <div class="pt-initials">PT</div>
-            <div class="pt-photo-label">Photo Coming Soon</div>
-          </div>
+          <img src="gabrielle-lopez.jpg" alt="Dr. Gabrielle Lopez, PT, DPT">
         </div>
         <div class="pt-identity">
           <div class="pt-name">Dr. Gabrielle Lopez PT DPT</div>
@@ -1173,14 +1134,7 @@
     <div class="pt-card alt anim">
       <div class="pt-left">
         <div class="pt-photo-wrap">
-          <img src="joshua-lopez.jpg" alt="Dr. Joshua Lopez PT DPT" onload="this.parentElement.classList.add('has-photo')" onerror="this.remove()">
-          <div class="pt-photo-slot">
-            <div class="pt-photo-label">Add image as joshua-lopez.jpg</div>
-          </div>
-          <div class="pt-photo-placeholder">
-            <div class="pt-initials">PT</div>
-            <div class="pt-photo-label">Photo Coming Soon</div>
-          </div>
+          <img src="joshua-lopez.jpg" alt="Dr. Joshua Lopez, PT, DPT">
         </div>
         <div class="pt-identity">
           <div class="pt-name">Dr. Joshua PT DPT</div>
@@ -1290,7 +1244,7 @@
       <div class="service-card anim d2">
         <div class="service-kicker">03</div>
         <h3 class="service-title">Home-Visit Physical Therapy</h3>
-        <p class="service-desc">The Neuro Movement Gym will continue through August 31, 2026. Beginning September 1, STRIVE will enter its next chapter with an expanded focus on personalized, one-on-one physical therapy delivered in your home.</p>
+        <p class="service-desc">STRIVE provides personalized, one-on-one physical therapy delivered in your home, with care shaped around your goals, environment, and daily routines.</p>
         <div class="service-points">
           <div class="service-point">Emphasis on lifting, balance, motor planning, gait progression, and building capacity in a structured rehab setting.</div>
           <div class="service-point">A strong fit for patients who want skilled care built around their real home environment and daily routines.</div>
@@ -1318,7 +1272,7 @@
     <h2>READY TO WORK<br>WITH STRIVE?</h2>
     <p>Start with a consultation. We will learn where you are, where you want to go, and build a plan that supports meaningful progress.</p>
     <div class="cta-actions">
-      <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener" class="cta-dark">Request a Consultation</a>
+      <a href="/contact.html#contact-form" class="cta-dark">Request a Consultation</a>
     </div>
   </div>
 </section>
@@ -1350,7 +1304,7 @@
       </div>
       <div class="footer-col">
         <h4>Las Vegas</h4>
-        <a href="https://calendly.com/dpt-striveptlv/30min" target="_blank" rel="noopener">Book a Session</a>
+        <a href="/contact.html#contact-form">Book a Session</a>
     <a href="/private.html">Why STRIVE?</a>
         <a href="index.html#faq">FAQ</a>
         <a href="insights/">Insights</a>
