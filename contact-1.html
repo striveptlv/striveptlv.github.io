@@ -463,7 +463,24 @@
       line-height: 1.45;
     }
     .hidden-field {
-      display: none;
+      position: absolute;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .form-status {
+      flex-basis: 100%;
+      min-height: 1.45em;
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .form-status.success { color: #176b3a; }
+    .form-status.error { color: #9b2c2c; }
+    .btn-primary:disabled {
+      cursor: wait;
+      opacity: 0.68;
     }
 
     footer {
@@ -662,36 +679,39 @@
           <span>If this is urgent or life-threatening, call 911 or seek emergency care. This form is not monitored for emergencies.</span>
         </div>
 
-        <form action="https://formspree.io/f/mlgoanwr" method="POST">
-          <input type="hidden" name="_subject" value="New general inquiry from STRIVE website">
-          <input class="hidden-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <form id="contact-form" method="POST" novalidate>
+          <div class="hidden-field" aria-hidden="true">
+            <label for="company">Company</label>
+            <input id="company" type="text" name="company" tabindex="-1" autocomplete="off">
+          </div>
 
           <div class="form-grid">
             <div class="field">
               <label for="name">Name *</label>
-              <input id="name" name="name" type="text" autocomplete="name" required>
+              <input id="name" name="name" type="text" autocomplete="name" maxlength="120" required>
             </div>
             <div class="field">
               <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email">
+              <input id="email" name="email" type="email" autocomplete="email" maxlength="254">
             </div>
             <div class="field full">
-              <label for="phone">Phone Number *</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40">
             </div>
             <div class="field full">
-              <label for="zipcode">ZIP Code *</label>
-              <input id="zipcode" name="zipcode" type="text" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" maxlength="10" placeholder="89130" required>
+              <label for="zipcode">ZIP Code</label>
+              <input id="zipcode" name="zipcode" type="text" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" maxlength="10" placeholder="89130">
             </div>
             <div class="field full">
               <label for="inquiry">General Inquiry *</label>
-              <textarea id="inquiry" name="general_inquiry" required placeholder="Ask a general question about services, scheduling, or fit. Please do not include sensitive medical, financial, insurance, payment, or emergency information."></textarea>
+              <textarea id="inquiry" name="general_inquiry" maxlength="2000" required placeholder="Ask a general question about services, scheduling, or fit. Please do not include sensitive medical, financial, insurance, payment, or emergency information."></textarea>
             </div>
           </div>
 
           <div class="submit-row">
             <button type="submit" class="btn-primary">Send Inquiry</button>
-            <span>Form submissions are handled by Formspree.</span>
+            <span>For general questions only. Please do not include sensitive medical information.</span>
+            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
           </div>
         </form>
       </div>
@@ -750,6 +770,63 @@
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') toggleMenu(false);
+  });
+
+  const WEBSITE_LEAD_URL = 'https://ccfpdgmmwkghjszkbnzs.supabase.co/functions/v1/formspree-lead';
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const defaultButtonText = submitButton.textContent;
+  let isSubmitting = false;
+
+  function showFormStatus(message, type = '') {
+    formStatus.textContent = message;
+    formStatus.className = `form-status ${type}`.trim();
+  }
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (isSubmitting) return;
+
+    showFormStatus('');
+    if (!contactForm.reportValidity()) return;
+
+    const payload = {
+      name: contactForm.elements.name.value.trim(),
+      email: contactForm.elements.email.value.trim(),
+      phone: contactForm.elements.phone.value.trim(),
+      zip: contactForm.elements.zipcode.value.trim(),
+      message: contactForm.elements.general_inquiry.value.trim(),
+      company: contactForm.elements.company.value.trim()
+    };
+
+    if (!payload.email && !payload.phone) {
+      showFormStatus('Please provide an email address or phone number.', 'error');
+      return;
+    }
+
+    isSubmitting = true;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+
+    try {
+      const response = await fetch(WEBSITE_LEAD_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) throw new Error('Request failed');
+
+      contactForm.reset();
+      showFormStatus('Thank you. Your inquiry has been sent to STRIVE.', 'success');
+    } catch (error) {
+      showFormStatus("We couldn't send your request. Please try again or call STRIVE.", 'error');
+    } finally {
+      isSubmitting = false;
+      submitButton.disabled = false;
+      submitButton.textContent = defaultButtonText;
+    }
   });
 </script>
 </body>
